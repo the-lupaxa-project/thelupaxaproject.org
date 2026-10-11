@@ -913,6 +913,25 @@
   version: "0.1.0"
   released_date: "2026-10-09T11:18:48"
 
+- id: jfingerprint
+  published: true
+  name: JFingerprint
+  icon: material-source-repository
+  publish_date: "2026-10-11T20:12:57"
+  description: >-
+    A stable browser fingerprint from the signals a page can already read. The same set of signals
+    produces the same fingerprint.
+  categories:
+    - Security
+    - Developer Tools
+  organisation: Security Toolbox
+  logo: assets/images/organisations/organisation-security-toolbox-logo.png
+  logo_alt: Security Toolbox
+  repository: https://github.com/lupaxa-security-toolbox/jfingerprint
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-10-11T20:20:59"
+
 - id: json-lint
   published: true
   name: JSON Lint
