@@ -186,6 +186,27 @@
   version: "0.1.9"
   released_date: "2026-10-07T09:23:15"
 
+- id: chat-client
+  published: true
+  name: Chat Client
+  icon: material-source-repository
+  publish_date: "2026-10-13T09:16:59"
+  description: >-
+    A terminal client for the chat server. It keeps the server's text separate from what you are
+    typing.
+  categories:
+    - After Hours
+    - Fun
+    - Chat
+    - Nostalgia
+  organisation: After Hours
+  logo: assets/images/organisations/organisation-after-hours-logo.png
+  logo_alt: After Hours
+  repository: https://github.com/lupaxa-after-hours/chat-client
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-10-13T12:09:57"
+
 - id: check-git-repositories
   published: true
   name: Check Git Repositories
@@ -2016,7 +2037,7 @@
   documentation: https://toolbox.thelupaxaproject.org/
   documentation_label: Visit Site
   banner: stable
-  released_date: "2026-10-07T09:06:08"
+  released_date: "2026-10-12T13:34:31"
 
 - id: trapper
   published: true
