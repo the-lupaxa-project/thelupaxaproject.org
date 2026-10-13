@@ -204,8 +204,30 @@
   logo_alt: After Hours
   repository: https://github.com/lupaxa-after-hours/chat-client
   banner: released
-  version: "0.1.1"
-  released_date: "2026-10-13T16:26:24"
+  version: "0.1.2"
+  released_date: "2026-10-13T18:21:44"
+
+- id: chat-server
+  published: true
+  name: Chat Server
+  icon: material-source-repository
+  publish_date: "2026-10-11T20:32:26"
+  description: >-
+    A bare-bones multi-room TCP chat server. It is a throwback to the telnet talkers, MUDs, and
+    MUSHes we grew up on.
+  categories:
+    - After Hours
+    - Fun
+    - Chat
+    - Nostalgia
+  organisation: After Hours
+  logo: assets/images/organisations/organisation-after-hours-logo.png
+  logo_alt: After Hours
+  repository: https://github.com/lupaxa-after-hours/chat-server
+  documentation: https://chat-server.thelupaxaproject.org/
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-10-13T19:28:02"
 
 - id: check-git-repositories
   published: true
