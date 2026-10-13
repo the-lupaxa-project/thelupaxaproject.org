@@ -204,8 +204,8 @@
   logo_alt: After Hours
   repository: https://github.com/lupaxa-after-hours/chat-client
   banner: released
-  version: "0.1.0"
-  released_date: "2026-10-13T12:09:57"
+  version: "0.1.1"
+  released_date: "2026-10-13T16:26:24"
 
 - id: check-git-repositories
   published: true
