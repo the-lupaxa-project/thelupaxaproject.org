@@ -226,8 +226,8 @@
   repository: https://github.com/lupaxa-after-hours/chat-server
   documentation: https://chat-server.thelupaxaproject.org/
   banner: released
-  version: "0.3.0"
-  released_date: "2026-10-14T16:25:38"
+  version: "0.4.0"
+  released_date: "2026-10-16T21:52:57"
 
 - id: check-git-repositories
   published: true
