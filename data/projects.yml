@@ -1266,8 +1266,8 @@
   documentation: https://opengraphtester.com/
   documentation_label: Visit Site
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-04T12:02:24"
+  version: "0.1.1"
+  released_date: "2026-11-04T12:59:02"
 
 - id: perl-lint
   published: true
