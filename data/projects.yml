@@ -162,8 +162,8 @@
   documentation: https://browserinterrogator.com/
   documentation_label: Visit Site
   banner: released
-  version: "0.1.1"
-  released_date: "2026-10-09T11:05:53"
+  version: "0.1.2"
+  released_date: "2026-11-04T12:04:19"
 
 - id: certificate-tool
   published: true
@@ -1265,8 +1265,9 @@
   repository: https://github.com/lupaxa-developers-toolbox/opengraphtester.com
   documentation: https://opengraphtester.com/
   documentation_label: Visit Site
-  banner: stable
-  released_date: "2026-11-04T11:38:43"
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-04T12:02:24"
 
 - id: perl-lint
   published: true
