@@ -1248,6 +1248,26 @@
   version: "0.1.0"
   released_date: "2026-10-08T10:35:56"
 
+- id: opengraphtester.com
+  published: true
+  name: Open Graph Tester
+  icon: material-source-repository
+  publish_date: "2026-11-04T10:03:13"
+  description: >-
+    Preview how a page's Open Graph and Twitter Card tags will look when shared. It shows the title,
+    image, and text those tags would present.
+  categories:
+    - Developer Tools
+    - Browser
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/opengraphtester.com
+  documentation: https://opengraphtester.com/
+  documentation_label: Visit Site
+  banner: stable
+  released_date: "2026-11-04T10:17:05"
+
 - id: perl-lint
   published: true
   name: Perl Lint
