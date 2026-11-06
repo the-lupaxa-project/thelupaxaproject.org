@@ -1037,6 +1037,25 @@
   version: "0.1.1"
   released_date: "2026-10-07T09:22:35"
 
+- id: libbitvector
+  published: true
+  name: Libbitvector
+  icon: material-source-repository
+  publish_date: "2026-11-06T16:36:46"
+  description: >-
+    A C library for a growable vector of bits. Bits are stored packed together, and the vector grows
+    as more are added.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libbitvector
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T16:45:05"
+
 - id: libgll
   published: true
   name: Libgll
