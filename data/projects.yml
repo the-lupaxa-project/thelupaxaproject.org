@@ -2266,6 +2266,25 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:22:03"
 
+- id: text-analyse
+  published: true
+  name: Text Analyse
+  icon: material-source-repository
+  publish_date: "2026-11-06T19:32:19"
+  description: >-
+    Analyse prose for readability and source code for rough size and complexity metrics.
+    The prose check reports how easy the writing is to read, and the code check estimates size and complexity.
+  categories:
+    - Developer Tools
+    - Text
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/text-analyse
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T20:24:05"
+
 - id: time-to-first-byte
   published: true
   name: Time to First Byte
