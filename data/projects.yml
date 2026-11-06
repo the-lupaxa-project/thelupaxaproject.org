@@ -1150,6 +1150,24 @@
   version: "0.1.0"
   released_date: "2026-11-06T17:54:25"
 
+- id: liblogfile
+  published: true
+  name: Liblogfile
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:55:47"
+  description: >-
+    A C library for a JSON line log. Each log record is one JSON object on its own line.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/liblogfile
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T18:02:50"
+
 - id: libmempool
   published: true
   name: Libmempool
@@ -1168,6 +1186,24 @@
   banner: released
   version: "0.1.0"
   released_date: "2026-11-06T17:14:19"
+
+- id: libscheduler
+  published: true
+  name: Libscheduler
+  icon: material-source-repository
+  publish_date: "2026-11-06T18:05:49"
+  description: >-
+    A C library for running tasks at a chosen time. A task waits until that time, then runs.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libscheduler
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T18:17:11"
 
 - id: libstackbuf
   published: true
