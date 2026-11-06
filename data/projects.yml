@@ -1113,6 +1113,25 @@
   version: "0.1.0"
   released_date: "2026-11-06T15:44:23"
 
+- id: libhash
+  published: true
+  name: Libhash
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:35:33"
+  description: >-
+    A C library for a case-insensitive string map. Lookups treat uppercase and lowercase as the same
+    key.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libhash
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T17:44:48"
+
 - id: libmempool
   published: true
   name: Libmempool
