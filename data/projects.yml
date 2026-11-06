@@ -1094,6 +1094,25 @@
   version: "0.1.0"
   released_date: "2026-11-06T15:44:23"
 
+- id: libmempool
+  published: true
+  name: Libmempool
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:02:13"
+  description: >-
+    A C library for a power-of-two memory pool. Blocks are sized as powers of two so the pool can
+    hand out matching chunks.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libmempool
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T17:14:19"
+
 - id: libstackbuf
   published: true
   name: Libstackbuf
