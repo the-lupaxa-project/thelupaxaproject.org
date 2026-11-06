@@ -1300,8 +1300,8 @@
   repository: https://github.com/lupaxa-developers-toolbox/makefile-skills
   documentation: https://makefile-skills.thelupaxaproject.org/
   banner: released
-  version: "0.1.11"
-  released_date: "2026-11-06T14:59:40"
+  version: "0.1.12"
+  released_date: "2026-11-06T19:17:28"
 
 - id: magic-8ball
   published: true
@@ -1925,8 +1925,8 @@
   logo_alt: The Lupaxa Project
   repository: https://github.com/the-lupaxa-project/workflows
   banner: released
-  version: "0.1.25"
-  released_date: "2026-11-06T15:36:35"
+  version: "0.1.26"
+  released_date: "2026-11-06T19:17:43"
 
 - id: rubocop
   published: true
