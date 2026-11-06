@@ -1223,6 +1223,24 @@
   version: "0.1.0"
   released_date: "2026-11-06T18:17:11"
 
+- id: libsocket
+  published: true
+  name: Libsocket
+  icon: material-source-repository
+  publish_date: "2026-11-06T18:40:59"
+  description: >-
+    A C library for IPv4 and IPv6 TCP and UDP sockets. A program can open a connection or a datagram socket on either address family.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libsocket
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T18:51:05"
+
 - id: libstackbuf
   published: true
   name: Libstackbuf
