@@ -1132,6 +1132,24 @@
   version: "0.1.0"
   released_date: "2026-11-06T17:44:48"
 
+- id: libhistory
+  published: true
+  name: Libhistory
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:45:28"
+  description: >-
+    A C library for a fixed list of text lines. The number of lines is set when the list is created.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libhistory
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T17:54:25"
+
 - id: libmempool
   published: true
   name: Libmempool
