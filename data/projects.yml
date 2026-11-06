@@ -1187,6 +1187,24 @@
   version: "0.1.0"
   released_date: "2026-11-06T17:14:19"
 
+- id: libpatmat
+  published: true
+  name: Libpatmat
+  icon: material-source-repository
+  publish_date: "2026-11-06T18:25:15"
+  description: >-
+    A C library for shell-style text patterns. A pattern can match text the way a shell glob does.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libpatmat
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T18:36:05"
+
 - id: libscheduler
   published: true
   name: Libscheduler
