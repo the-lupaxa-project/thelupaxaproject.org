@@ -1037,6 +1037,25 @@
   version: "0.1.1"
   released_date: "2026-10-07T09:22:35"
 
+- id: libbacktrace
+  published: true
+  name: Libbacktrace
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:20:29"
+  description: >-
+    A C library for a manual function call trace. The caller records each step, so the trace is
+    written by the program rather than captured by a debugger.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libbacktrace
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T17:32:06"
+
 - id: libbitvector
   published: true
   name: Libbitvector
