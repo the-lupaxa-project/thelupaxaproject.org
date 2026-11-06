@@ -165,6 +165,28 @@
   version: "0.1.2"
   released_date: "2026-11-04T12:04:19"
 
+- id: c-lint
+  published: true
+  name: C Lint
+  icon: material-source-repository
+  publish_date: "2026-11-06T15:04:55"
+  description: >-
+    Syntax-check C sources and headers with [gcc](https://gcc.gnu.org/), then run
+    [cppcheck](https://cppcheck.sourceforge.io/) on each file. A reusable CICD Toolbox pipeline for
+    those C checks in every repository.
+  categories:
+    - CI/CD
+    - C
+    - Linting
+    - Workflow
+  organisation: CI/CD Toolbox
+  logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
+  logo_alt: CI/CD Toolbox
+  repository: https://github.com/lupaxa-cicd-toolbox/c-lint
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T15:43:16"
+
 - id: certificate-tool
   published: true
   name: Certificate Tool
@@ -601,8 +623,8 @@
   logo_alt: CI/CD Toolbox
   repository: https://github.com/lupaxa-cicd-toolbox/get-all-tools
   banner: released
-  version: "0.1.8"
-  released_date: "2026-10-09T11:21:15"
+  version: "0.1.9"
+  released_date: "2026-11-06T15:23:58"
 
 - id: get-language-versions
   published: true
@@ -852,7 +874,7 @@
   documentation: https://homebrew-tap.thelupaxaproject.org/
   documentation_label: Visit Site
   banner: stable
-  released_date: "2026-10-09T11:28:34"
+  released_date: "2026-11-06T15:47:29"
 
 - id: image-converter
   published: true
@@ -1015,6 +1037,25 @@
   version: "0.1.1"
   released_date: "2026-10-07T09:22:35"
 
+- id: libgll
+  published: true
+  name: Libgll
+  icon: material-source-repository
+  publish_date: "2026-11-06T14:12:50"
+  description: >-
+    A C library for generic doubly linked lists. The list holds any kind of item, and the link
+    bookkeeping stays in the library.
+  categories:
+    - Developer Tools
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libgll
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T15:44:23"
+
 - id: makefile-lint
   published: true
   name: Makefile Lint
@@ -1055,8 +1096,8 @@
   repository: https://github.com/lupaxa-developers-toolbox/makefile-skills
   documentation: https://makefile-skills.thelupaxaproject.org/
   banner: released
-  version: "0.1.10"
-  released_date: "2026-10-09T11:57:14"
+  version: "0.1.11"
+  released_date: "2026-11-06T14:59:40"
 
 - id: magic-8ball
   published: true
@@ -1680,8 +1721,8 @@
   logo_alt: The Lupaxa Project
   repository: https://github.com/the-lupaxa-project/workflows
   banner: released
-  version: "0.1.20"
-  released_date: "2026-10-09T12:05:34"
+  version: "0.1.25"
+  released_date: "2026-11-06T15:36:35"
 
 - id: rubocop
   published: true
@@ -2080,7 +2121,7 @@
   documentation: https://toolbox.thelupaxaproject.org/
   documentation_label: Visit Site
   banner: stable
-  released_date: "2026-10-12T13:34:31"
+  released_date: "2026-10-26T09:31:26"
 
 - id: trapper
   published: true
