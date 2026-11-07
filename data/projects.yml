@@ -1702,6 +1702,25 @@
   version: "0.1.2"
   released_date: "2026-10-07T09:25:31"
 
+- id: protect
+  published: true
+  name: Protect
+  icon: material-source-repository
+  publish_date: "2026-11-07T13:25:21"
+  description: >-
+    Keep a sidecar copy of a file so you can edit locally and restore it before committing. The copy
+    sits beside the file while you work, then you restore the original before the commit.
+  categories:
+    - Developer Tools
+    - Git
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/protect
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-07T13:46:48"
+
 - id: puppet-lint
   published: true
   name: Puppet Lint
