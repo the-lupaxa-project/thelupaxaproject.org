@@ -2110,8 +2110,8 @@
   documentation: https://snippets.thelupaxaproject.org/
   documentation_label: Visit Site
   banner: released
-  version: "0.2.20"
-  released_date: "2026-10-07T13:49:00"
+  version: "0.2.21"
+  released_date: "2026-11-07T13:55:36"
 
 - id: spider-frameworks
   published: true
