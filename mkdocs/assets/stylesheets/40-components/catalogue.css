@@ -159,6 +159,8 @@
 .md-typeset .grid.cards.catalogue-grid[data-organisation-catalogue] > li > hr:first-of-type,
 .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] > ul > li > hr:first-of-type,
 .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] > li > hr:first-of-type,
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > ul > li > hr:first-of-type,
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > li > hr:first-of-type,
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] > ul > li > hr:first-of-type,
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] > li > hr:first-of-type {
   margin-top: 0.8rem;
@@ -167,6 +169,7 @@
 
 .md-typeset .grid.cards.catalogue-grid[data-organisation-catalogue] p:has(img.catalogue-logo),
 .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] p:has(img.catalogue-logo),
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] p:has(img.catalogue-logo),
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) {
   min-height: 0;
   margin-bottom: 0.9rem;
@@ -212,6 +215,9 @@
 .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] p:has(img.catalogue-logo) > a,
 .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] p:has(img.catalogue-logo) > button,
 .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] p:has(img.catalogue-logo) > .catalogue-logo-wrap,
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] p:has(img.catalogue-logo) > a,
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] p:has(img.catalogue-logo) > button,
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] p:has(img.catalogue-logo) > .catalogue-logo-wrap,
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) > a,
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) > button,
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) > .catalogue-logo-wrap {
@@ -450,9 +456,26 @@
 .md-typeset .catalogue-grid
   p:has(img.catalogue-logo)
   + p {
-  flex: 1 1 auto;
-  min-height: 4.65rem;
+  flex: 0 0 auto;
   margin: 0;
+}
+
+.md-typeset .catalogue-grid
+  > ul
+  > li
+  > hr:first-of-type
+  + p:not(:has(img.catalogue-logo)):not(:has(.catalogue-banner))
+  + p:not(:has(> .catalogue-category)),
+.md-typeset .catalogue-grid
+  > li
+  > hr:first-of-type
+  + p:not(:has(img.catalogue-logo)):not(:has(.catalogue-banner))
+  + p:not(:has(> .catalogue-category)),
+.md-typeset .catalogue-grid
+  p:has(img.catalogue-logo)
+  + p
+  + p:not(:has(> .catalogue-category)) {
+  margin-top: 0.5rem;
 }
 
 .md-typeset .catalogue-grid code {

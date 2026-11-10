@@ -181,6 +181,7 @@
   repository: https://github.com/lupaxa-security-toolbox/browser-interrogator
   documentation: https://browserinterrogator.com/
   documentation_label: Visit Site
+  website: true
   banner: released
   version: "0.1.2"
   released_date: "2026-11-04T12:04:19"
@@ -893,8 +894,9 @@
   repository: https://github.com/the-lupaxa-project/homebrew-tap
   documentation: https://homebrew-tap.thelupaxaproject.org/
   documentation_label: Visit Site
+  website: true
   banner: stable
-  released_date: "2026-11-06T15:47:29"
+  released_date: "2026-11-10T14:00:53"
 
 - id: image-converter
   published: true
@@ -1530,6 +1532,7 @@
   repository: https://github.com/lupaxa-developers-toolbox/opengraphtester.com
   documentation: https://opengraphtester.com/
   documentation_label: Visit Site
+  website: true
   banner: released
   version: "0.1.1"
   released_date: "2026-11-04T12:59:02"
@@ -2129,6 +2132,7 @@
   repository: https://github.com/lupaxa-developers-toolbox/snippets
   documentation: https://snippets.thelupaxaproject.org/
   documentation_label: Visit Site
+  website: true
   banner: released
   version: "0.2.21"
   released_date: "2026-11-07T13:55:36"
@@ -2382,6 +2386,7 @@
   repository: https://github.com/the-lupaxa-project/toolbox.thelupaxaproject.org
   documentation: https://toolbox.thelupaxaproject.org/
   documentation_label: Visit Site
+  website: true
   banner: stable
   released_date: "2026-10-26T09:31:26"
 

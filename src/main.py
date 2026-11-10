@@ -549,6 +549,13 @@ def define_env(env):
             cards = "\n\n".join(
                 project_card(item, expiry_days=banner_expiry_days)
                 for item in sort_catalogue_by_name(projects)
+                if not item.get("website")
+            )
+        elif kind == "website":
+            cards = "\n\n".join(
+                project_card(item, expiry_days=banner_expiry_days)
+                for item in sort_catalogue_by_name(projects)
+                if item.get("website") is True
             )
         elif kind == "policy":
             cards = "\n\n".join(

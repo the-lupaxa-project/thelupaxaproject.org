@@ -66,7 +66,7 @@ Catalogue entries live in YAML under `data/`:
 | --- | --- |
 | `data/organisations.yml` | Organisations |
 | `data/humour.yml` | Humour masonry wall (`page.show_count: all` or a number; `page.show_media_filters: true` for images/videos filters) |
-| `data/projects.yml` | Projects |
+| `data/projects.yml` | Projects, and Websites when `website: true` |
 | `data/policies.yml` | Policies |
 
 `publish_date` and `released_date` accept either a calendar day (`YYYY-MM-DD`) or a
@@ -84,11 +84,12 @@ If `banner` is omitted, the card is **In Development**.
 `documentation` is the docs or site URL. The link reads **Documentation** with
 a book icon unless `documentation_label` is set. Product sites use
 `documentation_label: Visit Site`, which also switches the icon to a globe.
+Set `website: true` to list that card on Websites instead of Projects.
 `banner: released` still expires 28 days after `released_date`. On versioned
 cards the Released sash is dark navy; after expiry the card keeps a lighter
 Lupaxa-blue **Stable** sash with the version on the projects catalogue.
 
-Catalogue pages (organisations, projects, policies, articles) always render A–Z
+Catalogue pages (organisations, projects, websites, policies, articles) always render A–Z
 by name/title. YAML or filename order is never used. Newest is an explicit sort,
 not the default.
 

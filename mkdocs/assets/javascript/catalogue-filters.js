@@ -1156,6 +1156,14 @@
       sort: true,
     }),
     catalogueConfig({
+      id: "website",
+      singular: "website",
+      plural: "websites",
+      organisation: true,
+      status: true,
+      sort: true,
+    }),
+    catalogueConfig({
       id: "organisation",
       singular: "organisation",
       plural: "organisations",
@@ -1183,7 +1191,7 @@
   function projectsCataloguePath() {
     const path = window.location.pathname;
 
-    if (path.includes("/organisations")) {
+    if (path.includes("/organisations") || path.includes("/websites")) {
       return "../projects/";
     }
 
@@ -1202,7 +1210,7 @@
   function linkOrganisationLogos() {
     const path = window.location.pathname;
 
-    if (path.includes("/projects")) {
+    if (path.includes("/projects") || path.includes("/websites")) {
       return;
     }
 
@@ -1227,6 +1235,7 @@
     if (
       path.includes("/organisations") ||
       path.includes("/projects") ||
+      path.includes("/websites") ||
       path.includes("/policies") ||
       path.includes("/articles")
     ) {
@@ -1267,7 +1276,11 @@
   function linkStandaloneStatusBanners() {
     const path = window.location.pathname;
 
-    if (path.includes("/projects") || path.includes("/policies")) {
+    if (
+      path.includes("/projects") ||
+      path.includes("/websites") ||
+      path.includes("/policies")
+    ) {
       return;
     }
 

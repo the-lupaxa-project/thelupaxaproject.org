@@ -170,6 +170,8 @@
   .md-typeset .grid.cards.catalogue-grid[data-organisation-catalogue] > li > hr:first-of-type,
   .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] > ul > li > hr:first-of-type,
   .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] > li > hr:first-of-type,
+  .md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > ul > li > hr:first-of-type,
+  .md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > li > hr:first-of-type,
   .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] > ul > li > hr:first-of-type,
   .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] > li > hr:first-of-type,
   .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > hr:first-of-type,

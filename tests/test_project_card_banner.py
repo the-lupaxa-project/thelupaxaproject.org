@@ -300,10 +300,45 @@ def test_site_cards_use_visit_site_label():
     for project_id in (
         "browser-interrogator",
         "homebrew-tap",
+        "opengraphtester.com",
         "snippets",
         "toolbox.thelupaxaproject.org",
     ):
         assert by_id[project_id]["documentation_label"] == "Visit Site"
+        assert by_id[project_id]["website"] is True
+
+
+def test_website_cards_leave_the_projects_grid(tmp_path, monkeypatch):
+    projects = [
+        _synthetic_project(),
+        _synthetic_project(
+            id="example-site",
+            name="Example Site",
+            website=True,
+            documentation="https://example.com/",
+            documentation_label="Visit Site",
+        ),
+    ]
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
+
+    projects_markup = catalogue_grid("project", "project")
+    websites_markup = catalogue_grid("website", "website")
+
+    assert "Synthetic Project" in projects_markup
+    assert "Example Site" not in projects_markup
+    assert "Example Site" in websites_markup
+    assert "Synthetic Project" not in websites_markup
+    assert "Visit Site" in websites_markup
+
+
+def test_nav_lists_websites_between_projects_and_articles():
+    nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+    projects = "- Projects: projects.md"
+    websites = "- Websites: websites.md"
+    articles = "- Articles: articles.md"
+    assert projects in nav
+    assert websites in nav
+    assert nav.index(projects) < nav.index(websites) < nav.index(articles)
 
 
 def test_project_card_title_is_searchable_heading(tmp_path, monkeypatch):
