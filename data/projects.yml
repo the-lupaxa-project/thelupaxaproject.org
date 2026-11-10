@@ -40,6 +40,26 @@
   version: "0.1.7"
   released_date: "2026-10-07T09:13:52"
 
+- id: aws-authenticate
+  published: true
+  name: AWS Authenticate
+  icon: material-source-repository
+  publish_date: "2026-11-10T11:08:07"
+  description: >-
+    Resolve every AWS credential source into one boto3 session. Callers then use that session instead
+    of assembling credentials themselves.
+  categories:
+    - AWS
+    - Developer Tools
+    - Automation
+  organisation: AWS Toolbox
+  logo: assets/images/organisations/organisation-aws-toolbox-logo.png
+  logo_alt: AWS Toolbox
+  repository: https://github.com/lupaxa-aws-toolbox/aws-authenticate
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-10T13:26:45"
+
 - id: bandit
   published: true
   name: Bandit

@@ -608,3 +608,27 @@ entries:
     published: true
     width: 960
     height: 640
+
+  - image: assets/images/humour/comic-101-yak-shaving.webp
+    tags: [humour, programming]
+    published: true
+    width: 1280
+    height: 800
+
+  - image: assets/images/humour/comic-102-off-by-one.webp
+    tags: [humour, programming]
+    published: true
+    width: 1280
+    height: 800
+
+  - image: assets/images/humour/comic-103-on-call-handoff.webp
+    tags: [humour, devops]
+    published: true
+    width: 1280
+    height: 800
+
+  - image: assets/images/humour/comic-104-git-stash.webp
+    tags: [humour, devops, programming]
+    published: true
+    width: 1280
+    height: 800
