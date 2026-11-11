@@ -1725,6 +1725,25 @@
   version: "0.1.2"
   released_date: "2026-10-07T09:25:31"
 
+- id: prompt-default-branch-commit
+  published: true
+  name: Prompt Default Branch Commit
+  icon: material-source-repository
+  publish_date: "2026-11-11T09:03:12"
+  description: >-
+    Prompt before a commit on the default Git branch. A Git hook that asks first, so a commit on that
+    branch is a choice.
+  categories:
+    - Git
+    - Git Hooks
+  organisation: Git Hooks Toolbox
+  logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
+  logo_alt: Git Hooks Toolbox
+  repository: https://github.com/lupaxa-git-hooks-toolbox/prompt-default-branch-commit
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-11T09:56:06"
+
 - id: protect
   published: true
   name: Protect
