@@ -111,8 +111,8 @@ nav:
   - Projects: projects.md
   - Websites: websites.md
   - Articles: articles.md
-  - Policies: policies.md
   - Humour: humour.md
+  - Policies: policies.md
   - Sponsor: sponsor.md
 
 markdown_extensions:
