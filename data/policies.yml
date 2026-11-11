@@ -30,8 +30,8 @@
     This document explains the project's governance structure, decision-making process and
     the principles that support long-term consistency, stability and sustainability.
   categories:
-    - Governance
     - Decision-Making
+    - Governance
     - Policy
     - Roles
   document: https://github.com/the-lupaxa-project/.github/blob/master/docs/GOVERNANCE.md
@@ -68,10 +68,10 @@
     Rather than prescribing implementation details, these principles provide a consistent
     foundation for technical decision-making across the ecosystem.
   categories:
+    - Documentation
     - Engineering
     - Principles
     - Standards
-    - Documentation
   document: https://github.com/the-lupaxa-project/.github/blob/master/docs/PRINCIPLES.md
 
 - id: maintainer-guide
@@ -87,10 +87,10 @@
     This document describes the responsibilities, expectations and stewardship principles
     that guide maintainers throughout The Lupaxa Project.
   categories:
+    - Community
+    - Governance
     - Maintainers
     - Stewardship
-    - Governance
-    - Community
   document: https://github.com/the-lupaxa-project/.github/blob/master/docs/MAINTAINERS.md
 
 - id: project-organisation
@@ -124,8 +124,8 @@
     This policy explains how to report suspected vulnerabilities responsibly, what information
     to include and how security reports are handled across the project.
   categories:
-    - Security
     - Policy
+    - Security
     - Vulnerability Reporting
   document: https://github.com/the-lupaxa-project/.github/blob/master/docs/SECURITY.md
 
@@ -142,7 +142,7 @@
     Using the correct channel helps requests reach the people best placed to respond and makes
     support easier to manage consistently.
   categories:
-    - Support
     - Community
     - Guidance
+    - Support
   document: https://github.com/the-lupaxa-project/.github/blob/master/docs/SUPPORT.md

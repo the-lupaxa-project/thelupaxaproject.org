@@ -65,8 +65,16 @@
 
   .md-typeset .catalogue-grid > ul > li > p:has(> .catalogue-category),
   .md-typeset .catalogue-grid > li > p:has(> .catalogue-category) {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 0.15rem;
+  }
+
+  .md-typeset .catalogue-category[hidden] {
+    display: inline-block !important;
+  }
+
+  .catalogue-category-more {
+    display: none !important;
   }
 
   .md-typeset .catalogue-category {
@@ -96,13 +104,6 @@
   .md-typeset .catalogue-grid > li > p:first-child {
     order: 0;
     text-align: center;
-  }
-
-  .md-typeset .catalogue-grid > ul > li > h3:first-child .twemoji,
-  .md-typeset .catalogue-grid > li > h3:first-child .twemoji,
-  .md-typeset .catalogue-grid > ul > li > h3:first-child svg,
-  .md-typeset .catalogue-grid > li > h3:first-child svg {
-    display: none;
   }
 
   /* Article titles are a paragraph, and the screen rule left-aligns those.

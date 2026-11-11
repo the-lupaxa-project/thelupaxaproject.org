@@ -7,10 +7,11 @@
     Lint GitHub Actions workflow YAML with [actionlint](https://github.com/rhysd/actionlint). A reusable
     CICD Toolbox pipeline for catching workflow syntax and best-practice issues.
   categories:
+    - Actionlint
     - CI/CD
     - GitHub Actions
     - Linting
-    - Workflow
+    - YAML
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -29,9 +30,10 @@
     reusable CICD Toolbox pipeline for broken-link detection across documentation sets.
   categories:
     - CI/CD
+    - GitHub Actions
+    - Links
     - Linting
     - Markdown
-    - Workflow
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -49,9 +51,14 @@
     Resolve every AWS credential source into one boto3 session. Callers then use that session instead
     of assembling credentials themselves.
   categories:
+    - Authentication
     - AWS
-    - Developer Tools
-    - Automation
+    - Boto3
+    - Credentials
+    - IAM
+    - Python
+    - SSO
+    - STS
   organisation: AWS Toolbox
   logo: assets/images/organisations/organisation-aws-toolbox-logo.png
   logo_alt: AWS Toolbox
@@ -59,6 +66,26 @@
   banner: released
   version: "0.1.0"
   released_date: "2026-11-10T13:26:45"
+
+- id: backtrace-library
+  published: true
+  name: Backtrace Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:20:29"
+  description: >-
+    A C library for a manual function call trace. The caller records each step, so the trace is
+    written by the program rather than captured by a debugger.
+  categories:
+    - Backtrace
+    - C
+    - Call Stack
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libbacktrace
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T17:32:06"
 
 - id: bandit
   published: true
@@ -70,10 +97,10 @@
     reusable CICD Toolbox pipeline for static security analysis of Python projects.
   categories:
     - CI/CD
-    - Security
+    - GitHub Actions
     - Linting
     - Python
-    - Workflow
+    - Security
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -92,10 +119,13 @@
     examples cover Git, the system, MkDocs, and a catch-all, and helpers can add, edit, delete, list,
     and reload aliases.
   categories:
-    - Workstation
-    - Developer Tools
-    - Productivity
+    - Aliases
     - Bash
+    - Bash Aliases
+    - Dotfiles
+    - Git
+    - Productivity
+    - Shell
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -115,7 +145,10 @@
     colour count, or an interactive test.
   categories:
     - Bash
-    - Developer Tools
+    - CLI
+    - Colours
+    - Shell
+    - Terminal
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -133,8 +166,13 @@
     A command-line chatbot for OpenAI, Gemini, Grok, and a local Ollama server. A chat needs a provider
     and a model. Pass a question to ask once, or run it with no question to open a prompt.
   categories:
-    - AI
-    - Developer Tools
+    - Chatbot
+    - CLI
+    - Gemini
+    - Grok
+    - Ollama
+    - OpenAI
+    - Python
   organisation: AI Toolbox
   logo: assets/images/organisations/organisation-ai-toolbox-logo.png
   logo_alt: AI Toolbox
@@ -142,6 +180,26 @@
   banner: released
   version: "0.1.1"
   released_date: "2026-10-07T09:12:38"
+
+- id: bitvector-library
+  published: true
+  name: Bitvector Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T16:36:46"
+  description: >-
+    A C library for a growable vector of bits. Bits are stored packed together, and the vector grows
+    as more are added.
+  categories:
+    - Bit Set
+    - Bitvector
+    - C
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libbitvector
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T16:45:05"
 
 - id: block-default-branch-commit
   published: true
@@ -153,6 +211,8 @@
   categories:
     - Git
     - Git Hooks
+    - Pre-commit
+    - Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -170,9 +230,15 @@
     An interactive menu for everyday Homebrew maintenance on a workstation. It covers updates, upgrades,
     cleanup, doctor, and package lists, and it asks before anything destructive.
   categories:
+    - Bash
+    - CLI
     - Homebrew
-    - Workstation
+    - Interactive
+    - macOS
+    - Maintenance
     - Package Management
+    - Shell
+    - Workstation
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -190,9 +256,11 @@
     Shows the connection, device, and browser facts any website can read on a page load. The list is
     what the browser already offers, before anyone asks a question.
   categories:
-    - Security
-    - Privacy
     - Browser
+    - Fingerprinting
+    - MkDocs
+    - Privacy
+    - Security
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -214,10 +282,11 @@
     [cppcheck](https://cppcheck.sourceforge.io/) on each file. A reusable CICD Toolbox pipeline for
     those C checks in every repository.
   categories:
-    - CI/CD
     - C
+    - CI/CD
+    - Cppcheck
+    - GCC
     - Linting
-    - Workflow
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -237,6 +306,8 @@
     hand or from a script.
   categories:
     - Certificates
+    - CLI
+    - Python
     - Security
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
@@ -256,10 +327,10 @@
     A terminal client for the chat server. It keeps the server's text separate from what you are
     typing.
   categories:
-    - After Hours
-    - Fun
-    - Chat
+    - Chat Client
+    - CLI
     - Nostalgia
+    - Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -277,10 +348,10 @@
     A bare-bones multi-room TCP chat server. It is a throwback to the telnet talkers, MUDs, and
     MUSHes we grew up on.
   categories:
-    - After Hours
-    - Fun
-    - Chat
+    - Chat Server
+    - CLI
     - Nostalgia
+    - Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -300,9 +371,10 @@
     its upstream, including uncommitted work, unpushed commits, stashes, and drift. A portable Bash
     script for an end-of-day check across a workspace of clones.
   categories:
+    - Bash
+    - CLI
     - Git
-    - Automation
-    - Repository Management
+    - Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -321,8 +393,12 @@
     the evidence, a version when one is exposed, and a confidence rating. A Python command-line tool and
     library for authorised security checks.
   categories:
-    - Security
+    - CLI
+    - CMS
+    - Fingerprinting
+    - Python
     - Reconnaissance
+    - Security
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -340,8 +416,11 @@
     Convert file sizes between IEC binary and SI decimal units, including bits, nibbles, and bytes. A
     Python library, with no command-line tool.
   categories:
-    - Developer Tools
-    - Utilities
+    - Filesize
+    - IEC
+    - PyPI
+    - Python
+    - SI
     - Units
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
@@ -360,9 +439,11 @@
     Validate, explain, and preview five-field Vixie cron expressions. You can check a schedule, see what
     the line means, and look at the times it would run. It does not run the jobs.
   categories:
-    - Developer Tools
-    - Automation
+    - CLI
     - Cron
+    - Crontab
+    - Python
+    - Timezone
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -380,8 +461,6 @@
     Share Cursor agent specs and plans from one private vault across a team's repositories. Each
     checkout keeps a `cursor-docs` symlink into that vault.
   categories:
-    - AI
-    - Agent Skills
     - Cursor
     - Documentation
   organisation: AI Toolbox
@@ -401,7 +480,6 @@
     Share Cursor agent skills from one private vault across a team. One shared copy serves every
     repository that uses those skills.
   categories:
-    - AI
     - Agent Skills
     - Cursor
   organisation: AI Toolbox
@@ -423,8 +501,12 @@
     each pair of formats.
   categories:
     - Data Conversion
-    - Developer Tools
     - JSON
+    - JSON5
+    - Python
+    - TOML
+    - XML
+    - YAML
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -442,8 +524,14 @@
     A catalogue of software design patterns with matching examples in Go, Perl, Python, Ruby, and Rust.
     Each pattern is a conceptual template you can adapt to the problem and language at hand.
   categories:
-    - Developer Tools
     - Design Patterns
+    - Documentation
+    - Go
+    - Perl
+    - Python
+    - Ruby
+    - Rust
+    - Software Design
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -461,9 +549,11 @@
     Compare two INI files by section, key, and value. Comments, blank lines, and key order are not
     treated as differences. A Python command-line tool.
   categories:
+    - CLI
     - Configuration
-    - Developer Tools
+    - Diff
     - INI
+    - Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -481,8 +571,11 @@
     Send Discord messages through an incoming webhook. It works as a library or as a command, and a
     successful post is Discord answering with HTTP 204.
   categories:
-    - Notifications
+    - CLI
     - Discord
+    - Notifications
+    - Python
+    - Webhook
   organisation: Notifications Toolbox
   logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
   logo_alt: Notifications Toolbox
@@ -500,9 +593,11 @@
     A console messaging helper with coloured, prefixed output for info, success, warning, error, and
     system messages. You can call simple functions, or use a chainable object.
   categories:
+    - ANSI
     - Console
-    - Developer Tools
     - Messaging
+    - PyPI
+    - Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -520,8 +615,13 @@
     Check whether an IP address or hostname is listed on DNS blacklists. A Python command-line tool and
     library for a quick look at an address's reputation.
   categories:
+    - CLI
     - DNS
-    - Reliability
+    - DNSBL
+    - IPv6
+    - Networking
+    - Python
+    - SRE
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -539,8 +639,14 @@
     Look up domain name expiration dates over WHOIS. A Python command-line tool and library for seeing
     when a name is due to lapse.
   categories:
+    - CLI
     - DNS
-    - Reliability
+    - Domain
+    - Domain Expiry
+    - Networking
+    - Python
+    - SRE
+    - WHOIS
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -548,6 +654,51 @@
   banner: released
   version: "0.1.5"
   released_date: "2026-10-07T09:22:31"
+
+- id: dynamic-block-library
+  published: true
+  name: Dynamic Block Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T16:51:36"
+  description: >-
+    A C library for a pool of zeroed allocations. Callers take blocks from the pool, and each block
+    is zeroed before it is handed out.
+  categories:
+    - C
+    - Dynablock
+    - Memory Pool
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libdynablock
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T16:58:53"
+
+- id: every-repo
+  published: true
+  name: Every Repo
+  icon: material-source-repository
+  publish_date: "2026-09-29T08:56:13"
+  description: >-
+    Run a command, a command file, or a script in every Git repository under a path. A portable Bash
+    script that walks the tree, treats a .git directory or gitdir file as a repository, and continues
+    after a failure unless --fail-fast is set.
+  categories:
+    - Bash
+    - CLI
+    - Developer Tools
+    - DevOps
+    - Git
+    - Git Automation
+    - Shell
+  organisation: Git Toolbox
+  logo: assets/images/organisations/organisation-git-toolbox-logo.png
+  logo_alt: Git Toolbox
+  repository: https://github.com/lupaxa-git-toolbox/every-repo
+  banner: released
+  version: "0.1.1"
+  released_date: "2026-10-07T09:19:10"
 
 - id: excuse-generator
   published: true
@@ -558,8 +709,9 @@
     A small Python library and command-line tool that invents a random excuse. You choose a category and
     how absurd the excuse should be.
   categories:
-    - After Hours
-    - Fun
+    - CLI
+    - Excuse Generator
+    - Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -577,7 +729,12 @@
     A small Python library and command-line tool that checks whether a timestamp has already passed,
     compared with the current UTC time.
   categories:
-    - Developer Tools
+    - CLI
+    - Datetime
+    - PyPI
+    - Python
+    - Timedelta
+    - Timestamp
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -585,26 +742,6 @@
   banner: released
   version: "0.1.6"
   released_date: "2026-10-07T09:20:25"
-
-- id: every-repo
-  published: true
-  name: Every Repo
-  icon: material-source-repository
-  publish_date: "2026-09-29T08:56:13"
-  description: >-
-    Run a command, a command file, or a script in every Git repository under a path. A portable Bash
-    script that walks the tree, treats a .git directory or gitdir file as a repository, and continues
-    after a failure unless --fail-fast is set.
-  categories:
-    - Git
-    - Automation
-  organisation: Git Toolbox
-  logo: assets/images/organisations/organisation-git-toolbox-logo.png
-  logo_alt: Git Toolbox
-  repository: https://github.com/lupaxa-git-toolbox/every-repo
-  banner: released
-  version: "0.1.1"
-  released_date: "2026-10-07T09:19:10"
 
 - id: favicon-generator
   published: true
@@ -615,9 +752,9 @@
     Make a modern favicon set from one source image, in PNG, JPEG, WebP, or SVG. One picture is enough
     for the set of icons a site needs.
   categories:
-    - Favicons
-    - Websites
-    - Utilities
+    - CLI
+    - Favicon
+    - Python
   organisation: Miscellaneous Toolbox
   logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
   logo_alt: Miscellaneous Toolbox
@@ -635,8 +772,9 @@
     A Python library and command-line tool that draws a developer fortune. The line might be dubious
     wisdom, a warning, a prediction, or a joke about Friday.
   categories:
-    - After Hours
-    - Fun
+    - CLI
+    - Fortune Cookie
+    - Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -644,6 +782,27 @@
   banner: released
   version: "0.1.1"
   released_date: "2026-10-07T09:14:56"
+
+- id: generic-linked-lists-library
+  published: true
+  name: Generic Linked Lists Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T14:12:50"
+  description: >-
+    A C library for generic doubly linked lists. The list holds any kind of item, and the link
+    bookkeeping stays in the library.
+  categories:
+    - C
+    - Data Structures
+    - GLL
+    - Linked List
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libgll
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T15:44:23"
 
 - id: get-all-tools
   published: true
@@ -655,8 +814,10 @@
     as a `cicd-<tool>` command, so the shared checks can be run under one naming scheme.
   categories:
     - CI/CD
-    - Developer Tools
-    - Automation
+    - CLI
+    - GitHub Actions
+    - Python
+    - Tools
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -675,8 +836,12 @@
     version, or pass the list into a build matrix.
   categories:
     - GitHub Actions
-    - CI/CD
-    - Automation
+    - Go
+    - Node.js
+    - Perl
+    - PHP
+    - Python
+    - Ruby
   organisation: Actions Toolbox
   logo: assets/images/organisations/organisation-actions-toolbox-logo.png
   logo_alt: Actions Toolbox
@@ -695,8 +860,13 @@
     contributors, survivors, extinct paths, churn, and snapshots. The same facts are available as
     console text, JSON, or Markdown. It does not fetch or rewrite history.
   categories:
-    - Git
+    - CLI
     - Developer Tools
+    - DevOps
+    - Git
+    - Git History
+    - PyPI
+    - Python
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -715,9 +885,13 @@
     summary, and local-only modes. Matching author and committer emails are replaced on all branches and
     tags. Prefer `--summary` or a dry-run first; a rewrite can force-push.
   categories:
+    - Bash
+    - CLI
+    - Developer Tools
+    - DevOps
     - Git
-    - Automation
-    - Repository Management
+    - Git Author
+    - Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -736,9 +910,13 @@
     local-only modes. Commit history is left as it is. Prefer `--summary` or a dry-run first; updating
     the remote deletes the old branch name.
   categories:
+    - Bash
+    - CLI
+    - Developer Tools
+    - DevOps
     - Git
-    - Automation
-    - Repository Management
+    - Git Branch
+    - Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -757,10 +935,10 @@
     [git-crypt](https://github.com/AGWA/git-crypt). The project helps initialise, configure, and
     maintain encrypted repositories while reducing the complexity of day-to-day key management.
   categories:
-    - Encryption
+    - Bash
+    - CLI
+    - Git Crypt
     - Security
-    - Git
-    - Automation
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -779,9 +957,13 @@
     clear every tag in a repository while protecting selected names. Useful for cleaning up stale
     release tags or resetting a tag namespace before a fresh release cycle.
   categories:
+    - Bash
+    - CLI
+    - Developer Tools
+    - DevOps
     - Git
-    - Automation
-    - Repository Management
+    - Git Tags
+    - Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -802,7 +984,8 @@
   categories:
     - Git
     - Git Hooks
-    - Automation
+    - Multiplexer
+    - Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -821,9 +1004,13 @@
     tag handling. It keeps the current tree and replaces the history on the primary branch. Useful after
     scaffolding, before a first public release, or when the old history is no longer useful.
   categories:
+    - Bash
+    - CLI
+    - Developer Tools
+    - DevOps
     - Git
-    - Automation
-    - Repository Management
+    - Git History
+    - Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -842,10 +1029,11 @@
     JSON5 configuration file. Each repository is inspected before any Git operation is performed,
     ensuring that only repositories confirmed to be in a safe state are automatically updated.
   categories:
+    - CLI
     - GitHub
-    - Git
-    - Automation
-    - Repository Management
+    - Python
+    - Sync
+    - Toolbox
   organisation: GitHub Toolbox
   logo: assets/images/organisations/organisation-gh-toolbox-logo.png
   logo_alt: GitHub Toolbox
@@ -864,8 +1052,13 @@
     Report what a GitHub token is allowed to do. It sends read-only requests, never prints the token,
     and does not list repositories or organisations.
   categories:
+    - CLI
     - GitHub
-    - Security
+    - GitHub Token
+    - Permissions
+    - Python
+    - Token
+    - Toolbox
   organisation: GitHub Toolbox
   logo: assets/images/organisations/organisation-gh-toolbox-logo.png
   logo_alt: GitHub Toolbox
@@ -885,8 +1078,9 @@
   categories:
     - CI/CD
     - Docker
+    - Dockerfile
+    - GitHub Actions
     - Linting
-    - Workflow
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -894,6 +1088,45 @@
   banner: released
   version: "0.1.6"
   released_date: "2026-10-07T09:15:40"
+
+- id: hash-library
+  published: true
+  name: Hash Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:35:33"
+  description: >-
+    A C library for a case-insensitive string map. Lookups treat uppercase and lowercase as the same
+    key.
+  categories:
+    - C
+    - Hash
+    - String Map
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libhash
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T17:44:48"
+
+- id: history-library
+  published: true
+  name: History Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:45:28"
+  description: >-
+    A C library for a fixed list of text lines. The number of lines is set when the list is created.
+  categories:
+    - C
+    - History
+    - Text
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libhistory
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T17:54:25"
 
 - id: homebrew-tap
   published: true
@@ -904,7 +1137,10 @@
     Homebrew formulae for The Lupaxa Project tools. The tap itself tracks HEAD, and each formula points
     at a tagged release of that tool's own repository.
   categories:
+    - Formulae
     - Homebrew
+    - Homebrew Tap
+    - macOS
     - Package Management
   organisation: The Lupaxa Project
   logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
@@ -926,8 +1162,13 @@
     converted with Pillow. SVG input is rasterised, and a raster image converted to SVG is embedded in
     an SVG document rather than vectorised.
   categories:
+    - CLI
+    - Image Converter
     - Images
-    - Conversion
+    - Pillow
+    - Python
+    - SVG
+    - WebP
   organisation: Miscellaneous Toolbox
   logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
   logo_alt: Miscellaneous Toolbox
@@ -945,10 +1186,11 @@
     A Bash helper that reads INI-style config files into section arrays and named variables. It is
     sourced into a script rather than run on its own.
   categories:
-    - Configuration
-    - Developer Tools
-    - INI
     - Bash
+    - Configuration
+    - INI
+    - INI Parser
+    - Shell
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -967,9 +1209,11 @@
     files, HTTP, SQLite, subprocess, and imports, and those calls print how long they took. Application
     code stays free of decorators and manual timers.
   categories:
-    - Python
-    - Developer Tools
+    - Performance
     - Profiling
+    - PyPI
+    - Python
+    - Timing
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -987,8 +1231,10 @@
     Download the IPinfo Lite database so local TCP wrappers and other tools can use it. The lookup data
     stays on this machine.
   categories:
+    - CLI
+    - IPinfo
+    - Python
     - Security
-    - Networking
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1007,9 +1253,10 @@
     for JavaScript style checks in repositories.
   categories:
     - CI/CD
+    - GitHub Actions
     - JavaScript
     - Linting
-    - Workflow
+    - Standard
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1027,8 +1274,9 @@
     A stable browser fingerprint from the signals a page can already read. The same set of signals
     produces the same fingerprint.
   categories:
-    - Security
-    - Developer Tools
+    - Browser
+    - Fingerprint
+    - JavaScript
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1047,9 +1295,10 @@
     JSON syntax validation in repositories.
   categories:
     - CI/CD
+    - GitHub Actions
+    - jq
     - JSON
     - Linting
-    - Workflow
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1067,8 +1316,11 @@
     Rate-limit events with a leaky bucket. Arrivals that fit are admitted. Drop mode rejects the rest.
     Queue mode waits until there is room. A Python library, with no command-line tool.
   categories:
-    - Developer Tools
+    - Leaky Bucket
+    - PyPI
+    - Python
     - Rate Limiting
+    - Throttle
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1077,129 +1329,17 @@
   version: "0.1.1"
   released_date: "2026-10-07T09:22:35"
 
-- id: libbacktrace
+- id: log-file-library
   published: true
-  name: Libbacktrace
-  icon: material-source-repository
-  publish_date: "2026-11-06T17:20:29"
-  description: >-
-    A C library for a manual function call trace. The caller records each step, so the trace is
-    written by the program rather than captured by a debugger.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libbacktrace
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T17:32:06"
-
-- id: libbitvector
-  published: true
-  name: Libbitvector
-  icon: material-source-repository
-  publish_date: "2026-11-06T16:36:46"
-  description: >-
-    A C library for a growable vector of bits. Bits are stored packed together, and the vector grows
-    as more are added.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libbitvector
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T16:45:05"
-
-- id: libdynablock
-  published: true
-  name: Libdynablock
-  icon: material-source-repository
-  publish_date: "2026-11-06T16:51:36"
-  description: >-
-    A C library for a pool of zeroed allocations. Callers take blocks from the pool, and each block
-    is zeroed before it is handed out.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libdynablock
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T16:58:53"
-
-- id: libgll
-  published: true
-  name: Libgll
-  icon: material-source-repository
-  publish_date: "2026-11-06T14:12:50"
-  description: >-
-    A C library for generic doubly linked lists. The list holds any kind of item, and the link
-    bookkeeping stays in the library.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libgll
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T15:44:23"
-
-- id: libhash
-  published: true
-  name: Libhash
-  icon: material-source-repository
-  publish_date: "2026-11-06T17:35:33"
-  description: >-
-    A C library for a case-insensitive string map. Lookups treat uppercase and lowercase as the same
-    key.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libhash
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T17:44:48"
-
-- id: libhistory
-  published: true
-  name: Libhistory
-  icon: material-source-repository
-  publish_date: "2026-11-06T17:45:28"
-  description: >-
-    A C library for a fixed list of text lines. The number of lines is set when the list is created.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libhistory
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T17:54:25"
-
-- id: liblogfile
-  published: true
-  name: Liblogfile
+  name: Log File Library
   icon: material-source-repository
   publish_date: "2026-11-06T17:55:47"
   description: >-
     A C library for a JSON line log. Each log record is one JSON object on its own line.
   categories:
-    - Developer Tools
     - C
+    - JSON
+    - Logfile
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1208,97 +1348,25 @@
   version: "0.1.0"
   released_date: "2026-11-06T18:02:50"
 
-- id: libmempool
+- id: magic-8ball
   published: true
-  name: Libmempool
+  name: Magic 8ball
   icon: material-source-repository
-  publish_date: "2026-11-06T17:02:13"
+  publish_date: "2026-10-05T10:32:52"
   description: >-
-    A C library for a power-of-two memory pool. Blocks are sized as powers of two so the pool can
-    hand out matching chunks.
+    Ask a yes-or-no question and get one of the twenty classic Magic 8-Ball replies. The question is
+    checked and then discarded, and the answer is chosen at random from the traditional set.
   categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libmempool
+    - CLI
+    - Magic 8 Ball
+    - Python
+  organisation: After Hours
+  logo: assets/images/organisations/organisation-after-hours-logo.png
+  logo_alt: After Hours
+  repository: https://github.com/lupaxa-after-hours/magic-8ball
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T17:14:19"
-
-- id: libpatmat
-  published: true
-  name: Libpatmat
-  icon: material-source-repository
-  publish_date: "2026-11-06T18:25:15"
-  description: >-
-    A C library for shell-style text patterns. A pattern can match text the way a shell glob does.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libpatmat
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T18:36:05"
-
-- id: libscheduler
-  published: true
-  name: Libscheduler
-  icon: material-source-repository
-  publish_date: "2026-11-06T18:05:49"
-  description: >-
-    A C library for running tasks at a chosen time. A task waits until that time, then runs.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libscheduler
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T18:17:11"
-
-- id: libsocket
-  published: true
-  name: Libsocket
-  icon: material-source-repository
-  publish_date: "2026-11-06T18:40:59"
-  description: >-
-    A C library for IPv4 and IPv6 TCP and UDP sockets. A program can open a connection or a datagram socket on either address family.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libsocket
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T18:51:05"
-
-- id: libstackbuf
-  published: true
-  name: Libstackbuf
-  icon: material-source-repository
-  publish_date: "2026-11-06T16:29:26"
-  description: >-
-    A C library for a stack buffer used as temporary string storage. The buffer lives on the stack,
-    so a short string does not need a heap allocation.
-  categories:
-    - Developer Tools
-    - C
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/libstackbuf
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-11-06T16:33:42"
+  version: "0.1.1"
+  released_date: "2026-10-07T09:13:55"
 
 - id: makefile-lint
   published: true
@@ -1309,10 +1377,11 @@
     Lint Makefiles with [checkmake](https://github.com/checkmake/checkmake). A reusable CICD Toolbox
     pipeline aligned with Lupaxa makefile validation workflows.
   categories:
+    - Checkmake
     - CI/CD
-    - Makefile
+    - GitHub Actions
     - Linting
-    - Workflow
+    - Makefile
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1330,9 +1399,6 @@
     Reusable Makefile skills for project versioning and for Python, MkDocs, Bash, Ruby, Perl, and PHP. A
     project turns on versioning and only the language skills it needs.
   categories:
-    - Automation
-    - Standards
-    - Developer Tools
     - Makefile
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
@@ -1342,25 +1408,6 @@
   banner: released
   version: "0.1.12"
   released_date: "2026-11-06T19:17:28"
-
-- id: magic-8ball
-  published: true
-  name: Magic 8ball
-  icon: material-source-repository
-  publish_date: "2026-10-05T10:32:52"
-  description: >-
-    Ask a yes-or-no question and get one of the twenty classic Magic 8-Ball replies. The question is
-    checked and then discarded, and the answer is chosen at random from the traditional set.
-  categories:
-    - After Hours
-    - Fun
-  organisation: After Hours
-  logo: assets/images/organisations/organisation-after-hours-logo.png
-  logo_alt: After Hours
-  repository: https://github.com/lupaxa-after-hours/magic-8ball
-  banner: released
-  version: "0.1.1"
-  released_date: "2026-10-07T09:13:55"
 
 - id: markdown-converter
   published: true
@@ -1372,9 +1419,12 @@
     Obsidian. It loads any of those flavours into one document tree, then writes any of them. There are
     no pairwise converters.
   categories:
+    - CLI
+    - CommonMark
     - Markdown
+    - Obsidian
+    - PyPI
     - Python
-    - Developer Tools
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1393,9 +1443,9 @@
     reusable CICD Toolbox pipeline for documentation style and structure checks.
   categories:
     - CI/CD
-    - Markdown
+    - GitHub Actions
     - Linting
-    - Workflow
+    - Markdown
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1403,6 +1453,26 @@
   banner: released
   version: "0.1.6"
   released_date: "2026-10-07T09:16:52"
+
+- id: memory-pool-library
+  published: true
+  name: Memory Pool Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T17:02:13"
+  description: >-
+    A C library for a power-of-two memory pool. Blocks are sized as powers of two so the pool can
+    hand out matching chunks.
+  categories:
+    - C
+    - Memory Pool
+    - Mempool
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libmempool
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T17:14:19"
 
 - id: mx-inspector
   published: true
@@ -1414,10 +1484,14 @@
     check and a spoofing-posture score. A Python command-line tool and library for authorised email
     security checks.
   categories:
-    - Security
-    - Email
+    - CLI
+    - DMARC
     - DNS
-    - Reconnaissance
+    - Email Security
+    - MX
+    - Python
+    - Security
+    - SMTP
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1437,10 +1511,11 @@
     for static type checking across Python trees.
   categories:
     - CI/CD
-    - Type Checking
+    - GitHub Actions
     - Linting
+    - Mypy
     - Python
-    - Workflow
+    - Typing
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1458,10 +1533,10 @@
     Bash templates for Nagios-style plugin checks. A new check can start from one of these templates
     and report in the Nagios plugin format.
   categories:
+    - Bash
     - Monitoring
     - Nagios
-    - Plugin
-    - Templates
+    - Shell
   organisation: Monitoring Toolbox
   logo: assets/images/organisations/organisation-monitoring-toolbox-logo.png
   logo_alt: Monitoring Toolbox
@@ -1481,8 +1556,7 @@
   categories:
     - Monitoring
     - Nagios
-    - Plugin
-    - Templates
+    - Perl
   organisation: Monitoring Toolbox
   logo: assets/images/organisations/organisation-monitoring-toolbox-logo.png
   logo_alt: Monitoring Toolbox
@@ -1502,8 +1576,7 @@
   categories:
     - Monitoring
     - Nagios
-    - Plugin
-    - Templates
+    - PowerShell
   organisation: Monitoring Toolbox
   logo: assets/images/organisations/organisation-monitoring-toolbox-logo.png
   logo_alt: Monitoring Toolbox
@@ -1523,8 +1596,7 @@
   categories:
     - Monitoring
     - Nagios
-    - Plugin
-    - Templates
+    - Python
   organisation: Monitoring Toolbox
   logo: assets/images/organisations/organisation-monitoring-toolbox-logo.png
   logo_alt: Monitoring Toolbox
@@ -1542,8 +1614,8 @@
     Preview how a page's Open Graph and Twitter Card tags will look when shared. It shows the title,
     image, and text those tags would present.
   categories:
-    - Developer Tools
-    - Browser
+    - Open Graph
+    - Twitter Cards
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1555,6 +1627,25 @@
   version: "0.1.1"
   released_date: "2026-11-04T12:59:02"
 
+- id: pattern-match-library
+  published: true
+  name: Pattern Match Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T18:25:15"
+  description: >-
+    A C library for shell-style text patterns. A pattern can match text the way a shell glob does.
+  categories:
+    - C
+    - Patmat
+    - Pattern Matching
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libpatmat
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T18:36:05"
+
 - id: perl-lint
   published: true
   name: Perl Lint
@@ -1565,8 +1656,8 @@
     runs that check the same way in every repository.
   categories:
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
     - Perl
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1586,9 +1677,12 @@
     metadata when it can, and the file's modification time otherwise. Originals stay where they are
     unless you choose to move them.
   categories:
+    - CLI
+    - EXIF
     - Photos
-    - Automation
-    - Utilities
+    - Python
+    - Renamer
+    - Videos
   organisation: Miscellaneous Toolbox
   logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
   logo_alt: Miscellaneous Toolbox
@@ -1596,27 +1690,6 @@
   banner: released
   version: "0.1.7"
   released_date: "2026-10-07T09:21:16"
-
-- id: pre-commit-template
-  published: true
-  name: Pre-commit Template
-  icon: material-source-repository
-  publish_date: "2026-08-19T12:45:00"
-  description: >-
-    A self-contained Git pre-commit hook template. The header names the tool, which files it checks, and
-    whether it should ask before acting. It can run quietly, or prompt in the terminal.
-  categories:
-    - Git
-    - Git Hooks
-    - Templates
-    - Automation
-  organisation: Git Hooks Toolbox
-  logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
-  logo_alt: Git Hooks Toolbox
-  repository: https://github.com/lupaxa-git-hooks-toolbox/pre-commit-template
-  banner: released
-  version: "0.1.6"
-  released_date: "2026-10-07T09:18:58"
 
 - id: php-lint
   published: true
@@ -1628,8 +1701,8 @@
     pipeline for PHP syntax validation.
   categories:
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
     - PHP
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1649,10 +1722,13 @@
     `src/pipeline.sh` and edit only the configuration block; the same script runs from GitHub Actions,
     Bitbucket, Travis, or a local shell.
   categories:
+    - Bash
+    - CI
     - CI/CD
+    - GitHub Actions
+    - Pipeline
+    - Shell
     - Templates
-    - Automation
-    - Workflow
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1670,8 +1746,13 @@
     Listen on a local TCP port and forward each connection to a remote host and port. A Python
     command-line tool and library that needs nothing beyond the standard library.
   categories:
+    - CLI
     - Networking
-    - Reliability
+    - Port Forwarder
+    - Proxy
+    - Python
+    - SRE
+    - TCP
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -1690,9 +1771,12 @@
     `git`, checks allow and deny lists, and asks before running `post-clone` from the new tree. Bare and
     mirror clones are passed through.
   categories:
+    - Bash
+    - CLI
+    - Developer Tools
     - Git
     - Git Hooks
-    - Automation
+    - Shell
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -1711,9 +1795,10 @@
     check the same way in every repository.
   categories:
     - CI/CD
-    - PowerShell
+    - GitHub Actions
     - Linting
-    - Workflow
+    - PowerShell
+    - PowerShell Linter
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1721,6 +1806,28 @@
   banner: released
   version: "0.1.0"
   released_date: "2026-10-08T10:51:52"
+
+- id: pre-commit-template
+  published: true
+  name: Pre-commit Template
+  icon: material-source-repository
+  publish_date: "2026-08-19T12:45:00"
+  description: >-
+    A self-contained Git pre-commit hook template. The header names the tool, which files it checks, and
+    whether it should ask before acting. It can run quietly, or prompt in the terminal.
+  categories:
+    - Git
+    - Git Hooks
+    - Pre-commit
+    - Python
+    - Templates
+  organisation: Git Hooks Toolbox
+  logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
+  logo_alt: Git Hooks Toolbox
+  repository: https://github.com/lupaxa-git-hooks-toolbox/pre-commit-template
+  banner: released
+  version: "0.1.6"
+  released_date: "2026-10-07T09:18:58"
 
 - id: privacy-reset
   published: true
@@ -1732,9 +1839,14 @@
     folder access for the current terminal, such as Downloads, Desktop, Documents, and Full Disk Access.
     A portable Bash script that uses `tccutil` and does not need `sudo`.
   categories:
-    - Workstation
-    - Privacy
+    - Bash
+    - CLI
+    - Interactive
     - macOS
+    - Privacy
+    - Shell
+    - TCC
+    - Workstation
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -1754,6 +1866,8 @@
   categories:
     - Git
     - Git Hooks
+    - Pre-commit
+    - Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -1771,8 +1885,9 @@
     Keep a sidecar copy of a file so you can edit locally and restore it before committing. The copy
     sits beside the file while you work, then you restore the original before the commit.
   categories:
-    - Developer Tools
-    - Git
+    - Backup
+    - CLI
+    - Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1791,9 +1906,9 @@
     Toolbox pipeline for Puppet style and best-practice checks.
   categories:
     - CI/CD
-    - Puppet
+    - GitHub Actions
     - Linting
-    - Workflow
+    - Puppet
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1813,7 +1928,8 @@
   categories:
     - CI/CD
     - Dependencies
-    - Workflow
+    - GitHub Actions
+    - Linting
     - Python
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1832,8 +1948,10 @@
     Send Pushover notifications from a script or the command line. Named profiles keep each destination
     separate.
   categories:
+    - CLI
     - Notifications
     - Pushover
+    - Python
   organisation: Notifications Toolbox
   logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
   logo_alt: Notifications Toolbox
@@ -1852,8 +1970,9 @@
     reusable CICD Toolbox pipeline for Python style-guide compliance.
   categories:
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
+    - PEP 8
     - Python
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1873,10 +1992,10 @@
     reusable CICD Toolbox pipeline for docstring quality and convention checks.
   categories:
     - CI/CD
-    - Documentation
+    - Docstrings
+    - GitHub Actions
     - Linting
     - Python
-    - Workflow
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1895,8 +2014,8 @@
     pipeline that wraps a multi-linter Python audit suite.
   categories:
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
     - Python
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1916,8 +2035,8 @@
     pipeline for deep Python linting and code smells.
   categories:
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
     - Python
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1936,8 +2055,11 @@
     A command-line tool and library that makes QR codes for text, Wi-Fi, contacts, email, SMS,
     locations, and calendar events. The same code can be called from a script or run on its own.
   categories:
-    - Developer Tools
+    - CLI
+    - PyPI
+    - Python
     - QR Codes
+    - Segno
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1955,8 +2077,12 @@
     Follow HTTP redirects and report the URL that actually serves the page, with an optional list of
     hops and status codes. A Python command-line tool and library.
   categories:
-    - Developer Tools
+    - CLI
     - HTTP
+    - HTTPX
+    - Python
+    - Redirects
+    - URL
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1975,8 +2101,8 @@
     pipeline for Ruby maintainability analysis.
   categories:
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
     - Ruby
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1996,9 +2122,8 @@
     security, and automation. They give The Lupaxa Project one shared way to run those jobs instead of
     copying the same workflow into every repository.
   categories:
-    - GitHub Actions
-    - CI/CD
-    - Automation
+    - Reusable Workflows
+    - Workflow
   organisation: The Lupaxa Project
   logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
   logo_alt: The Lupaxa Project
@@ -2017,8 +2142,8 @@
     pipeline for Ruby style and static analysis.
   categories:
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
     - Ruby
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -2038,9 +2163,10 @@
     pipeline for fast Python linting.
   categories:
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
     - Python
+    - Ruff
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2059,9 +2185,15 @@
     private store so it can be listed and restored. Permanent deletion happens only through an explicit
     delete, empty, purge, or permanent action.
   categories:
-    - Workstation
-    - macOS
+    - Bash
+    - CLI
     - Linux
+    - macOS
+    - Recovery
+    - Safe Rm
+    - Shell
+    - Trash
+    - Workstation
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -2069,6 +2201,25 @@
   banner: released
   version: "0.1.1"
   released_date: "2026-10-07T09:25:32"
+
+- id: scheduler-library
+  published: true
+  name: Scheduler Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T18:05:49"
+  description: >-
+    A C library for running tasks at a chosen time. A task waits until that time, then runs.
+  categories:
+    - C
+    - Scheduler
+    - Tasks
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libscheduler
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T18:17:11"
 
 - id: setup-git-hooks
   published: true
@@ -2081,8 +2232,8 @@
   categories:
     - Git
     - Git Hooks
-    - Automation
-    - YAML
+    - Python
+    - Setup Git Hooks
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -2090,25 +2241,6 @@
   banner: released
   version: "0.1.7"
   released_date: "2026-11-11T09:34:03"
-
-- id: slackit
-  published: true
-  name: Slackit
-  icon: material-source-repository
-  publish_date: "2026-09-22T11:17:44"
-  description: >-
-    Send Slack messages through an incoming webhook. It works as a library or as a command, and a
-    successful post is Slack answering with HTTP 200.
-  categories:
-    - Notifications
-    - Slack
-  organisation: Notifications Toolbox
-  logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
-  logo_alt: Notifications Toolbox
-  repository: https://github.com/lupaxa-notifications-toolbox/slackit
-  banner: released
-  version: "0.1.6"
-  released_date: "2026-10-07T09:22:16"
 
 - id: shellcheck
   published: true
@@ -2119,9 +2251,10 @@
     Analyse shell scripts with [ShellCheck](https://github.com/koalaman/shellcheck). A reusable CICD
     Toolbox pipeline for Bash/shell portability and bug finding.
   categories:
+    - Bash
     - CI/CD
+    - GitHub Actions
     - Linting
-    - Workflow
     - Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -2130,6 +2263,28 @@
   banner: released
   version: "0.1.6"
   released_date: "2026-10-07T09:18:08"
+
+- id: slackit
+  published: true
+  name: Slackit
+  icon: material-source-repository
+  publish_date: "2026-09-22T11:17:44"
+  description: >-
+    Send Slack messages through an incoming webhook. It works as a library or as a command, and a
+    successful post is Slack answering with HTTP 200.
+  categories:
+    - CLI
+    - Notifications
+    - Python
+    - Slack
+    - Webhook
+  organisation: Notifications Toolbox
+  logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
+  logo_alt: Notifications Toolbox
+  repository: https://github.com/lupaxa-notifications-toolbox/slackit
+  banner: released
+  version: "0.1.6"
+  released_date: "2026-10-07T09:22:16"
 
 - id: smtp-tester
   published: true
@@ -2140,8 +2295,12 @@
     Send a test email through an SMTP server to check that delivery works. A Python command-line tool
     and library for confirming that a mail server accepts the message.
   categories:
+    - CLI
     - Email
-    - Reliability
+    - Python
+    - SES
+    - SMTP
+    - SRE
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2160,9 +2319,22 @@
     by language or tag, open a snippet in place, and copy highlighted examples with caveats when they
     matter.
   categories:
-    - Developer Tools
+    - Bash
+    - C
+    - Code Snippets
     - Documentation
-    - Productivity
+    - Git
+    - JavaScript
+    - MkDocs
+    - Node.js
+    - Perl
+    - PHP
+    - Python
+    - Ruby
+    - Rust
+    - Shell
+    - Snippets
+    - SQL
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2174,6 +2346,26 @@
   version: "0.2.21"
   released_date: "2026-11-07T13:55:36"
 
+- id: socket-library
+  published: true
+  name: Socket Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T18:40:59"
+  description: >-
+    A C library for IPv4 and IPv6 TCP and UDP sockets. A program can open a connection or a datagram socket on either address family.
+  categories:
+    - C
+    - IPv6
+    - Socket
+    - TCP
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libsocket
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T18:51:05"
+
 - id: spider-frameworks
   published: true
   name: Spider Frameworks
@@ -2183,9 +2375,13 @@
     A collection of web spider templates you can copy as a starting point. They are not an installable
     crawler library. The templates cover an httpx thread pool, asyncio, Selenium, and threaded Selenium.
   categories:
-    - Web Scraping
-    - Data Extraction
+    - Crawler
+    - HTTPX
+    - Python
+    - Selenium
+    - Spider
     - Templates
+    - Web Scraping
   organisation: Spider Toolbox
   logo: assets/images/organisations/organisation-spider-toolbox-logo.png
   logo_alt: Spider Toolbox
@@ -2203,7 +2399,14 @@
     Check when a TLS certificate on port 443 expires. A Python command-line tool and library.
   categories:
     - Certificates
-    - Reliability
+    - CLI
+    - Expiry
+    - Networking
+    - Python
+    - SRE
+    - SSL
+    - SSL Expiry
+    - TLS
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2211,6 +2414,26 @@
   banner: released
   version: "0.1.5"
   released_date: "2026-10-07T09:24:00"
+
+- id: stack-buffer-library
+  published: true
+  name: Stack Buffer Library
+  icon: material-source-repository
+  publish_date: "2026-11-06T16:29:26"
+  description: >-
+    A C library for a stack buffer used as temporary string storage. The buffer lives on the stack,
+    so a short string does not need a heap allocation.
+  categories:
+    - C
+    - Stackbuf
+    - String Buffer
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/libstackbuf
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-06T16:33:42"
 
 - id: sysinfo
   published: true
@@ -2222,8 +2445,9 @@
     YAML, XML, or HTML. Collectors cover CPU, memory, disks, network, processes, and more, with profiles
     for a short report, CI, and support.
   categories:
+    - CLI
+    - Python
     - System Information
-    - Developer Tools
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2241,8 +2465,12 @@
     Connect to a TCP host and port again and again, and report how long each connection takes. A Python
     command-line tool and library.
   categories:
+    - CLI
     - Networking
-    - Reliability
+    - Ping
+    - Python
+    - SRE
+    - TCP
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2260,8 +2488,9 @@
     A TCP Wrapper filter that allows or denies a connection by autonomous system number. The network
     that owns the remote address decides whether the connection is allowed.
   categories:
+    - Python
     - Security
-    - Networking
+    - TCP Wrapper
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2279,8 +2508,9 @@
     A TCP Wrapper filter that allows or denies a connection by country. The country of the remote
     address decides whether the connection is allowed.
   categories:
+    - Python
     - Security
-    - Networking
+    - TCP Wrapper
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2298,8 +2528,9 @@
     Run several TCP Wrapper filter scripts in order and stop at the first deny. The first script that
     refuses the connection decides the result.
   categories:
+    - Bash
     - Security
-    - Networking
+    - TCP Wrapper
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2317,8 +2548,9 @@
     A starting point for a TCP Wrapper filter that the multiplexer can run. You fill in the filter, and
     the multiplexer runs it with the other scripts.
   categories:
+    - Bash
     - Security
-    - Networking
+    - TCP Wrapper
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2336,8 +2568,11 @@
     Send Microsoft Teams messages through an incoming webhook. A Python command-line tool and library,
     with named profiles so each destination stays separate.
   categories:
+    - CLI
     - Notifications
+    - Python
     - Teams
+    - Webhook
   organisation: Notifications Toolbox
   logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
   logo_alt: Notifications Toolbox
@@ -2355,8 +2590,11 @@
     Analyse prose for readability and source code for rough size and complexity metrics.
     The prose check reports how easy the writing is to read, and the code check estimates size and complexity.
   categories:
-    - Developer Tools
-    - Text
+    - CLI
+    - Code Metrics
+    - Python
+    - Readability
+    - Text Analysis
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2374,9 +2612,12 @@
     Measure how long an HTTP server takes to send the first byte, and keep measuring until you stop it.
     A Python command-line tool and library.
   categories:
-    - Networking
-    - Reliability
+    - CLI
     - HTTP
+    - Networking
+    - Python
+    - SRE
+    - TTFB
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2394,8 +2635,11 @@
     Store API tokens in named profiles and print them as shell exports. A profile can keep tokens as
     plain JSON, or encrypt them with gpg or OpenSSL.
   categories:
+    - CLI
     - Encryption
-    - Security
+    - Python
+    - Token Manager
+    - Tokens
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2404,28 +2648,6 @@
   banner: released
   version: "0.2.1"
   released_date: "2026-10-07T09:24:19"
-
-- id: toolbox.thelupaxaproject.org
-  published: true
-  name: Web Toolbox
-  icon: material-source-repository
-  publish_date: "2026-10-05T20:54:06"
-  description: >-
-    Browser tools for encoding, cryptography, DNS, data, development, and GitHub. Each tool runs in
-    the page you have open, and the text you paste stays on this machine.
-  categories:
-    - Developer Tools
-    - Security
-    - GitHub
-  organisation: The Lupaxa Project
-  logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
-  logo_alt: The Lupaxa Project
-  repository: https://github.com/the-lupaxa-project/toolbox.thelupaxaproject.org
-  documentation: https://toolbox.thelupaxaproject.org/
-  documentation_label: Visit Site
-  website: true
-  banner: stable
-  released_date: "2026-10-26T09:31:26"
 
 - id: trapper
   published: true
@@ -2436,9 +2658,11 @@
     A Bash plugin that reports the file, line, command, a short snippet, and the stack when a script
     fails. It is sourced into a script rather than run on its own.
   categories:
-    - Developer Tools
-    - Debugging
     - Bash
+    - Debugging
+    - Error Handling
+    - Shell
+    - Trap
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2456,10 +2680,10 @@
     A Bash helper that splits a URL into protocol, user, password, host, port, path, query, and
     fragment. It is sourced into a script rather than run on its own.
   categories:
-    - Developer Tools
-    - URL
-    - Parsing
     - Bash
+    - Shell
+    - URL
+    - URL Parser
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2467,25 +2691,6 @@
   banner: released
   version: "0.1.1"
   released_date: "2026-10-07T09:24:39"
-
-- id: uuid-generator
-  published: true
-  name: UUID Generator
-  icon: material-source-repository
-  publish_date: "2026-10-08T08:03:56"
-  description: >-
-    Generate UUID versions 1, 3, 4, 5, 6, 7, and 8, with formatting for the identifier. A slim
-    command-line tool.
-  categories:
-    - Developer Tools
-    - CLI
-  organisation: Developers Toolbox
-  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
-  logo_alt: Developers Toolbox
-  repository: https://github.com/lupaxa-developers-toolbox/uuid-generator
-  banner: released
-  version: "0.1.0"
-  released_date: "2026-10-08T08:39:06"
 
 - id: user-notifier
   published: true
@@ -2496,9 +2701,14 @@
     PAM hooks that notify on login and privilege escalation through drop-in backends. A dispatcher sends
     each event to those hooks. Slack is the first backend.
   categories:
-    - Security
-    - PAM
+    - Audit
+    - Bash
+    - Linux
     - Notifications
+    - PAM
+    - Python
+    - Security
+    - Slack
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2506,6 +2716,27 @@
   banner: released
   version: "0.1.5"
   released_date: "2026-10-07T09:27:34"
+
+- id: uuid-generator
+  published: true
+  name: UUID Generator
+  icon: material-source-repository
+  publish_date: "2026-10-08T08:03:56"
+  description: >-
+    Generate UUID versions 1, 3, 4, 5, 6, 7, and 8, with formatting for the identifier. A slim
+    command-line tool.
+  categories:
+    - CLI
+    - Python
+    - UUID
+    - UUID Generator
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/uuid-generator
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-10-08T08:39:06"
 
 - id: validate-citations-file
   published: true
@@ -2517,9 +2748,9 @@
     CICD Toolbox pipeline for citation metadata quality checks.
   categories:
     - CI/CD
-    - Metadata
+    - Citation CFF
+    - GitHub Actions
     - Linting
-    - Workflow
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2538,9 +2769,14 @@
     conversation that stops before any message is sent. A Python command-line tool and library for
     authorised checks.
   categories:
-    - Security
+    - CLI
+    - DNS
     - Email
-    - Reconnaissance
+    - Email Security
+    - Email Verification
+    - Python
+    - Security
+    - SMTP
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2548,6 +2784,30 @@
   banner: released
   version: "0.1.1"
   released_date: "2026-10-07T09:27:34"
+
+- id: web-toolbox
+  published: true
+  name: Web Toolbox
+  icon: material-source-repository
+  publish_date: "2026-10-05T20:54:06"
+  description: >-
+    Browser tools for encoding, cryptography, DNS, data, development, and GitHub. Each tool runs in
+    the page you have open, and the text you paste stays on this machine.
+  categories:
+    - Browser Tools
+    - Cryptography
+    - DNS
+    - Encoding
+    - Toolbox
+  organisation: The Lupaxa Project
+  logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
+  logo_alt: The Lupaxa Project
+  repository: https://github.com/the-lupaxa-project/toolbox.thelupaxaproject.org
+  documentation: https://toolbox.thelupaxaproject.org/
+  documentation_label: Visit Site
+  website: true
+  banner: stable
+  released_date: "2026-10-26T09:31:26"
 
 - id: yaml-lint
   published: true
@@ -2559,9 +2819,9 @@
     pipeline for YAML syntax and style validation.
   categories:
     - CI/CD
-    - YAML
+    - GitHub Actions
     - Linting
-    - Workflow
+    - YAML
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2579,9 +2839,12 @@
     Test whether a domain's nameservers allow a DNS zone transfer, and show the zone contents when they
     do. A Python command-line tool and library for authorised DNS security checks.
   categories:
-    - Security
+    - AXFR
+    - CLI
     - DNS
-    - Reconnaissance
+    - Python
+    - Security
+    - Zone Transfer
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox

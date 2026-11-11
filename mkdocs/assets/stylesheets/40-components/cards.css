@@ -79,18 +79,12 @@
 .md-typeset .grid.cards > ul > li > p:first-child svg,
 .md-typeset .grid.cards > li > p:first-child .twemoji,
 .md-typeset .grid.cards > li > p:first-child .lg,
-.md-typeset .grid.cards > li > p:first-child svg,
-.md-typeset .grid.cards > ul > li > h3:first-child .twemoji,
-.md-typeset .grid.cards > ul > li > h3:first-child svg,
-.md-typeset .grid.cards > li > h3:first-child .twemoji,
-.md-typeset .grid.cards > li > h3:first-child svg {
+.md-typeset .grid.cards > li > p:first-child svg {
   color: var(--lupaxa-light-blue);
 }
 
 .md-typeset .grid.cards > ul > li > p:first-child svg,
-.md-typeset .grid.cards > li > p:first-child svg,
-.md-typeset .grid.cards > ul > li > h3:first-child svg,
-.md-typeset .grid.cards > li > h3:first-child svg {
+.md-typeset .grid.cards > li > p:first-child svg {
   fill: currentcolor;
 }
 

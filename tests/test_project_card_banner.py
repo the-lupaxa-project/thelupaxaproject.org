@@ -302,7 +302,7 @@ def test_site_cards_use_visit_site_label():
         "homebrew-tap",
         "opengraphtester.com",
         "snippets",
-        "toolbox.thelupaxaproject.org",
+        "web-toolbox",
     ):
         assert by_id[project_id]["documentation_label"] == "Visit Site"
         assert by_id[project_id]["website"] is True
@@ -347,7 +347,7 @@ def test_project_card_title_is_searchable_heading(tmp_path, monkeypatch):
 
     markup = catalogue_grid("project", "project")
 
-    assert "### :material-source-repository: Synthetic Project" in markup
+    assert "### Synthetic Project" in markup
     assert "{ #synthetic-project .no_toc translate=no }" in markup
 
 

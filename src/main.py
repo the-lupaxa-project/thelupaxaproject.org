@@ -136,7 +136,7 @@ def _organisation_logo_title(name: str) -> str:
 
 def catalogue_card_heading(item: dict) -> str:
     """Card title as a heading so site search can deep-link to the card."""
-    return f"-   ### :{item['icon']}: {item['name']} {{ #{item['id']} .no_toc translate=no }}"
+    return f"-   ### {item['name']} {{ #{item['id']} .no_toc translate=no }}"
 
 
 def _action_link(modifier: str, href: str, label: str, icon: str) -> str:

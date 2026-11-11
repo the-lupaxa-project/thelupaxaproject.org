@@ -915,6 +915,7 @@
         filters,
         activeSort,
       );
+      scheduleCategoryLayout();
     };
 
     /**
@@ -1326,6 +1327,205 @@
       });
   }
 
+  const CATEGORY_ROW_SELECTOR = [
+    ".catalogue-grid > ul > li > p:has(> .catalogue-category)",
+    ".catalogue-grid > li > p:has(> .catalogue-category)",
+  ].join(", ");
+
+  let categoryLayoutFrame = 0;
+  let categoryRowObserver = null;
+  const categoryRowWidths = new WeakMap();
+
+  /**
+   * Coalesce category-row measurements onto the next frame.
+   */
+  function scheduleCategoryLayout() {
+    if (categoryLayoutFrame) {
+      return;
+    }
+
+    categoryLayoutFrame = requestAnimationFrame(() => {
+      categoryLayoutFrame = 0;
+      layoutCategoryRows();
+    });
+  }
+
+  /**
+   * @param {HTMLElement} row
+   * @returns {HTMLElement[]}
+   */
+  function categoryPills(row) {
+    return Array.from(
+      row.querySelectorAll(":scope > .catalogue-category"),
+    );
+  }
+
+  /**
+   * @param {HTMLElement} row
+   * @returns {HTMLButtonElement}
+   */
+  function ensureCategoryMore(row) {
+    const existing = row.querySelector(
+      ":scope > .catalogue-category-more",
+    );
+
+    if (existing instanceof HTMLButtonElement) {
+      return existing;
+    }
+
+    const more = document.createElement("button");
+
+    more.type = "button";
+    more.className = "catalogue-category-more";
+    more.hidden = true;
+    more.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      row.classList.toggle("is-expanded");
+      layoutCategoryRow(row);
+    });
+    row.append(more);
+
+    return more;
+  }
+
+  /**
+   * True when every visible pill and the toggle share one line.
+   *
+   * @param {HTMLElement[]} pills
+   * @param {HTMLElement} more
+   * @returns {boolean}
+   */
+  function categoryRowIsOneLine(pills, more) {
+    const visible = pills.filter((pill) => !pill.hidden);
+    const anchor = visible[0] || more;
+    const top = anchor.offsetTop;
+    const onLine = (element) => element.offsetTop <= top + 1;
+
+    return visible.every(onLine) && (more.hidden || onLine(more));
+  }
+
+  /**
+   * Keep one line of pills, with a count for the ones that do not fit.
+   *
+   * The line's offset moves when pills wrap and then collapse, so each
+   * check reads the current first pill instead of a saved position.
+   *
+   * @param {HTMLElement} row
+   */
+  function layoutCategoryRow(row) {
+    const pills = categoryPills(row);
+
+    if (!pills.length || row.getClientRects().length === 0) {
+      return;
+    }
+
+    const more = ensureCategoryMore(row);
+    const show = (count, toggle) => {
+      pills.forEach((pill, index) => {
+        pill.hidden = index >= count;
+      });
+      more.hidden = !toggle;
+    };
+
+    if (row.classList.contains("is-expanded")) {
+      show(pills.length, false);
+
+      if (categoryRowIsOneLine(pills, more)) {
+        row.classList.remove("is-expanded");
+        more.hidden = true;
+        more.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      show(pills.length, true);
+      more.textContent = "Less";
+      more.setAttribute("aria-expanded", "true");
+      more.setAttribute("aria-label", "Show fewer categories");
+      return;
+    }
+
+    show(pills.length, false);
+
+    if (categoryRowIsOneLine(pills, more)) {
+      more.setAttribute("aria-expanded", "false");
+      return;
+    }
+
+    let count = pills.length;
+
+    while (count > 1) {
+      count -= 1;
+      show(count, true);
+      more.textContent = `+${pills.length - count}`;
+
+      if (categoryRowIsOneLine(pills, more)) {
+        break;
+      }
+    }
+
+    const hiddenCount = pills.length - count;
+
+    more.hidden = false;
+    more.textContent = `+${hiddenCount}`;
+    more.setAttribute("aria-expanded", "false");
+    more.setAttribute(
+      "aria-label",
+      `Show ${hiddenCount} more categories`,
+    );
+  }
+
+  /**
+   * Measure every visible category row.
+   */
+  function layoutCategoryRows() {
+    document
+      .querySelectorAll(CATEGORY_ROW_SELECTOR)
+      .forEach((row) => {
+        if (row instanceof HTMLElement) {
+          layoutCategoryRow(row);
+        }
+      });
+  }
+
+  /**
+   * Remeasure when a card's width changes. Height changes from
+   * collapsing a row do not count.
+   */
+  function watchCategoryRows() {
+    if (typeof ResizeObserver === "undefined") {
+      return;
+    }
+
+    if (!categoryRowObserver) {
+      categoryRowObserver = new ResizeObserver((entries) => {
+        const widthChanged = entries.some((entry) => {
+          const width = Math.round(entry.contentRect.width);
+          const previous = categoryRowWidths.get(entry.target);
+
+          if (previous === width) {
+            return false;
+          }
+
+          categoryRowWidths.set(entry.target, width);
+          return true;
+        });
+
+        if (widthChanged) {
+          scheduleCategoryLayout();
+        }
+      });
+    }
+
+    categoryRowObserver.disconnect();
+    document
+      .querySelectorAll(CATEGORY_ROW_SELECTOR)
+      .forEach((row) => {
+        categoryRowWidths.delete(row);
+        categoryRowObserver.observe(row);
+      });
+  }
+
   /**
    * Initialise every catalogue present on the current page.
    */
@@ -1334,6 +1534,14 @@
     catalogueConfigurations.forEach(initialiseCatalogue);
     linkStandaloneCategoryPills();
     linkStandaloneStatusBanners();
+    watchCategoryRows();
+    scheduleCategoryLayout();
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        scheduleCategoryLayout();
+      });
+    }
   }
 
   onPageRender(initialiseCatalogues);
