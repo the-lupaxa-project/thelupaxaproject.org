@@ -2051,8 +2051,8 @@
   logo_alt: Git Hooks Toolbox
   repository: https://github.com/lupaxa-git-hooks-toolbox/setup-git-hooks
   banner: released
-  version: "0.1.6"
-  released_date: "2026-10-07T09:19:40"
+  version: "0.1.7"
+  released_date: "2026-11-11T09:34:03"
 
 - id: slackit
   published: true
