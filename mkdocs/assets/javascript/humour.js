@@ -172,6 +172,29 @@
     activeLightbox = null;
   };
 
+  const CATEGORY_PARAM = "category";
+
+  const categoryFromUrl = () =>
+    new URLSearchParams(window.location.search).get(CATEGORY_PARAM);
+
+  const syncCategoryUrl = (selected) => {
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+
+    if (!selected || selected === "all") {
+      params.delete(CATEGORY_PARAM);
+    } else {
+      params.set(CATEGORY_PARAM, selected);
+    }
+
+    const search = params.toString();
+    const next = `${url.pathname}${search ? `?${search}` : ""}${url.hash}`;
+    const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (next === current) return;
+
+    window.history.replaceState(window.history.state, "", next);
+  };
+
   const initHumourWall = () => {
     cleanupActiveLightbox();
     const wallApi = window.LupaxaMasonryWall;
@@ -183,6 +206,8 @@
       filterSelector: ".humour-filter",
       cardSelector: ".humour-card",
       matchesFilter,
+      initialFilter: categoryFromUrl(),
+      onFilter: syncCategoryUrl,
     });
     if (!result) return;
 

@@ -22,6 +22,41 @@
   const cardTags = (card) =>
     (card.getAttribute("data-tags") || "").split("|").filter(Boolean);
 
+  const normaliseFilter = (value) =>
+    String(value ?? "")
+      .toLocaleLowerCase("en-GB")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  /**
+   * Pick the filter a shared URL asked for.
+   * A known button wins so the address uses its exact value.
+   * An unknown value stays selected and matches nothing.
+   *
+   * @param {NodeListOf<Element> | Element[]} filters
+   * @param {string | null} initialFilter
+   * @returns {string}
+   */
+  const resolveSelected = (filters, initialFilter) => {
+    if (initialFilter === null || initialFilter === undefined) return "all";
+    const wanted = normaliseFilter(initialFilter);
+    if (!wanted || wanted === "all") return "all";
+    const match = Array.from(filters).find(
+      (button) => normaliseFilter(button.getAttribute("data-filter")) === wanted,
+    );
+    return match ? match.getAttribute("data-filter") : wanted;
+  };
+
+  const markActiveFilter = (filters, selected) => {
+    const wanted = normaliseFilter(selected);
+    filters.forEach((filter) => {
+      filter.classList.toggle(
+        "is-active",
+        normaliseFilter(filter.getAttribute("data-filter")) === wanted,
+      );
+    });
+  };
+
   const defaultMatchesFilter = (card, selected) =>
     selected === "all" || cardTags(card).includes(selected);
 
@@ -149,6 +184,8 @@
    * @param {string} options.filterSelector
    * @param {string} options.cardSelector
    * @param {(card: Element, selected: string) => boolean} [options.matchesFilter]
+   * @param {string | null} [options.initialFilter]
+   * @param {(selected: string) => void} [options.onFilter]
    * @returns {{ masonry: Element, wall: Element | null, layout: () => void } | null}
    */
   const init = (options) => {
@@ -158,6 +195,8 @@
       filterSelector,
       cardSelector,
       matchesFilter = defaultMatchesFilter,
+      initialFilter = null,
+      onFilter,
     } = options;
 
     const masonry = document.querySelector(masonrySelector);
@@ -179,21 +218,23 @@
     }
 
     const activeFilters = document.querySelectorAll(filterSelector);
-    let selected = "all";
+    let selected = resolveSelected(activeFilters, initialFilter);
 
     const layout = () => layoutMasonry(masonry, cardSelector);
     const render = (nextSelected) =>
       renderMasonry(masonry, cards, nextSelected, matchesFilter, cardSelector);
+    const applyFilter = (nextSelected) => {
+      selected = nextSelected || "all";
+      markActiveFilter(activeFilters, selected);
+      render(selected);
+      if (typeof onFilter === "function") onFilter(selected);
+    };
 
-    render(selected);
+    applyFilter(selected);
 
     activeFilters.forEach((button) => {
       button.addEventListener("click", () => {
-        selected = button.getAttribute("data-filter");
-        activeFilters.forEach((filter) =>
-          filter.classList.toggle("is-active", filter === button)
-        );
-        render(selected);
+        applyFilter(button.getAttribute("data-filter"));
       });
     });
 
