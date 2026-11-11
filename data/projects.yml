@@ -143,6 +143,24 @@
   version: "0.1.1"
   released_date: "2026-10-07T09:12:38"
 
+- id: block-default-branch-commit
+  published: true
+  name: Block Default Branch Commit
+  icon: material-source-repository
+  publish_date: "2026-11-11T09:06:42"
+  description: >-
+    Block a commit on the default Git branch. A Git hook that stops that commit instead of asking.
+  categories:
+    - Git
+    - Git Hooks
+  organisation: Git Hooks Toolbox
+  logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
+  logo_alt: Git Hooks Toolbox
+  repository: https://github.com/lupaxa-git-hooks-toolbox/block-default-branch-commit
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-11T10:04:53"
+
 - id: brew-manager
   published: true
   name: Brew Manager
