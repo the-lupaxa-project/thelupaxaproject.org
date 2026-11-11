@@ -2806,8 +2806,9 @@
   documentation: https://toolbox.thelupaxaproject.org/
   documentation_label: Visit Site
   website: true
-  banner: stable
-  released_date: "2026-10-26T09:31:26"
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-11T11:24:34"
 
 - id: yaml-lint
   published: true

@@ -92,7 +92,7 @@
     display: none;
   }
 
-  /* Drop the corner sash. Keep its label and version as a line under the title. */
+  /* Plain status line under the title. No colour plate on paper. */
   .md-typeset .catalogue-grid > ul > li > *,
   .md-typeset .catalogue-grid > li > * {
     order: 2;

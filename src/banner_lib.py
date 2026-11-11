@@ -200,7 +200,6 @@ def banner_markup_from_resolved(
 ) -> str:
     safe_label = html.escape(label, quote=True)
     safe_key = html.escape(filter_key, quote=True)
-    length_class = " catalogue-banner--short" if len(label) <= 6 else ""
     version_class = ""
     version_html = ""
     aria_label = f"Status: {safe_label}"
@@ -213,7 +212,7 @@ def banner_markup_from_resolved(
         aria_label = f"Status: {safe_label} {safe_version}"
     return (
         f'    <span class="catalogue-banner catalogue-banner--{tone}'
-        f'{length_class}{version_class}" '
+        f'{version_class}" '
         f'data-banner-status="{safe_key}" '
         f'data-banner-label="{safe_label}" '
         f'aria-label="{aria_label}" '

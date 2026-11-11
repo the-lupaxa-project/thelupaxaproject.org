@@ -148,7 +148,6 @@ def test_project_card_explicit_stable_omits_version(tmp_path, monkeypatch):
     assert "v0.1.0" not in markup
     assert 'data-banner-status="stable"' in markup
     assert "catalogue-banner--blue" in markup
-    assert "catalogue-banner--short" in markup
 
 
 def test_project_card_omits_version_and_stable_when_unversioned(tmp_path, monkeypatch):
