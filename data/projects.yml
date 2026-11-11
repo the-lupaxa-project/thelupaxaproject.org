@@ -2415,6 +2415,26 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:24:00"
 
+- id: ssl-info
+  published: true
+  name: SSL Info
+  icon: material-source-repository
+  publish_date: "2026-11-11T12:33:13"
+  description: >-
+    Show the TLS leaf certificate and the handshake details for port 443. The report covers the
+    certificate the server presents on that port.
+  categories:
+    - Certificates
+    - Networking
+    - TLS
+  organisation: SRE Toolbox
+  logo: assets/images/organisations/organisation-sre-toolbox-logo.png
+  logo_alt: SRE Toolbox
+  repository: https://github.com/lupaxa-sre-toolbox/ssl-info
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-11T14:05:53"
+
 - id: stack-buffer-library
   published: true
   name: Stack Buffer Library
