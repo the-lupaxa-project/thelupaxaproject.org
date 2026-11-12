@@ -37,6 +37,7 @@
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: normal;
+  text-align: center;
   scroll-margin-top: calc(var(--lupaxa-header-height) + 0.75rem);
 }
 

@@ -99,7 +99,7 @@
 
 .md-typeset .grid.cards > ul > li > p:first-child,
 .md-typeset .grid.cards > li > p:first-child {
-  text-align: left;
+  text-align: center;
   hyphens: manual;
   -webkit-hyphens: manual;
 }

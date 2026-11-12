@@ -106,8 +106,8 @@
     text-align: center;
   }
 
-  /* Article titles are a paragraph, and the screen rule left-aligns those.
-     Keep them one centered line, like organisation and project headings. */
+  /* Article titles are a paragraph. Keep them one centered line, like the
+     organisation and project headings. */
   .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > p:first-child,
   .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > li > p:first-child,
   .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > p:first-child strong,
