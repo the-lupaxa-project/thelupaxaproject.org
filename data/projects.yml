@@ -1149,7 +1149,7 @@
   documentation: https://homebrew-tap.thelupaxaproject.org/
   documentation_label: Visit Site
   website: true
-  banner: stable
+  banner: updated
   released_date: "2026-11-10T14:00:53"
 
 - id: image-converter

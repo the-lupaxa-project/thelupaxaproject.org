@@ -22,7 +22,6 @@ if str(_SRC) not in sys.path:
 
 from banner_lib import (
     DEFAULT_BANNER_EXPIRY_DAYS,
-    DEFAULT_PROJECT_VERSION,
     POLICY_BANNER_PRESETS,
     PROJECT_BANNER_PRESETS,
     format_publish_date_attr,
@@ -401,27 +400,34 @@ def define_env(env):
 {action}
 """.strip()
 
-    def project_card(item: dict, *, expiry_days: int = DEFAULT_BANNER_EXPIRY_DAYS) -> str:
+    def project_card(item: dict) -> str:
         categories = _categories_markup(item["categories"])
         description = _indent(item["description"])
         raw_banner = item.get("banner")
-        if (
-            raw_banner is None
-            or raw_banner is False
-            or (isinstance(raw_banner, str) and not raw_banner.strip())
-        ):
-            raw_banner = "in-development"
         raw_version = item.get("version")
         has_version = normalise_project_version(raw_version) is not None
+        # A website with no tagged release still shows when it last changed.
+        if item.get("website") is True and not has_version:
+            raw_banner = "updated"
+        # Older cards used Stable for a shipped line. A version is Released.
+        elif isinstance(raw_banner, str) and raw_banner.strip() == "stable":
+            raw_banner = "released" if has_version else False
+        if raw_banner is None or (isinstance(raw_banner, str) and not raw_banner.strip()):
+            raw_banner = "in-development"
+        is_released = raw_banner == "released"
+        is_updated = raw_banner == "updated"
+        event_date = None
+        if is_released:
+            event_date = parse_iso_date(item.get("released_date"))
+        elif is_updated:
+            event_date = parse_iso_date(item.get("released_date") or item.get("publish_date"))
         banner = _shared_banner_markup(
             raw_banner,
             presets=PROJECT_BANNER_PRESETS,
-            event_date=parse_iso_date(item.get("released_date")),
-            expiry_days=expiry_days,
-            time_limited_statuses=frozenset({"released"}),
-            version=raw_version,
-            default_version=DEFAULT_PROJECT_VERSION if has_version else None,
-            stable_after_expiry=has_version,
+            event_date=event_date,
+            time_limited_statuses=frozenset(),
+            version=raw_version if is_released and has_version else None,
+            center_date=is_updated,
         )
         banner_block = f"{banner}\n\n" if banner else ""
         actions = [
@@ -547,13 +553,13 @@ def define_env(env):
             )
         elif kind == "project":
             cards = "\n\n".join(
-                project_card(item, expiry_days=banner_expiry_days)
+                project_card(item)
                 for item in sort_catalogue_by_name(projects)
                 if not item.get("website")
             )
         elif kind == "website":
             cards = "\n\n".join(
-                project_card(item, expiry_days=banner_expiry_days)
+                project_card(item)
                 for item in sort_catalogue_by_name(projects)
                 if item.get("website") is True
             )

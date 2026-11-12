@@ -34,11 +34,12 @@ python -m mkdocs serve
 
 Open the local URL MkDocs prints (typically port `8000` on `127.0.0.1`).
 
-`mkdocs.yml` watches `data/`, `hooks/`, `src/`, and
-`mkdocs/assets/stylesheets/`, so catalogue YAML, macro, and CSS edits
-reload automatically while `mkdocs serve` is running. Add new build
-scripts to `watch` when you create them — MkDocs does not support globs
-there.
+`mkdocs serve` watches `mkdocs/` (pages, CSS, JavaScript, and images) plus
+`main.py`, `data/`, `hooks/`, `src/`, and `overrides/`. A rebuild reloads the
+catalogue Python, and the dev server puts the asset file time on CSS and
+JavaScript URLs so the browser fetches the new file. Add new build scripts
+to `watch` in `mkdocs.yml` when you create them. MkDocs does not support
+globs there. Restart the server after editing a file in `hooks/`.
 
 Strict production build:
 
@@ -70,24 +71,27 @@ Catalogue entries live in YAML under `data/`:
 | `data/policies.yml` | Policies |
 
 `publish_date` and `released_date` accept either a calendar day (`YYYY-MM-DD`) or a
-UTC timestamp (`YYYY-MM-DDTHH:MM:SS`). Banner expiry still uses the calendar day.
+UTC timestamp (`YYYY-MM-DDTHH:MM:SS`). Article and policy banner expiry still
+uses the calendar day.
 Catalogue “newest” sorts use `released_date` when it is set, otherwise
 `publish_date`, including the time so same-day stamps stay in order.
 
 Quote `version` as a string (`"0.1.0"`) when the project has tagged releases.
-HEAD-only catalogues (no GitHub Release tags) omit `version` and use
-`banner: stable` so the sash is **Stable** with no SemVer. Set
-`released_date` from the latest commit on `master` (not a tag) so Newest
-sorts the card when the catalogue itself moves. That stamp does not change
-the Stable sash.
+`banner: released` shows **Version:** and the version on the left of the sash,
+and **Released:** with the release date on the right, on Projects and Websites.
+The sash is Lupaxa blue and stays up; it does not expire.
+In Development, In Testing, and In Review show the status words only, centred,
+with no version. New Article, New Policy, and Updated Policy use that same
+centred sash.
+A website with no tagged release omits `version` and sets `banner: updated`.
+The sash reads **Updated:** and the date, centred. Set `released_date` from
+the latest commit on `master` (not a tag) so that date, and Newest sort, follow
+the catalogue itself.
 If `banner` is omitted, the card is **In Development**.
 `documentation` is the docs or site URL. The link reads **Documentation** with
 a book icon unless `documentation_label` is set. Product sites use
 `documentation_label: Visit Site`, which also switches the icon to a globe.
 Set `website: true` to list that card on Websites instead of Projects.
-`banner: released` still expires 28 days after `released_date`. On versioned
-cards the Released sash is dark navy; after expiry the card keeps a lighter
-Lupaxa-blue **Stable** sash with the version on the projects catalogue.
 
 Catalogue pages (organisations, projects, websites, policies, articles) always render A–Z
 by name/title. YAML or filename order is never used. Newest is an explicit sort,
@@ -164,8 +168,8 @@ social_image: https://raw.githubusercontent.com/the-lupaxa-project/brand-assets/
 
 Push to `master` or the nightly schedule (about 02:18 UTC) triggers
 `.github/workflows/publish-mkdocs.yml`, which calls the org reusable MkDocs
-publisher. That rebuild picks up banner expiry (Released to Stable, policy
-New/Updated dropping) without a YAML edit. The workflow installs from
+publisher. That rebuild picks up banner expiry (article New, and policy
+New/Updated, dropping) without a YAML edit. The workflow installs from
 `requirements.txt` when the file is present.
 
 Pull requests run `.github/workflows/validate-mkdocs.yml`, which calls the org

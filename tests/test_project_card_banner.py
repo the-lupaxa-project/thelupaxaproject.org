@@ -80,8 +80,8 @@ def test_project_card_rejects_article_only_presets(tmp_path, monkeypatch):
 
 
 def test_project_card_shows_fresh_released_banner(tmp_path, monkeypatch):
-    fresh_date = (date.today() - timedelta(days=1)).isoformat()
-    projects = [_synthetic_project(banner="released", released_date=fresh_date)]
+    fresh = date.today() - timedelta(days=1)
+    projects = [_synthetic_project(banner="released", released_date=fresh.isoformat())]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
@@ -90,14 +90,17 @@ def test_project_card_shows_fresh_released_banner(tmp_path, monkeypatch):
     assert "Released" in markup
     assert "v0.1.0" not in markup
     assert "Stable" not in markup
+    assert f"{fresh.day} " in markup
+    assert 'data-banner-status="released"' in markup
+    assert "catalogue-banner--blue" in markup
 
 
-def test_project_card_shows_stable_version_when_released_expires(tmp_path, monkeypatch):
-    expired_date = (date.today() - timedelta(days=400)).isoformat()
+def test_project_card_keeps_released_version_and_date(tmp_path, monkeypatch):
+    released = date(2020, 1, 15)
     projects = [
         _synthetic_project(
             banner="released",
-            released_date=expired_date,
+            released_date=released.isoformat(),
             version="1.2.0",
         )
     ]
@@ -105,23 +108,26 @@ def test_project_card_shows_stable_version_when_released_expires(tmp_path, monke
 
     markup = catalogue_grid("project", "project")
 
-    assert "Released" not in markup
-    assert "Stable" in markup
+    assert "Released" in markup
+    assert "Stable" not in markup
     assert "v1.2.0" in markup
-    assert 'data-banner-status="stable"' in markup
+    assert "15 Jan 2020" in markup
+    assert 'data-banner-status="released"' in markup
     assert "catalogue-banner--blue" in markup
+    assert "catalogue-banner--dark-blue" not in markup
 
 
-def test_project_card_shows_stable_version_without_released_date(tmp_path, monkeypatch):
+def test_project_card_shows_released_version_without_date(tmp_path, monkeypatch):
     projects = [_synthetic_project(banner="released", version="0.3.1")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
 
-    assert "Released" not in markup
-    assert "Stable" in markup
+    assert "Version:" in markup
     assert "v0.3.1" in markup
-    assert 'data-banner-status="stable"' in markup
+    assert "Released:" not in markup
+    assert "Stable" not in markup
+    assert 'data-banner-status="released"' in markup
     assert "catalogue-banner--blue" in markup
 
 
@@ -137,34 +143,65 @@ def test_project_card_shows_non_time_limited_preset(tmp_path, monkeypatch):
     assert "catalogue-banner--red" in markup
 
 
-def test_project_card_explicit_stable_omits_version(tmp_path, monkeypatch):
+def test_project_card_explicit_stable_without_version_omits_sash(tmp_path, monkeypatch):
     projects = [_synthetic_project(banner="stable")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
 
-    assert "Stable" in markup
+    assert "catalogue-banner" not in markup
+    assert "Stable" not in markup
     assert "Released" not in markup
-    assert "v0.1.0" not in markup
-    assert 'data-banner-status="stable"' in markup
-    assert "catalogue-banner--blue" in markup
+    assert "In Development" not in markup
 
 
-def test_project_card_omits_version_and_stable_when_unversioned(tmp_path, monkeypatch):
-    expired_date = (date.today() - timedelta(days=400)).isoformat()
+def test_project_card_stable_with_version_renders_as_released(tmp_path, monkeypatch):
     projects = [
         _synthetic_project(
-            banner="released",
-            released_date=expired_date,
+            banner="stable",
+            version="0.4.0",
+            released_date="2026-03-02",
         )
     ]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
 
+    assert "Released" in markup
+    assert "Stable" not in markup
+    assert "v0.4.0" in markup
+    assert "2 Mar 2026" in markup
+    assert 'data-banner-status="released"' in markup
+
+
+def test_project_card_false_banner_omits_sash(tmp_path, monkeypatch):
+    projects = [_synthetic_project(banner=False, released_date="2026-11-10")]
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
+
+    markup = catalogue_grid("project", "project")
+
     assert "catalogue-banner" not in markup
+    assert "In Development" not in markup
+    assert "Released" not in markup
+
+
+def test_project_card_unversioned_released_keeps_status_and_date(tmp_path, monkeypatch):
+    projects = [
+        _synthetic_project(
+            banner="released",
+            released_date="2020-01-15",
+        )
+    ]
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
+
+    markup = catalogue_grid("project", "project")
+
+    assert "Released:" in markup
+    assert "15 Jan 2020" in markup
+    assert "Version:" not in markup
     assert "v0.1.0" not in markup
     assert "Stable" not in markup
+    assert 'data-banner-status="released"' in markup
 
 
 def test_project_card_released_keeps_status_and_shows_version(tmp_path, monkeypatch):
@@ -183,7 +220,8 @@ def test_project_card_released_keeps_status_and_shows_version(tmp_path, monkeypa
     assert "Released" in markup
     assert "v0.1.0" in markup
     assert 'data-banner-status="released"' in markup
-    assert "catalogue-banner--dark-blue" in markup
+    assert "catalogue-banner--blue" in markup
+    assert "catalogue-banner--dark-blue" not in markup
 
 
 def test_project_card_later_version_stays_released(tmp_path, monkeypatch):
@@ -202,19 +240,81 @@ def test_project_card_later_version_stays_released(tmp_path, monkeypatch):
     assert "Released" in markup
     assert "v1.2.0" in markup
     assert 'data-banner-status="released"' in markup
-    assert "catalogue-banner--dark-blue" in markup
+    assert "catalogue-banner--blue" in markup
 
 
-def test_project_card_in_testing_keeps_status_and_shows_version(tmp_path, monkeypatch):
+def test_project_card_in_testing_omits_version(tmp_path, monkeypatch):
     projects = [_synthetic_project(banner="in-testing", version="1.2.0")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
 
     assert "In Testing" in markup
-    assert "v1.2.0" in markup
+    assert "v1.2.0" not in markup
     assert 'data-banner-status="in-testing"' in markup
     assert "catalogue-banner--magenta" in markup
+
+
+def test_website_without_version_centers_updated_date(tmp_path, monkeypatch):
+    projects = [
+        _synthetic_project(
+            website=True,
+            banner=False,
+            released_date="2026-11-10T14:00:53",
+        )
+    ]
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
+
+    markup = catalogue_grid("website", "website")
+
+    assert "Updated:" in markup
+    assert "10 Nov 2026" in markup
+    assert "Version:" not in markup
+    assert "catalogue-banner--split" not in markup
+    assert 'data-banner-status="updated"' in markup
+    assert "catalogue-banner--blue" in markup
+
+
+def test_lifecycle_banners_stay_centred_status_words(tmp_path, monkeypatch):
+    projects = [
+        _synthetic_project(id="dev", name="Dev", banner="in-development"),
+        _synthetic_project(id="test", name="Test", banner="in-testing"),
+        _synthetic_project(id="review", name="Review", banner="in-review"),
+    ]
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
+
+    markup = catalogue_grid("project", "project")
+
+    assert "In Development" in markup
+    assert "In Testing" in markup
+    assert "In Review" in markup
+    assert "catalogue-banner--split" not in markup
+    assert "Version:" not in markup
+
+
+def test_website_card_uses_the_same_released_sash(tmp_path, monkeypatch):
+    projects = [
+        _synthetic_project(
+            website=True,
+            banner="released",
+            version="0.2.0",
+            released_date="2026-11-11T14:05:53",
+        )
+    ]
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
+
+    markup = catalogue_grid("website", "website")
+
+    assert "Released" in markup
+    assert "v0.2.0" in markup
+    assert "11 Nov 2026" in markup
+    assert "Stable" not in markup
+    assert "catalogue-banner--blue" in markup
+
+
+def test_catalogue_has_no_stable_banners():
+    projects = yaml.safe_load((ROOT / "data" / "projects.yml").read_text(encoding="utf-8"))
+    assert all(project.get("banner") != "stable" for project in projects)
 
 
 def test_catalogue_grid_projects_emit_in_name_order(tmp_path, monkeypatch):

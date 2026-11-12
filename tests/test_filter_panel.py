@@ -45,7 +45,7 @@ def test_filter_panel_status_options_project_lifecycle_only():
     assert "Closed Alpha" not in markup
     assert "Open Beta" not in markup
     assert "New Article" not in markup
-    assert ">Updated<" not in markup
+    assert "Updated Policy" not in markup
 
 
 def test_filter_panel_without_status_does_not_crash():
@@ -63,7 +63,7 @@ def test_filter_panel_without_status_does_not_crash():
     assert "Released" not in markup
 
 
-def test_filter_panel_status_options_project_includes_stable():
+def test_filter_panel_status_options_project_has_released_not_stable():
     filter_panel = _filter_panel()
 
     markup = filter_panel(
@@ -74,8 +74,12 @@ def test_filter_panel_status_options_project_includes_stable():
         include_status=True,
     )
 
-    assert markup.count('value="stable"') == 1
-    assert ">Stable<" in markup
+    assert markup.count('value="released"') == 1
+    assert ">Released<" in markup
+    assert markup.count('value="updated"') == 1
+    assert ">Updated<" in markup
+    assert 'value="stable"' not in markup
+    assert ">Stable<" not in markup
 
 
 def test_filter_panel_policy_page_omits_status_toggle():

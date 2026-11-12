@@ -530,8 +530,8 @@
     addCatalogueOptions(categorySelect, categoryOptions);
 
     // Organisation and status options are fixed in the filter panel
-    // markup (every published organisation; lifecycle presets plus
-    // Stable for projects). Only categories come from visible cards.
+    // markup (every published organisation, and the project lifecycle
+    // presets). Only categories come from visible cards.
 
     const sortButtons = config.sort
       ? filterPanel.querySelectorAll(config.sortSelector)

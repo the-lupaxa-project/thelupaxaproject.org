@@ -10,8 +10,8 @@ PROJECT_BANNER_PRESETS: dict[str, tuple[str, str]] = {
     "in-development": ("In Development", "red"),
     "in-testing": ("In Testing", "magenta"),
     "in-review": ("In Review", "purple"),
-    "released": ("Released", "dark-blue"),
-    "stable": ("Stable", "blue"),
+    "released": ("Released", "blue"),
+    "updated": ("Updated", "blue"),
 }
 ARTICLE_BANNER_PRESETS: dict[str, tuple[str, str]] = {
     "new": ("New Article", "blue"),
@@ -41,6 +41,8 @@ BANNER_TONES = frozenset(
     }
 )
 DEFAULT_BANNER_EXPIRY_DAYS = 28
+# Set while `mkdocs serve` is running so later rebuilds reload article helpers.
+DEV_SERVER = False
 # SemVer pre-1.0 default. Quote ``version`` in YAML (``"0.1.0"``) so it stays a string.
 DEFAULT_PROJECT_VERSION = "0.1.0"
 
@@ -128,6 +130,28 @@ def format_publish_date_attr(value: Any) -> str | None:
     return parsed.date().isoformat()
 
 
+_RELEASE_DATE_MONTHS = (
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+)
+
+
+def format_release_date(value: date) -> str:
+    """Return a release date for the sash, such as ``11 Nov 2026``."""
+
+    return f"{value.day} {_RELEASE_DATE_MONTHS[value.month - 1]} {value.year}"
+
+
 def banner_still_active(
     event_date: date | None,
     *,
@@ -197,28 +221,52 @@ def banner_markup_from_resolved(
     filter_key: str,
     *,
     version: str | None = None,
+    release_date: str | None = None,
+    center_date: bool = False,
 ) -> str:
     safe_label = html.escape(label, quote=True)
     safe_key = html.escape(filter_key, quote=True)
     version_class = ""
-    version_html = ""
+    split_class = ""
+    text_html = safe_label
     aria_label = f"Status: {safe_label}"
-    if version:
-        safe_version = html.escape(f"v{version}", quote=True)
-        version_class = " catalogue-banner--with-version"
-        version_html = (
-            f'<span class="catalogue-banner__version" translate="no">{safe_version}</span>'
+    if release_date and center_date and not version:
+        safe_date = html.escape(release_date, quote=True)
+        text_html = (
+            f'<span class="catalogue-banner__date">{safe_label}: '
+            f'<span translate="no">{safe_date}</span></span>'
         )
-        aria_label = f"Status: {safe_label} {safe_version}"
+        aria_label = f"{safe_label}: {safe_date}"
+    elif version or release_date:
+        parts: list[str] = []
+        aria_parts: list[str] = []
+        split_class = " catalogue-banner--split"
+        if version:
+            safe_version = html.escape(f"v{version}", quote=True)
+            version_class = " catalogue-banner--with-version"
+            parts.append(
+                f'<span class="catalogue-banner__version">Version: '
+                f'<span translate="no">{safe_version}</span></span>'
+            )
+            aria_parts.append(f"Version: {safe_version}")
+        if release_date:
+            safe_date = html.escape(release_date, quote=True)
+            parts.append(
+                f'<span class="catalogue-banner__date">{safe_label}: '
+                f'<span translate="no">{safe_date}</span></span>'
+            )
+            aria_parts.append(f"{safe_label}: {safe_date}")
+        text_html = "".join(parts)
+        aria_label = " ".join(aria_parts)
     return (
         f'    <span class="catalogue-banner catalogue-banner--{tone}'
-        f'{version_class}" '
+        f'{version_class}{split_class}" '
         f'data-banner-status="{safe_key}" '
         f'data-banner-label="{safe_label}" '
         f'aria-label="{aria_label}" '
         f'role="button" tabindex="0">'
         f'<span class="catalogue-banner__band" aria-hidden="true">'
-        f'<span class="catalogue-banner__text">{safe_label}{version_html}</span>'
+        f'<span class="catalogue-banner__text">{text_html}</span>'
         f"</span></span>"
     )
 
@@ -230,10 +278,10 @@ def banner_markup(
     event_date: date | None = None,
     today: date | None = None,
     expiry_days: int | None = None,
-    time_limited_statuses: frozenset[str] = frozenset({"released", "new"}),
+    time_limited_statuses: frozenset[str] = frozenset({"new"}),
     version: Any = None,
     default_version: str | None = None,
-    stable_after_expiry: bool = False,
+    center_date: bool = False,
 ) -> str:
     resolved = resolve_banner(raw, presets=presets)
     if not resolved:
@@ -243,15 +291,23 @@ def banner_markup(
         days = DEFAULT_BANNER_EXPIRY_DAYS if expiry_days is None else expiry_days
         day = today or date.today()
         if not banner_still_active(event_date, today=day, expiry_days=days):
-            if stable_after_expiry and default_version is not None and filter_key == "released":
-                return banner_markup_from_resolved(
-                    "Stable",
-                    "blue",
-                    "stable",
-                    version=resolve_project_version(version, default=default_version),
-                )
             return ""
     version_text = None
-    if default_version is not None:
-        version_text = resolve_project_version(version, default=default_version)
-    return banner_markup_from_resolved(label, tone, filter_key, version=version_text)
+    release_date = None
+    if filter_key == "released":
+        if default_version is not None:
+            version_text = resolve_project_version(version, default=default_version)
+        else:
+            version_text = normalise_project_version(version)
+        if event_date is not None:
+            release_date = format_release_date(event_date)
+    elif center_date and event_date is not None:
+        release_date = format_release_date(event_date)
+    return banner_markup_from_resolved(
+        label,
+        tone,
+        filter_key,
+        version=version_text,
+        release_date=release_date,
+        center_date=center_date,
+    )

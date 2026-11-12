@@ -12,13 +12,6 @@ for _path in (_SRC, PROJECT_DIR):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
-from articles_lib import (
-    display_title,
-    is_published,
-    load_article_meta,
-    rebuild_articles_index,
-)
-
 _ARTICLE_SEQUENCE: list[dict[str, str]] | None = None
 
 _ARTICLE_H1_RE = re.compile(
@@ -47,7 +40,20 @@ def _split_article_h1(match: re.Match[str]) -> str:
     )
 
 
+def _article_lib():
+    """Return articles helpers, reloaded during ``mkdocs serve``."""
+    import importlib
+
+    import articles_lib
+    import banner_lib
+
+    if banner_lib.DEV_SERVER:
+        importlib.reload(articles_lib)
+    return articles_lib
+
+
 def _build_sequence(config) -> list[dict[str, str]]:
+    lib = _article_lib()
     docs_dir = Path(config["docs_dir"])
     articles_dir = docs_dir / "articles"
     if not articles_dir.is_dir():
@@ -57,12 +63,12 @@ def _build_sequence(config) -> list[dict[str, str]]:
     articles: list[dict[str, str]] = []
 
     for path in articles_dir.glob("*.md"):
-        meta = load_article_meta(path)
-        if not is_published(meta):
+        meta = lib.load_article_meta(path)
+        if not lib.is_published(meta):
             continue
 
         slug = path.stem
-        title = display_title(slug, meta)
+        title = lib.display_title(slug, meta)
         if use_directory_urls:
             url = f"articles/{slug}/"
         else:
@@ -84,7 +90,7 @@ def on_pre_build(config):
     """Keep articles.md in sync with published front matter."""
     global _ARTICLE_SEQUENCE
     docs_dir = Path(config["docs_dir"])
-    rebuild_articles_index(docs_dir)
+    _article_lib().rebuild_articles_index(docs_dir)
     _ARTICLE_SEQUENCE = _build_sequence(config)
 
 

@@ -102,8 +102,14 @@ def test_banner_version_opts_out_of_translate():
         "green",
         "released",
         version="1.2.3",
+        release_date="11 Nov 2026",
     )
-    assert 'class="catalogue-banner__version" translate="no"' in markup
+    assert 'class="catalogue-banner__version"' in markup
+    assert 'class="catalogue-banner__date"' in markup
+    assert '<span translate="no">v1.2.3</span>' in markup
+    assert '<span translate="no">11 Nov 2026</span>' in markup
+    assert "Version:" in markup
+    assert "Released:" in markup
 
 
 def test_portal_header_has_no_repository_link():

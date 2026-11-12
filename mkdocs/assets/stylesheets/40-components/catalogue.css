@@ -340,7 +340,8 @@
   border-radius: 0.2rem;
 }
 
-.md-typeset .catalogue-grid .catalogue-banner__version {
+.md-typeset .catalogue-grid .catalogue-banner__version,
+.md-typeset .catalogue-grid .catalogue-banner__date {
   display: inline;
   margin: 0;
   font-size: 0.58rem;
@@ -366,6 +367,21 @@
   text-transform: uppercase;
   white-space: nowrap;
   background: transparent;
+}
+
+.md-typeset .catalogue-grid .catalogue-banner--split .catalogue-banner__text {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0.75rem;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.md-typeset .catalogue-grid .catalogue-banner--split .catalogue-banner__date {
+  margin-left: auto;
+  text-align: right;
 }
 
 .md-typeset .catalogue-grid .catalogue-banner--red .catalogue-banner__band {

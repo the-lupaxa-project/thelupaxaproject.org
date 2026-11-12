@@ -46,13 +46,17 @@ site_dir: site
 
 use_directory_urls: true
 
-# Reload on catalogue data / build Python / hooks / CSS during `mkdocs serve`.
-# MkDocs watch has no globs — list directories (not tests/).
+# `mkdocs/` is always watched: pages, CSS, JavaScript, and images.
+# These extra paths sit outside that tree, or are listed again so an asset
+# edit is not missed. MkDocs watch has no globs. Do not add tests/.
 watch:
+  - main.py
   - data
   - hooks
   - src
+  - overrides
   - mkdocs/assets/stylesheets
+  - mkdocs/assets/javascript
 
 # =============================================================================
 # Theme

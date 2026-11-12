@@ -1,3 +1,5 @@
+from datetime import date
+
 from banner_lib import (
     ARTICLE_BANNER_PRESETS,
     DEFAULT_PROJECT_VERSION,
@@ -12,8 +14,8 @@ EXPECTED_PROJECT = {
     "in-development": ("In Development", "red"),
     "in-testing": ("In Testing", "magenta"),
     "in-review": ("In Review", "purple"),
-    "released": ("Released", "dark-blue"),
-    "stable": ("Stable", "blue"),
+    "released": ("Released", "blue"),
+    "updated": ("Updated", "blue"),
 }
 
 
@@ -57,24 +59,45 @@ def test_resolve_project_version_defaults_to_semver_start():
     assert resolve_project_version("1.2.0") == "1.2.0"
 
 
-def test_project_banner_includes_version_on_every_preset():
+def test_released_banner_includes_version_and_date():
+    html = banner_markup(
+        "released",
+        presets=PROJECT_BANNER_PRESETS,
+        event_date=date(2026, 11, 11),
+        version="1.2.0",
+    )
+    assert "Version:" in html
+    assert "Released:" in html
+    assert '<span translate="no">v1.2.0</span>' in html
+    assert '<span translate="no">11 Nov 2026</span>' in html
+    assert "catalogue-banner--split" in html
+    assert "catalogue-banner--with-version" in html
+    assert "catalogue-banner--blue" in html
+    assert "catalogue-banner--dark-blue" not in html
+    assert 'data-banner-status="released"' in html
+    assert 'class="catalogue-banner__date"' in html
+
+
+def test_lifecycle_banners_omit_version():
     html = banner_markup(
         "in-testing",
         presets=PROJECT_BANNER_PRESETS,
         version="1.2.0",
         default_version=DEFAULT_PROJECT_VERSION,
+        event_date=date(2026, 11, 11),
     )
     assert "In Testing" in html
-    assert "v1.2.0" in html
-    assert "catalogue-banner--with-version" in html
+    assert "v1.2.0" not in html
+    assert "v0.1.0" not in html
+    assert "11 Nov 2026" not in html
     assert 'data-banner-status="in-testing"' in html
 
 
-def test_project_banner_defaults_missing_version():
+def test_in_review_omits_default_version():
     html = banner_markup(
         "in-review",
         presets=PROJECT_BANNER_PRESETS,
         default_version=DEFAULT_PROJECT_VERSION,
     )
-    assert "v0.1.0" in html
+    assert "v0.1.0" not in html
     assert "In Review" in html
