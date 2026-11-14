@@ -1667,6 +1667,26 @@
   version: "0.1.1"
   released_date: "2026-11-04T12:59:02"
 
+- id: passive-aggressive-email
+  published: true
+  name: Passive Aggressive Email
+  icon: material-source-repository
+  publish_date: "2026-11-14T16:03:37"
+  description: >-
+    An offline command-line generator of professionally polite, passive-aggressive workplace email. The
+    note stays courteous and still makes the point.
+  categories:
+    - After Hours
+    - Fun
+    - CLI
+  organisation: After Hours
+  logo: assets/images/organisations/organisation-after-hours-logo.png
+  logo_alt: After Hours
+  repository: https://github.com/lupaxa-after-hours/passive-aggressive-email
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-14T16:28:22"
+
 - id: pattern-match-library
   published: true
   name: Pattern Match Library
