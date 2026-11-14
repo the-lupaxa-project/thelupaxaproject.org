@@ -430,6 +430,26 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:17:49"
 
+- id: corporate-bullshit
+  published: true
+  name: Corporate Bullshit
+  icon: material-source-repository
+  publish_date: "2026-11-14T15:25:01"
+  description: >-
+    An offline command-line generator of convincingly meaningless corporate language. The phrases sound
+    official and mean nothing.
+  categories:
+    - After Hours
+    - Fun
+    - CLI
+  organisation: After Hours
+  logo: assets/images/organisations/organisation-after-hours-logo.png
+  logo_alt: After Hours
+  repository: https://github.com/lupaxa-after-hours/corporate-bullshit
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-14T15:58:28"
+
 - id: cronlab
   published: true
   name: Cronlab
