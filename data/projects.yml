@@ -994,6 +994,26 @@
   version: "0.1.6"
   released_date: "2026-10-07T09:18:14"
 
+- id: git-ignore-inspector
+  published: true
+  name: Git Ignore Inspector
+  icon: material-source-repository
+  publish_date: "2026-11-14T14:50:40"
+  description: >-
+    Read-only command-line diagnostics for inspecting, explaining, and auditing Git ignore rules. It
+    reports what the rules do without changing them.
+  categories:
+    - CLI
+    - Developer Tools
+    - Git
+  organisation: Git Toolbox
+  logo: assets/images/organisations/organisation-git-toolbox-logo.png
+  logo_alt: Git Toolbox
+  repository: https://github.com/lupaxa-git-toolbox/git-ignore-inspector
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-14T15:15:16"
+
 - id: git-reset-history
   published: true
   name: Git Reset History
