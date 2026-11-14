@@ -2390,6 +2390,27 @@
   version: "0.1.6"
   released_date: "2026-10-07T09:23:29"
 
+- id: ssh-doctor
+  published: true
+  name: SSH Doctor
+  icon: material-source-repository
+  publish_date: "2026-11-14T13:48:21"
+  description: >-
+    Read-only command-line diagnostics for local SSH client configuration, keys, permissions, and the
+    agent. It checks the client setup without changing it.
+  categories:
+    - CLI
+    - Security
+    - SSH
+    - Workstation
+  organisation: Workstation Toolbox
+  logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
+  logo_alt: Workstation Toolbox
+  repository: https://github.com/lupaxa-workstation-toolbox/ssh-doctor
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-14T14:37:05"
+
 - id: ssl-expiry
   published: true
   name: SSL Expiry
