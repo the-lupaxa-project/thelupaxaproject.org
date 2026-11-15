@@ -535,6 +535,26 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:19:21"
 
+- id: data-poison
+  published: true
+  name: Data Poison
+  icon: material-source-repository
+  publish_date: "2026-11-15T12:53:13"
+  description: >-
+    Generate, mutate, explain, test, and minimise difficult or malformed data. It works on awkward inputs
+    rather than tidy sample records.
+  categories:
+    - Developer Tools
+    - Data
+    - Testing
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/data-poison
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-15T13:23:51"
+
 - id: design-patterns
   published: true
   name: Design Patterns
