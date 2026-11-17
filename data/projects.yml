@@ -823,6 +823,26 @@
   version: "0.1.7"
   released_date: "2026-10-07T09:20:00"
 
+- id: file-recipe
+  published: true
+  name: File Recipe
+  icon: material-source-repository
+  publish_date: "2026-11-17T14:58:33"
+  description: >-
+    Plan, preview, and run reusable filesystem workflows from TOML recipes. The preview shows the plan
+    before the workflow runs.
+  categories:
+    - Automation
+    - Files
+    - Workflow
+  organisation: Workstation Toolbox
+  logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
+  logo_alt: Workstation Toolbox
+  repository: https://github.com/lupaxa-workstation-toolbox/file-recipe
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-17T15:39:58"
+
 - id: fortune-cookie
   published: true
   name: Fortune Cookie
