@@ -20,6 +20,26 @@
   version: "0.1.8"
   released_date: "2026-10-07T09:13:25"
 
+- id: archive-explorer
+  published: true
+  name: Archive Explorer
+  icon: material-source-repository
+  publish_date: "2026-11-17T10:55:15"
+  description: >-
+    Inspect, search, compare, and extract archive members without unpacking the whole archive. The rest
+    of the archive stays packed.
+  categories:
+    - Archives
+    - Files
+    - Search
+  organisation: Workstation Toolbox
+  logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
+  logo_alt: Workstation Toolbox
+  repository: https://github.com/lupaxa-workstation-toolbox/archive-explorer
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-17T11:40:05"
+
 - id: awesomebot
   published: true
   name: Awesomebot
