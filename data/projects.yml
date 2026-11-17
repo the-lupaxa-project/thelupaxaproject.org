@@ -1572,8 +1572,8 @@
   logo_alt: Miscellaneous Toolbox
   repository: https://github.com/lupaxa-miscellaneous-toolbox/metadata-inspector
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-17T10:52:43"
+  version: "0.1.1"
+  released_date: "2026-11-17T14:55:49"
 
 - id: mx-inspector
   published: true
