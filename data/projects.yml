@@ -1534,6 +1534,27 @@
   version: "0.1.0"
   released_date: "2026-11-06T17:14:19"
 
+- id: metadata-inspector
+  published: true
+  name: Metadata Inspector
+  icon: material-source-repository
+  publish_date: "2026-11-17T10:10:03"
+  description: >-
+    Inspect, identify, remove, and verify privacy-sensitive metadata in photographs. It reports the
+    metadata a picture carries and can clear it.
+  categories:
+    - Metadata
+    - Photographs
+    - Privacy
+    - Security
+  organisation: Miscellaneous Toolbox
+  logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
+  logo_alt: Miscellaneous Toolbox
+  repository: https://github.com/lupaxa-miscellaneous-toolbox/metadata-inspector
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-17T10:52:43"
+
 - id: mx-inspector
   published: true
   name: MX Inspector
