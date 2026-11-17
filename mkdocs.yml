@@ -28,6 +28,8 @@ extra:
   # Counter.dev analytics (omit counter_dev_id to disable).
   counter_dev_id: ef410665-76d4-43fe-9e91-53f26ed1004b
   counter_dev_utcoffset: 0
+  # Cloudflare Web Analytics (omit cloudflare_analytics_token to disable).
+  cloudflare_analytics_token: 61877beb2c224cc09744e35512330888
   social_image: assets/images/brand/social-media-card.png
   social_image_width: 1200
   social_image_height: 630
