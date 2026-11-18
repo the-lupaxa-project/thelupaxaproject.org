@@ -21,6 +21,47 @@
   version: "0.1.8"
   released_date: "2026-10-07T09:13:25"
 
+- id: alpine-bash
+  published: true
+  name: Alpine Bash
+  icon: material-source-repository
+  publish_date: "2026-11-18T15:20:08"
+  description: >-
+    Alpine container images with bash installed. Bash is available in the image, on top of Alpine.
+  categories:
+    - Alpine
+    - Bash
+    - Containers
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/alpine-bash
+  banner: released
+  version: "0.1.1"
+  released_date: "2026-11-18T16:33:57"
+
+- id: anyenv
+  published: true
+  name: Anyenv
+  icon: material-source-repository
+  publish_date: "2026-11-18T15:49:06"
+  description: >-
+    Docker images with anyenv installed so other version managers can be added. Anyenv is already
+    in the image.
+  categories:
+    - Containers
+    - Docker
+    - Version Managers
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/anyenv
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T16:43:16"
+
 - id: archive-explorer
   published: true
   name: Archive Explorer
@@ -451,8 +492,8 @@
   logo_alt: Docker Toolbox
   repository: https://github.com/lupaxa-docker-toolbox/container-framework
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T15:18:58"
+  version: "0.1.2"
+  released_date: "2026-11-18T16:31:57"
 
 - id: convert-size
   published: true
@@ -1222,6 +1263,26 @@
   banner: released
   version: "0.1.1"
   released_date: "2026-10-07T09:19:56"
+
+- id: goenv
+  published: true
+  name: Goenv
+  icon: material-source-repository
+  publish_date: "2026-11-18T15:41:52"
+  description: >-
+    Docker images with goenv installed so any Go version can be used. Goenv is already in the image.
+  categories:
+    - Containers
+    - Docker
+    - Go
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/goenv
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T16:44:21"
 
 - id: hadolint
   published: true
@@ -2280,6 +2341,27 @@
   version: "0.1.6"
   released_date: "2026-10-07T09:18:19"
 
+- id: pyenv
+  published: true
+  name: Pyenv
+  icon: material-source-repository
+  publish_date: "2026-11-18T15:42:10"
+  description: >-
+    Docker images with pyenv installed so any Python version can be used. Pyenv is already in the
+    image.
+  categories:
+    - Containers
+    - Docker
+    - Python
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/pyenv
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T16:46:39"
+
 - id: pylama
   published: true
   name: Pylama
@@ -2368,6 +2450,27 @@
   banner: released
   version: "0.1.5"
   released_date: "2026-10-07T09:25:09"
+
+- id: rbenv
+  published: true
+  name: Rbenv
+  icon: material-source-repository
+  publish_date: "2026-11-18T15:42:28"
+  description: >-
+    Docker images with rbenv installed so any Ruby version can be used. Rbenv is already in the
+    image.
+  categories:
+    - Containers
+    - Docker
+    - Ruby
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/rbenv
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T16:47:12"
 
 - id: reek
   published: true
@@ -2951,6 +3054,48 @@
   version: "0.1.0"
   released_date: "2026-11-06T20:24:05"
 
+- id: tfenv
+  published: true
+  name: Tfenv
+  icon: material-source-repository
+  publish_date: "2026-11-18T15:42:45"
+  description: >-
+    Docker images with tfenv installed so any Terraform version can be used. Tfenv is already in
+    the image.
+  categories:
+    - Containers
+    - Docker
+    - Terraform
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/tfenv
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T16:44:34"
+
+- id: tgenv
+  published: true
+  name: Tgenv
+  icon: material-source-repository
+  publish_date: "2026-11-18T15:43:05"
+  description: >-
+    Docker images with tgenv installed so any Terragrunt version can be used. Tgenv is already in
+    the image.
+  categories:
+    - Containers
+    - Docker
+    - Terragrunt
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/tgenv
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T16:48:26"
+
 - id: time-to-first-byte
   published: true
   name: Time to First Byte
@@ -3152,8 +3297,8 @@
   logo_alt: Docker Toolbox
   repository: https://github.com/lupaxa-docker-toolbox/version-helper
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T14:04:47"
+  version: "0.1.1"
+  released_date: "2026-11-18T16:06:51"
 
 - id: web-toolbox
   published: true
