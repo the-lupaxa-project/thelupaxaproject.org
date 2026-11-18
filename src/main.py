@@ -120,11 +120,31 @@ def _normalise_catalogue_value(value: str) -> str:
     return " ".join(value.casefold().split())
 
 
-def _categories_markup(categories: list[str]) -> str:
-    return "\n".join(
-        f'    <button type="button" class="catalogue-category">{category}</button>'
-        for category in sorted(categories, key=str.casefold)
+def _categories_markup(
+    categories: list[str] | None,
+    language: str | None = None,
+    *,
+    interactive: bool = True,
+) -> str:
+    chips: list[str] = []
+    language_name = language.strip() if isinstance(language, str) else ""
+    if language_name:
+        chips.append(
+            "    <button\n"
+            '        type="button"\n'
+            '        class="catalogue-language">\n'
+            '        <span class="catalogue-language__label">Lang:</span>\n'
+            "        "
+            f'<span class="catalogue-language__name" translate="no">{html.escape(language_name)}</span>\n'
+            "    </button>"
+        )
+    category_tag = "button" if interactive else "span"
+    category_type = ' type="button"' if interactive else ""
+    chips.extend(
+        f'    <{category_tag}{category_type} class="catalogue-category">{category}</{category_tag}>'
+        for category in sorted(categories or [], key=str.casefold)
     )
+    return "\n".join(chips)
 
 
 def _organisation_logo_title(name: str) -> str:
@@ -215,6 +235,7 @@ def define_env(env):
         organisation_label: str = "Organisation",
         status_label: str = "Status",
         clear_label: str = "Clear filters",
+        include_language: bool = False,
     ) -> str:
         classes = ["filter-panel"]
         if compact:
@@ -231,7 +252,7 @@ def define_env(env):
                 for org in organisations
             )
             organisation_block = f"""
-    <div class="filter-panel-select">
+    <div class="filter-panel-select" data-filter-slot="organisation">
         <label for="{prefix}-organisation">{organisation_label}</label>
         <select id="{prefix}-organisation" data-{prefix}-organisation>
             <option value="">All Organisations</option>
@@ -280,7 +301,7 @@ def define_env(env):
                     for slug, (label, _) in presets.items()
                 )
                 status_block = f"""
-    <div class="filter-panel-select">
+    <div class="filter-panel-select" data-filter-slot="status">
         <label for="{prefix}-status">{status_label}</label>
         <select id="{prefix}-status" data-{prefix}-status>
             <option value="">All Statuses</option>
@@ -291,7 +312,7 @@ def define_env(env):
         sort_block = ""
         if include_sort:
             sort_block = f"""
-    <div class="filter-panel-toggle" role="group" aria-labelledby="{prefix}-sort-label">
+    <div class="filter-panel-toggle" role="group" aria-labelledby="{prefix}-sort-label" data-filter-slot="sort">
         <label id="{prefix}-sort-label">Sort</label>
         <div class="filter-panel-toggle__options">
             <button
@@ -313,6 +334,16 @@ def define_env(env):
         </div>
     </div>"""
 
+        language_block = ""
+        if include_language:
+            # Options are filled from cards that have a language. No fixed list.
+            language_block = f"""
+    <div class="filter-panel-select" data-filter-slot="language">
+        <label for="{prefix}-language">Language</label>
+        <select id="{prefix}-language" data-{prefix}-language>
+            <option value="">All Languages</option>
+        </select>
+    </div>"""
         toolbar = filter_panel_toolbar(prefix=prefix, summary_text=summary_text)
         return f"""
 <div class="{class_attr}" data-{prefix}-filters>
@@ -327,13 +358,13 @@ def define_env(env):
             data-{prefix}-search
         />
     </div>{organisation_block}
-    <div class="filter-panel-select">
+    <div class="filter-panel-select" data-filter-slot="category">
         <label for="{prefix}-category">{category_label}</label>
         <select id="{prefix}-category" data-{prefix}-category>
             <option value="">All Categories</option>
         </select>
-    </div>{status_block}{sort_block}
-    <div class="filter-panel-actions">
+    </div>{language_block}{status_block}{sort_block}
+    <div class="filter-panel-actions" data-filter-slot="clear">
         <button
             type="button"
             class="md-button lupaxa-button filter-panel-clear"
@@ -401,7 +432,9 @@ def define_env(env):
 """.strip()
 
     def project_card(item: dict) -> str:
-        categories = _categories_markup(item["categories"])
+        # Language chips and the language filter live on Projects only.
+        language = None if item.get("website") is True else item.get("language")
+        categories = _categories_markup(item.get("categories"), language)
         description = _indent(item["description"])
         raw_banner = item.get("banner")
         raw_version = item.get("version")
@@ -490,7 +523,7 @@ def define_env(env):
 """.strip()
 
     def policy_card(item: dict, *, expiry_days: int = DEFAULT_BANNER_EXPIRY_DAYS) -> str:
-        categories = _categories_markup(item["categories"])
+        categories = _categories_markup(item["categories"], interactive=False)
         description = _indent(item["description"])
         raw_banner = item.get("banner")
         resolved = _shared_resolve_banner(raw_banner, presets=POLICY_BANNER_PRESETS)

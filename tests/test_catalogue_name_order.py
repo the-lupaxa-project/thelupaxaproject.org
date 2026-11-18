@@ -50,6 +50,15 @@ def test_category_pills_are_alphabetical():
     ]
 
 
+def test_language_chip_is_separate_from_categories():
+    markup = main._categories_markup(["CLI"], "Python")
+    assert 'class="catalogue-language"' in markup
+    assert 'class="catalogue-language__label">Lang:</span>' in markup
+    assert 'class="catalogue-language__name" translate="no">Python</span>' in markup
+    assert 'class="catalogue-category">CLI</button>' in markup
+    assert 'catalogue-category">Python' not in markup
+
+
 def test_sort_catalogue_by_name_ignores_yaml_order():
     items = [{"name": "Zebra"}, {"name": "alpha"}, {"name": "Middle"}]
     assert [item["name"] for item in main.sort_catalogue_by_name(items)] == [

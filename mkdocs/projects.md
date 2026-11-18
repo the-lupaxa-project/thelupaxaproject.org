@@ -10,6 +10,7 @@ hide:
     search_placeholder="Search by project name, description, or category...",
     summary_text="Showing…",
     include_organisation=True,
+    include_language=True,
     include_status=True,
     include_sort=True,
 ) }}

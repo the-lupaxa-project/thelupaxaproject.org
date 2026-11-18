@@ -95,6 +95,15 @@ def test_policy_new_does_not_use_article_label():
     assert "New Article" not in html
 
 
+def test_policy_card_categories_are_labels(tmp_path, monkeypatch):
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, [_synthetic_policy()])
+
+    markup = catalogue_grid("policy", "policy")
+
+    assert 'class="catalogue-category">Testing</span>' in markup
+    assert 'class="catalogue-category">Testing</button>' not in markup
+
+
 def test_policy_card_shows_fresh_new_banner(tmp_path, monkeypatch):
     fresh_date = (date.today() - timedelta(days=1)).isoformat()
     policies = [_synthetic_policy(banner="new", publish_date=fresh_date)]

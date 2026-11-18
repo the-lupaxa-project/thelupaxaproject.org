@@ -1,5 +1,5 @@
 /**
- * Searchable catalogue filters for projects, organisations, and policies.
+ * Searchable catalogue filters for projects, websites, organisations, and articles.
  */
 
 (() => {
@@ -9,6 +9,7 @@
 
   const URL_PARAM_SEARCH = "search";
   const URL_PARAM_CATEGORY = "category";
+  const URL_PARAM_LANGUAGE = "language";
   const URL_PARAM_ORG = "org";
   const URL_PARAM_STATUS = "status";
   const URL_PARAM_SORT = "sort";
@@ -27,6 +28,7 @@
    * @param {string} options.singular
    * @param {string} options.plural
    * @param {boolean} [options.organisation=false]
+   * @param {boolean} [options.language=false]
    * @param {boolean} [options.status=false]
    * @param {boolean} [options.sort=false]
    * @returns {Object}
@@ -36,6 +38,7 @@
     singular,
     plural,
     organisation = false,
+    language = false,
     status = false,
     sort = false,
   }) {
@@ -54,6 +57,10 @@
 
     if (organisation) {
       config.organisationSelector = `[data-${id}-organisation]`;
+    }
+
+    if (language) {
+      config.languageSelector = `[data-${id}-language]`;
     }
 
     if (status) {
@@ -81,6 +88,7 @@
     return (
       params.has(URL_PARAM_SEARCH) ||
       params.has(URL_PARAM_CATEGORY) ||
+      params.has(URL_PARAM_LANGUAGE) ||
       params.has(URL_PARAM_ORG) ||
       params.has(URL_PARAM_STATUS) ||
       params.has(URL_PARAM_SORT)
@@ -371,6 +379,7 @@
 
     url.searchParams.delete(URL_PARAM_SEARCH);
     url.searchParams.delete(URL_PARAM_CATEGORY);
+    url.searchParams.delete(URL_PARAM_LANGUAGE);
     url.searchParams.delete(URL_PARAM_ORG);
     url.searchParams.delete(URL_PARAM_STATUS);
 
@@ -425,6 +434,9 @@
     const categorySelect = filterPanel.querySelector(
       config.categorySelector,
     );
+    const languageSelect = config.languageSelector
+      ? filterPanel.querySelector(config.languageSelector)
+      : null;
     const clearButton = filterPanel.querySelector(
       config.clearSelector,
     );
@@ -458,6 +470,7 @@
       !clearButton ||
       !summary ||
       (config.organisationSelector && !organisationSelect) ||
+      (config.languageSelector && !languageSelect) ||
       (config.statusSelector && !hasStatusControl)
     ) {
       return;
@@ -471,6 +484,7 @@
     );
 
     const categoryOptions = new Map();
+    const languageOptions = new Map();
 
     const cardData = cards.map((card) => {
       const categories = getCatalogueCategories(card);
@@ -497,6 +511,15 @@
         categoryOptions.set(categories.values[index], label);
       });
 
+      const languageLabel =
+        card.querySelector(".catalogue-language__name")?.textContent?.trim() ||
+        "";
+      const languageValue = normaliseCatalogueValue(languageLabel);
+
+      if (languageSelect && languageLabel) {
+        languageOptions.set(languageValue, languageLabel);
+      }
+
       const titleNode = card.querySelector(
         ":scope > h3, :scope > p:first-child a[href], :scope > p:first-child strong",
       );
@@ -504,6 +527,7 @@
       return {
         element: card,
         categories: categories.values,
+        language: languageSelect ? languageValue : "",
         organisation: organisationSelect
           ? organisationValue ||
             normaliseCatalogueValue(FALLBACK_ORG)
@@ -529,9 +553,13 @@
 
     addCatalogueOptions(categorySelect, categoryOptions);
 
+    if (languageSelect) {
+      addCatalogueOptions(languageSelect, languageOptions);
+    }
+
     // Organisation and status options are fixed in the filter panel
     // markup (every published organisation, and the project lifecycle
-    // presets). Only categories come from visible cards.
+    // presets). Categories and languages come from the cards on the page.
 
     const sortButtons = config.sort
       ? filterPanel.querySelectorAll(config.sortSelector)
@@ -704,6 +732,7 @@
 
       const search = urlParameters.get(URL_PARAM_SEARCH);
       const category = urlParameters.get(URL_PARAM_CATEGORY);
+      const language = urlParameters.get(URL_PARAM_LANGUAGE);
       const organisation = urlParameters.get(URL_PARAM_ORG);
       const status = urlParameters.get(URL_PARAM_STATUS);
 
@@ -713,6 +742,10 @@
 
       if (category !== null) {
         applySelectFilter(categorySelect, category);
+      }
+
+      if (language !== null && languageSelect) {
+        applySelectFilter(languageSelect, language);
       }
 
       if (organisation !== null && organisationSelect) {
@@ -738,6 +771,7 @@
      * @returns {{
      *   searchTerm: string,
      *   selectedCategory: string,
+     *   selectedLanguage: string,
      *   selectedOrganisation: string,
      *   selectedStatus: string
      * }}
@@ -747,6 +781,9 @@
       selectedCategory: normaliseCatalogueValue(
         categorySelect.value,
       ),
+      selectedLanguage: languageSelect
+        ? normaliseCatalogueValue(languageSelect.value)
+        : "",
       selectedOrganisation: organisationSelect
         ? normaliseCatalogueValue(organisationSelect.value)
         : "",
@@ -763,6 +800,7 @@
      * @param {{
      *   searchTerm: string,
      *   selectedCategory: string,
+     *   selectedLanguage: string,
      *   selectedOrganisation: string,
      *   selectedStatus: string
      * }} filters
@@ -780,6 +818,10 @@
           filters.selectedCategory === "" ||
           card.categories.includes(filters.selectedCategory);
 
+        const matchesLanguage =
+          filters.selectedLanguage === "" ||
+          card.language === filters.selectedLanguage;
+
         const matchesOrganisation =
           filters.selectedOrganisation === "" ||
           card.organisation === filters.selectedOrganisation;
@@ -793,6 +835,7 @@
         const isVisible =
           matchesSearch &&
           matchesCategory &&
+          matchesLanguage &&
           matchesOrganisation &&
           matchesStatus;
 
@@ -834,6 +877,7 @@
       clearButton.disabled =
         filters.searchTerm === "" &&
         filters.selectedCategory === "" &&
+        filters.selectedLanguage === "" &&
         filters.selectedOrganisation === "" &&
         filters.selectedStatus === "";
     };
@@ -868,6 +912,10 @@
 
       if (filters.selectedCategory) {
         params.set(URL_PARAM_CATEGORY, categorySelect.value);
+      }
+
+      if (filters.selectedLanguage && languageSelect) {
+        params.set(URL_PARAM_LANGUAGE, languageSelect.value);
       }
 
       if (filters.selectedOrganisation) {
@@ -926,6 +974,11 @@
       categorySelect.value = "";
       removeUrlFilterOptions(categorySelect);
 
+      if (languageSelect) {
+        languageSelect.value = "";
+        removeUrlFilterOptions(languageSelect);
+      }
+
       if (organisationSelect) {
         organisationSelect.value = "";
         removeUrlFilterOptions(organisationSelect);
@@ -948,6 +1001,10 @@
 
     searchInput.addEventListener("input", updateCatalogue);
     categorySelect.addEventListener("change", updateCatalogue);
+
+    if (languageSelect) {
+      languageSelect.addEventListener("change", updateCatalogue);
+    }
     clearButton.addEventListener("click", clearFilters);
 
     if (organisationSelect) {
@@ -1024,6 +1081,42 @@
           categorySelect.focus({ preventScroll: true });
         });
       });
+
+    /**
+     * Language chips set the language filter on this page.
+     */
+    if (languageSelect) {
+      catalogue.querySelectorAll(".catalogue-language").forEach((chip) => {
+        if (chip.dataset.languageFilterBound === "true") {
+          return;
+        }
+
+        chip.dataset.languageFilterBound = "true";
+
+        const languageName =
+          chip.querySelector(".catalogue-language__name")?.textContent?.trim() ||
+          "";
+
+        chip.setAttribute(
+          "aria-label",
+          `Filter by language ${languageName || "language"}`,
+        );
+
+        chip.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          if (!languageName) {
+            return;
+          }
+
+          applySelectFilter(languageSelect, languageName);
+          revealFilterPanel(filterPanel);
+          updateCatalogue();
+          languageSelect.focus({ preventScroll: true });
+        });
+      });
+    }
 
     /**
      * Organisation logos set the organisation filter on this page.
@@ -1153,6 +1246,7 @@
       singular: "project",
       plural: "projects",
       organisation: true,
+      language: true,
       status: true,
       sort: true,
     }),
@@ -1169,11 +1263,6 @@
       singular: "organisation",
       plural: "organisations",
       sort: true,
-    }),
-    catalogueConfig({
-      id: "policy",
-      singular: "policy",
-      plural: "policies",
     }),
     catalogueConfig({
       id: "article",
@@ -1328,8 +1417,8 @@
   }
 
   const CATEGORY_ROW_SELECTOR = [
-    ".catalogue-grid > ul > li > p:has(> .catalogue-category)",
-    ".catalogue-grid > li > p:has(> .catalogue-category)",
+    ".catalogue-grid > ul > li > p:has(> .catalogue-category, > .catalogue-language)",
+    ".catalogue-grid > li > p:has(> .catalogue-category, > .catalogue-language)",
   ].join(", ");
 
   let categoryLayoutFrame = 0;
@@ -1398,11 +1487,17 @@
    */
   function categoryRowIsOneLine(pills, more) {
     const visible = pills.filter((pill) => !pill.hidden);
-    const anchor = visible[0] || more;
+    const row = (visible[0] || more).parentElement;
+    const language = row?.querySelector(":scope > .catalogue-language");
+    const anchor = language || visible[0] || more;
     const top = anchor.offsetTop;
     const onLine = (element) => element.offsetTop <= top + 1;
 
-    return visible.every(onLine) && (more.hidden || onLine(more));
+    return (
+      visible.every(onLine) &&
+      (!language || onLine(language)) &&
+      (more.hidden || onLine(more))
+    );
   }
 
   /**

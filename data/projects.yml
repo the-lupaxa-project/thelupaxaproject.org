@@ -12,6 +12,7 @@
     - GitHub Actions
     - Linting
     - YAML
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -32,6 +33,7 @@
     - Archives
     - Files
     - Search
+  language: Python
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -54,6 +56,7 @@
     - Links
     - Linting
     - Markdown
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -76,9 +79,9 @@
     - Boto3
     - Credentials
     - IAM
-    - Python
     - SSO
     - STS
+  language: Python
   organisation: AWS Toolbox
   logo: assets/images/organisations/organisation-aws-toolbox-logo.png
   logo_alt: AWS Toolbox
@@ -97,8 +100,8 @@
     written by the program rather than captured by a debugger.
   categories:
     - Backtrace
-    - C
     - Call Stack
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -121,6 +124,7 @@
     - Linting
     - Python
     - Security
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -145,7 +149,7 @@
     - Dotfiles
     - Git
     - Productivity
-    - Shell
+  language: Shell
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -167,8 +171,8 @@
     - Bash
     - CLI
     - Colours
-    - Shell
     - Terminal
+  language: Shell
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -192,7 +196,7 @@
     - Grok
     - Ollama
     - OpenAI
-    - Python
+  language: Python
   organisation: AI Toolbox
   logo: assets/images/organisations/organisation-ai-toolbox-logo.png
   logo_alt: AI Toolbox
@@ -212,7 +216,7 @@
   categories:
     - Bit Set
     - Bitvector
-    - C
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -232,7 +236,7 @@
     - Git
     - Git Hooks
     - Pre-commit
-    - Python
+  language: Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -257,8 +261,8 @@
     - macOS
     - Maintenance
     - Package Management
-    - Shell
     - Workstation
+  language: Shell
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -281,6 +285,7 @@
     - MkDocs
     - Privacy
     - Security
+  language: JavaScript
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -307,6 +312,7 @@
     - Cppcheck
     - GCC
     - Linting
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -327,8 +333,8 @@
   categories:
     - Certificates
     - CLI
-    - Python
     - Security
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -350,7 +356,7 @@
     - Chat Client
     - CLI
     - Nostalgia
-    - Python
+  language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -371,7 +377,7 @@
     - Chat Server
     - CLI
     - Nostalgia
-    - Python
+  language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -394,7 +400,7 @@
     - Bash
     - CLI
     - Git
-    - Shell
+  language: Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -416,9 +422,9 @@
     - CLI
     - CMS
     - Fingerprinting
-    - Python
     - Reconnaissance
     - Security
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -439,9 +445,9 @@
     - Filesize
     - IEC
     - PyPI
-    - Python
     - SI
     - Units
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -462,6 +468,7 @@
     - After Hours
     - Fun
     - CLI
+  language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -482,8 +489,8 @@
     - CLI
     - Cron
     - Crontab
-    - Python
     - Timezone
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -503,6 +510,7 @@
   categories:
     - Cursor
     - Documentation
+  language: Shell
   organisation: AI Toolbox
   logo: assets/images/organisations/organisation-ai-toolbox-logo.png
   logo_alt: AI Toolbox
@@ -522,6 +530,7 @@
   categories:
     - Agent Skills
     - Cursor
+  language: Shell
   organisation: AI Toolbox
   logo: assets/images/organisations/organisation-ai-toolbox-logo.png
   logo_alt: AI Toolbox
@@ -543,10 +552,10 @@
     - Data Conversion
     - JSON
     - JSON5
-    - Python
     - TOML
     - XML
     - YAML
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -567,6 +576,7 @@
     - Developer Tools
     - Data
     - Testing
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -587,6 +597,7 @@
     - Encryption
     - Files
     - Security
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -634,7 +645,7 @@
     - Configuration
     - Diff
     - INI
-    - Python
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -655,8 +666,8 @@
     - CLI
     - Discord
     - Notifications
-    - Python
     - Webhook
+  language: Python
   organisation: Notifications Toolbox
   logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
   logo_alt: Notifications Toolbox
@@ -678,7 +689,7 @@
     - Console
     - Messaging
     - PyPI
-    - Python
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -701,8 +712,8 @@
     - DNSBL
     - IPv6
     - Networking
-    - Python
     - SRE
+  language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -725,9 +736,9 @@
     - Domain
     - Domain Expiry
     - Networking
-    - Python
     - SRE
     - WHOIS
+  language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -745,9 +756,9 @@
     A C library for a pool of zeroed allocations. Callers take blocks from the pool, and each block
     is zeroed before it is handed out.
   categories:
-    - C
     - Dynablock
     - Memory Pool
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -772,7 +783,7 @@
     - DevOps
     - Git
     - Git Automation
-    - Shell
+  language: Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -792,7 +803,7 @@
   categories:
     - CLI
     - Excuse Generator
-    - Python
+  language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -813,9 +824,9 @@
     - CLI
     - Datetime
     - PyPI
-    - Python
     - Timedelta
     - Timestamp
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -835,7 +846,7 @@
   categories:
     - CLI
     - Favicon
-    - Python
+  language: Python
   organisation: Miscellaneous Toolbox
   logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
   logo_alt: Miscellaneous Toolbox
@@ -856,6 +867,7 @@
     - Automation
     - Files
     - Workflow
+  language: Python
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -875,7 +887,7 @@
   categories:
     - CLI
     - Fortune Cookie
-    - Python
+  language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -893,10 +905,10 @@
     A C library for generic doubly linked lists. The list holds any kind of item, and the link
     bookkeeping stays in the library.
   categories:
-    - C
     - Data Structures
     - GLL
     - Linked List
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -917,8 +929,8 @@
     - CI/CD
     - CLI
     - GitHub Actions
-    - Python
     - Tools
+  language: Python
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -941,8 +953,8 @@
     - Node.js
     - Perl
     - PHP
-    - Python
     - Ruby
+  language: Python
   organisation: Actions Toolbox
   logo: assets/images/organisations/organisation-actions-toolbox-logo.png
   logo_alt: Actions Toolbox
@@ -967,7 +979,7 @@
     - Git
     - Git History
     - PyPI
-    - Python
+  language: Python
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -992,7 +1004,7 @@
     - DevOps
     - Git
     - Git Author
-    - Shell
+  language: Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -1017,7 +1029,7 @@
     - DevOps
     - Git
     - Git Branch
-    - Shell
+  language: Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -1040,6 +1052,7 @@
     - CLI
     - Git Crypt
     - Security
+  language: Shell
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1064,7 +1077,7 @@
     - DevOps
     - Git
     - Git Tags
-    - Shell
+  language: Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -1086,7 +1099,7 @@
     - Git
     - Git Hooks
     - Multiplexer
-    - Python
+  language: Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -1107,6 +1120,7 @@
     - CLI
     - Developer Tools
     - Git
+  language: Python
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -1131,7 +1145,7 @@
     - DevOps
     - Git
     - Git History
-    - Shell
+  language: Shell
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
   logo_alt: Git Toolbox
@@ -1152,9 +1166,9 @@
   categories:
     - CLI
     - GitHub
-    - Python
     - Sync
     - Toolbox
+  language: Python
   organisation: GitHub Toolbox
   logo: assets/images/organisations/organisation-gh-toolbox-logo.png
   logo_alt: GitHub Toolbox
@@ -1177,9 +1191,9 @@
     - GitHub
     - GitHub Token
     - Permissions
-    - Python
     - Token
     - Toolbox
+  language: Python
   organisation: GitHub Toolbox
   logo: assets/images/organisations/organisation-gh-toolbox-logo.png
   logo_alt: GitHub Toolbox
@@ -1202,6 +1216,7 @@
     - Dockerfile
     - GitHub Actions
     - Linting
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1219,9 +1234,9 @@
     A C library for a case-insensitive string map. Lookups treat uppercase and lowercase as the same
     key.
   categories:
-    - C
     - Hash
     - String Map
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1238,9 +1253,9 @@
   description: >-
     A C library for a fixed list of text lines. The number of lines is set when the list is created.
   categories:
-    - C
     - History
     - Text
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1263,6 +1278,7 @@
     - Homebrew Tap
     - macOS
     - Package Management
+  language: Python
   organisation: The Lupaxa Project
   logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
   logo_alt: The Lupaxa Project
@@ -1287,9 +1303,9 @@
     - Image Converter
     - Images
     - Pillow
-    - Python
     - SVG
     - WebP
+  language: Python
   organisation: Miscellaneous Toolbox
   logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
   logo_alt: Miscellaneous Toolbox
@@ -1311,7 +1327,7 @@
     - Configuration
     - INI
     - INI Parser
-    - Shell
+  language: Shell
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1332,6 +1348,7 @@
     - CLI
     - Security
     - Unicode
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1353,8 +1370,8 @@
     - Performance
     - Profiling
     - PyPI
-    - Python
     - Timing
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1374,8 +1391,8 @@
   categories:
     - CLI
     - IPinfo
-    - Python
     - Security
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1398,6 +1415,7 @@
     - JavaScript
     - Linting
     - Standard
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1417,7 +1435,7 @@
   categories:
     - Browser
     - Fingerprint
-    - JavaScript
+  language: JavaScript
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1440,6 +1458,7 @@
     - jq
     - JSON
     - Linting
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1459,9 +1478,9 @@
   categories:
     - Leaky Bucket
     - PyPI
-    - Python
     - Rate Limiting
     - Throttle
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1478,9 +1497,9 @@
   description: >-
     A C library for a JSON line log. Each log record is one JSON object on its own line.
   categories:
-    - C
     - JSON
     - Logfile
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1500,7 +1519,7 @@
   categories:
     - CLI
     - Magic 8 Ball
-    - Python
+  language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -1521,6 +1540,7 @@
     - Binary
     - CLI
     - Files
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1543,6 +1563,7 @@
     - GitHub Actions
     - Linting
     - Makefile
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1559,8 +1580,8 @@
   description: >-
     Reusable Makefile skills for project versioning and for Python, MkDocs, Bash, Ruby, Perl, and PHP. A
     project turns on versioning and only the language skills it needs.
-  categories:
-    - Makefile
+  categories: []
+  language: Makefile
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1585,7 +1606,7 @@
     - Markdown
     - Obsidian
     - PyPI
-    - Python
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1607,6 +1628,7 @@
     - GitHub Actions
     - Linting
     - Markdown
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1624,9 +1646,9 @@
     A C library for a power-of-two memory pool. Blocks are sized as powers of two so the pool can
     hand out matching chunks.
   categories:
-    - C
     - Memory Pool
     - Mempool
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1648,6 +1670,7 @@
     - Photographs
     - Privacy
     - Security
+  language: Python
   organisation: Miscellaneous Toolbox
   logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
   logo_alt: Miscellaneous Toolbox
@@ -1671,9 +1694,9 @@
     - DNS
     - Email Security
     - MX
-    - Python
     - Security
     - SMTP
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -1698,6 +1721,7 @@
     - Mypy
     - Python
     - Typing
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1718,7 +1742,7 @@
     - Bash
     - Monitoring
     - Nagios
-    - Shell
+  language: Shell
   organisation: Monitoring Toolbox
   logo: assets/images/organisations/organisation-monitoring-toolbox-logo.png
   logo_alt: Monitoring Toolbox
@@ -1738,7 +1762,7 @@
   categories:
     - Monitoring
     - Nagios
-    - Perl
+  language: Perl
   organisation: Monitoring Toolbox
   logo: assets/images/organisations/organisation-monitoring-toolbox-logo.png
   logo_alt: Monitoring Toolbox
@@ -1758,7 +1782,7 @@
   categories:
     - Monitoring
     - Nagios
-    - PowerShell
+  language: PowerShell
   organisation: Monitoring Toolbox
   logo: assets/images/organisations/organisation-monitoring-toolbox-logo.png
   logo_alt: Monitoring Toolbox
@@ -1778,7 +1802,7 @@
   categories:
     - Monitoring
     - Nagios
-    - Python
+  language: Python
   organisation: Monitoring Toolbox
   logo: assets/images/organisations/organisation-monitoring-toolbox-logo.png
   logo_alt: Monitoring Toolbox
@@ -1798,6 +1822,7 @@
   categories:
     - Open Graph
     - Twitter Cards
+  language: JavaScript
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1820,7 +1845,7 @@
   categories:
     - Developer Tools
     - Packaging
-    - Python
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1841,6 +1866,7 @@
     - After Hours
     - Fun
     - CLI
+  language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
   logo_alt: After Hours
@@ -1857,9 +1883,9 @@
   description: >-
     A C library for shell-style text patterns. A pattern can match text the way a shell glob does.
   categories:
-    - C
     - Patmat
     - Pattern Matching
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -1881,6 +1907,7 @@
     - GitHub Actions
     - Linting
     - Perl
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1902,9 +1929,9 @@
     - CLI
     - EXIF
     - Photos
-    - Python
     - Renamer
     - Videos
+  language: Python
   organisation: Miscellaneous Toolbox
   logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
   logo_alt: Miscellaneous Toolbox
@@ -1926,6 +1953,7 @@
     - GitHub Actions
     - Linting
     - PHP
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1949,8 +1977,8 @@
     - CI/CD
     - GitHub Actions
     - Pipeline
-    - Shell
     - Templates
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -1972,9 +2000,9 @@
     - Networking
     - Port Forwarder
     - Proxy
-    - Python
     - SRE
     - TCP
+  language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -1998,7 +2026,7 @@
     - Developer Tools
     - Git
     - Git Hooks
-    - Shell
+  language: Shell
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -2021,6 +2049,7 @@
     - Linting
     - PowerShell
     - PowerShell Linter
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2041,8 +2070,8 @@
     - Git
     - Git Hooks
     - Pre-commit
-    - Python
     - Templates
+  language: Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -2066,9 +2095,9 @@
     - Interactive
     - macOS
     - Privacy
-    - Shell
     - TCC
     - Workstation
+  language: Shell
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -2089,7 +2118,7 @@
     - Git
     - Git Hooks
     - Pre-commit
-    - Python
+  language: Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -2109,7 +2138,7 @@
   categories:
     - Backup
     - CLI
-    - Python
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2131,6 +2160,7 @@
     - GitHub Actions
     - Linting
     - Puppet
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2153,6 +2183,7 @@
     - GitHub Actions
     - Linting
     - Python
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2173,7 +2204,7 @@
     - CLI
     - Notifications
     - Pushover
-    - Python
+  language: Python
   organisation: Notifications Toolbox
   logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
   logo_alt: Notifications Toolbox
@@ -2196,6 +2227,7 @@
     - Linting
     - PEP 8
     - Python
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2218,6 +2250,7 @@
     - GitHub Actions
     - Linting
     - Python
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2239,6 +2272,7 @@
     - GitHub Actions
     - Linting
     - Python
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2260,6 +2294,7 @@
     - GitHub Actions
     - Linting
     - Python
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2279,9 +2314,9 @@
   categories:
     - CLI
     - PyPI
-    - Python
     - QR Codes
     - Segno
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2302,9 +2337,9 @@
     - CLI
     - HTTP
     - HTTPX
-    - Python
     - Redirects
     - URL
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2326,6 +2361,7 @@
     - GitHub Actions
     - Linting
     - Ruby
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2346,6 +2382,7 @@
     - CLI
     - Developer Tools
     - Regular Expressions
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2366,6 +2403,7 @@
   categories:
     - Reusable Workflows
     - Workflow
+  language: Shell
   organisation: The Lupaxa Project
   logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
   logo_alt: The Lupaxa Project
@@ -2387,6 +2425,7 @@
     - GitHub Actions
     - Linting
     - Ruby
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2409,6 +2448,7 @@
     - Linting
     - Python
     - Ruff
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2433,9 +2473,9 @@
     - macOS
     - Recovery
     - Safe Rm
-    - Shell
     - Trash
     - Workstation
+  language: Shell
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -2452,9 +2492,9 @@
   description: >-
     A C library for running tasks at a chosen time. A task waits until that time, then runs.
   categories:
-    - C
     - Scheduler
     - Tasks
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2474,8 +2514,8 @@
   categories:
     - Git
     - Git Hooks
-    - Python
     - Setup Git Hooks
+  language: Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
   logo_alt: Git Hooks Toolbox
@@ -2497,7 +2537,7 @@
     - CI/CD
     - GitHub Actions
     - Linting
-    - Shell
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -2517,9 +2557,9 @@
   categories:
     - CLI
     - Notifications
-    - Python
     - Slack
     - Webhook
+  language: Python
   organisation: Notifications Toolbox
   logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
   logo_alt: Notifications Toolbox
@@ -2539,10 +2579,10 @@
   categories:
     - CLI
     - Email
-    - Python
     - SES
     - SMTP
     - SRE
+  language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2571,12 +2611,12 @@
     - Node.js
     - Perl
     - PHP
-    - Python
     - Ruby
     - Rust
     - Shell
     - Snippets
     - SQL
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2596,10 +2636,10 @@
   description: >-
     A C library for IPv4 and IPv6 TCP and UDP sockets. A program can open a connection or a datagram socket on either address family.
   categories:
-    - C
     - IPv6
     - Socket
     - TCP
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2619,11 +2659,11 @@
   categories:
     - Crawler
     - HTTPX
-    - Python
     - Selenium
     - Spider
     - Templates
     - Web Scraping
+  language: Python
   organisation: Spider Toolbox
   logo: assets/images/organisations/organisation-spider-toolbox-logo.png
   logo_alt: Spider Toolbox
@@ -2645,6 +2685,7 @@
     - Security
     - SSH
     - Workstation
+  language: Python
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
   logo_alt: Workstation Toolbox
@@ -2665,11 +2706,11 @@
     - CLI
     - Expiry
     - Networking
-    - Python
     - SRE
     - SSL
     - SSL Expiry
     - TLS
+  language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2690,6 +2731,7 @@
     - Certificates
     - Networking
     - TLS
+  language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2707,9 +2749,9 @@
     A C library for a stack buffer used as temporary string storage. The buffer lives on the stack,
     so a short string does not need a heap allocation.
   categories:
-    - C
     - Stackbuf
     - String Buffer
+  language: C
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2729,8 +2771,8 @@
     for a short report, CI, and support.
   categories:
     - CLI
-    - Python
     - System Information
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2751,9 +2793,9 @@
     - CLI
     - Networking
     - Ping
-    - Python
     - SRE
     - TCP
+  language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2771,9 +2813,9 @@
     A TCP Wrapper filter that allows or denies a connection by autonomous system number. The network
     that owns the remote address decides whether the connection is allowed.
   categories:
-    - Python
     - Security
     - TCP Wrapper
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2791,9 +2833,9 @@
     A TCP Wrapper filter that allows or denies a connection by country. The country of the remote
     address decides whether the connection is allowed.
   categories:
-    - Python
     - Security
     - TCP Wrapper
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2814,6 +2856,7 @@
     - Bash
     - Security
     - TCP Wrapper
+  language: Shell
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2834,6 +2877,7 @@
     - Bash
     - Security
     - TCP Wrapper
+  language: Shell
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -2853,9 +2897,9 @@
   categories:
     - CLI
     - Notifications
-    - Python
     - Teams
     - Webhook
+  language: Python
   organisation: Notifications Toolbox
   logo: assets/images/organisations/organisation-notifications-toolbox-logo.png
   logo_alt: Notifications Toolbox
@@ -2875,9 +2919,9 @@
   categories:
     - CLI
     - Code Metrics
-    - Python
     - Readability
     - Text Analysis
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2898,9 +2942,9 @@
     - CLI
     - HTTP
     - Networking
-    - Python
     - SRE
     - TTFB
+  language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
   logo_alt: SRE Toolbox
@@ -2920,9 +2964,9 @@
   categories:
     - CLI
     - Encryption
-    - Python
     - Token Manager
     - Tokens
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2944,8 +2988,8 @@
     - Bash
     - Debugging
     - Error Handling
-    - Shell
     - Trap
+  language: Shell
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2964,9 +3008,9 @@
     fragment. It is sourced into a script rather than run on its own.
   categories:
     - Bash
-    - Shell
     - URL
     - URL Parser
+  language: Shell
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -2989,9 +3033,9 @@
     - Linux
     - Notifications
     - PAM
-    - Python
     - Security
     - Slack
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -3010,9 +3054,9 @@
     command-line tool.
   categories:
     - CLI
-    - Python
     - UUID
     - UUID Generator
+  language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
   logo_alt: Developers Toolbox
@@ -3034,6 +3078,7 @@
     - Citation CFF
     - GitHub Actions
     - Linting
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -3057,9 +3102,9 @@
     - Email
     - Email Security
     - Email Verification
-    - Python
     - Security
     - SMTP
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
@@ -3082,6 +3127,7 @@
     - DNS
     - Encoding
     - Toolbox
+  language: JavaScript
   organisation: The Lupaxa Project
   logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
   logo_alt: The Lupaxa Project
@@ -3106,6 +3152,7 @@
     - GitHub Actions
     - Linting
     - YAML
+  language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
   logo_alt: CI/CD Toolbox
@@ -3126,9 +3173,9 @@
     - AXFR
     - CLI
     - DNS
-    - Python
     - Security
     - Zone Transfer
+  language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox

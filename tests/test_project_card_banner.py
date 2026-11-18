@@ -57,6 +57,45 @@ def _catalogue_grid(tmp_path: Path, monkeypatch, projects: list[dict]):
     return env.macros["catalogue_grid"]
 
 
+def test_project_card_shows_language_outside_the_category_filters(tmp_path, monkeypatch):
+    catalogue_grid = _catalogue_grid(
+        tmp_path,
+        monkeypatch,
+        [_synthetic_project(language="Python", categories=["CLI"])],
+    )
+
+    markup = catalogue_grid("project", "project")
+
+    assert 'class="catalogue-language"' in markup
+    assert 'class="catalogue-language__name" translate="no">Python</span>' in markup
+    assert 'class="catalogue-category">CLI</button>' in markup
+    assert 'catalogue-category">Python' not in markup
+
+
+def test_website_card_omits_the_language_chip(tmp_path, monkeypatch):
+    catalogue_grid = _catalogue_grid(
+        tmp_path,
+        monkeypatch,
+        [
+            _synthetic_project(
+                website=True,
+                language="Python",
+                categories=["CLI"],
+            )
+        ],
+    )
+
+    markup = catalogue_grid("website", "website")
+
+    assert "catalogue-language" not in markup
+    assert 'class="catalogue-category">CLI</button>' in markup
+
+    websites_page = (ROOT / "mkdocs" / "websites.md").read_text(encoding="utf-8")
+    projects_page = (ROOT / "mkdocs" / "projects.md").read_text(encoding="utf-8")
+    assert "include_language" not in websites_page
+    assert "include_language=True" in projects_page
+
+
 def test_project_card_defaults_missing_banner_to_in_development(tmp_path, monkeypatch):
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, [_synthetic_project()])
 

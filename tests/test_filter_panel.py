@@ -82,23 +82,12 @@ def test_filter_panel_status_options_project_has_released_not_stable():
     assert ">Stable<" not in markup
 
 
-def test_filter_panel_policy_page_omits_status_toggle():
-    filter_panel = _filter_panel()
+def test_policies_page_has_no_filter():
+    page = (ROOT / "mkdocs" / "policies.md").read_text(encoding="utf-8")
 
-    markup = filter_panel(
-        "policy",
-        compact=True,
-        search_label="Search policies",
-        search_placeholder="Search by policy name or description",
-        summary_text="Showing…",
-    )
-
-    assert "View Policies" not in markup
-    assert "data-policy-status" not in markup
-    assert "filter-panel-toggle" not in markup
-    assert "data-policy-search" in markup
-    assert "data-policy-category" in markup
-    assert "data-policy-clear" in markup
+    assert "filter_panel" not in page
+    assert "catalogue_empty" not in page
+    assert 'catalogue_grid("policy", "policy"' in page
 
 
 def test_filter_panel_status_options_policy_presets_no_stable():
@@ -188,6 +177,35 @@ def test_filter_panel_lists_every_organisation_from_yaml():
     assert option_labels[1:] == sorted(published_names, key=str.casefold)
     assert "AWS Toolbox" in option_labels
     assert "The Lupaxa Lab" in option_labels
+
+
+def test_filter_panel_language_options_stay_empty_in_markup():
+    filter_panel = _filter_panel()
+
+    markup = filter_panel(
+        "project",
+        search_label="Search",
+        search_placeholder="Search projects",
+        summary_text="Showing all projects",
+        include_organisation=True,
+        include_language=True,
+        include_status=True,
+        include_sort=True,
+    )
+
+    language_block = re.findall(
+        r'<select id="project-language"[^>]*>.*?</select>',
+        markup,
+        flags=re.S,
+    )[0]
+    assert language_block.count("<option") == 1
+    assert "All Languages" in language_block
+    assert markup.index("project-organisation") < markup.index("project-category")
+    assert markup.index("project-category") < markup.index("project-language")
+    assert markup.index("project-language") < markup.index("project-status")
+    assert 'data-filter-slot="organisation"' in markup
+    assert 'data-filter-slot="category"' in markup
+    assert 'data-filter-slot="language"' in markup
 
 
 def test_filter_panel_category_options_stay_empty_in_markup():

@@ -63,8 +63,8 @@
     max-width: min(100%, 72px);
   }
 
-  .md-typeset .catalogue-grid > ul > li > p:has(> .catalogue-category),
-  .md-typeset .catalogue-grid > li > p:has(> .catalogue-category) {
+  .md-typeset .catalogue-grid > ul > li > p:has(> .catalogue-category, > .catalogue-language),
+  .md-typeset .catalogue-grid > li > p:has(> .catalogue-category, > .catalogue-language) {
     flex-wrap: wrap;
     gap: 0.15rem;
   }
@@ -77,7 +77,8 @@
     display: none !important;
   }
 
-  .md-typeset .catalogue-category {
+  .md-typeset .catalogue-category,
+  .md-typeset .catalogue-language {
     padding: 0.04rem 0.18rem;
     font-size: 0.48rem;
     line-height: 1.2;
