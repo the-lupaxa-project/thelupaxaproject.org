@@ -433,6 +433,27 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:23:47"
 
+- id: container-framework
+  published: true
+  name: Container Framework
+  icon: material-source-repository
+  publish_date: "2026-11-18T12:58:39"
+  description: >-
+    Generate a family of Docker images from one package list and one Dockerfile template. The same
+    list and template define every image in the family.
+  categories:
+    - Containers
+    - Docker
+    - Packaging
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/container-framework
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T15:18:58"
+
 - id: convert-size
   published: true
   name: Convert Size
@@ -3112,6 +3133,27 @@
   banner: released
   version: "0.1.1"
   released_date: "2026-10-07T09:27:34"
+
+- id: version-helper
+  published: true
+  name: Version Helper
+  icon: material-source-repository
+  publish_date: "2026-11-18T13:01:39"
+  description: >-
+    Print pinned package install lines for a Dockerfile. It queries a distro image so the lines
+    match the packages that image provides.
+  categories:
+    - Containers
+    - Docker
+    - Packaging
+  language: Shell
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/version-helper
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T14:04:47"
 
 - id: web-toolbox
   published: true
