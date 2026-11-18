@@ -575,6 +575,27 @@
   version: "0.1.0"
   released_date: "2026-11-15T13:23:51"
 
+- id: dead-drop
+  published: true
+  name: Dead Drop
+  icon: material-source-repository
+  publish_date: "2026-11-18T10:39:31"
+  description: >-
+    An offline laboratory for concealing, encrypting, distributing, analysing, and recovering data in
+    ordinary carrier files. It includes a carrier-backed encrypted filesystem.
+  categories:
+    - Encryption
+    - Files
+    - Security
+  organisation: Security Toolbox
+  logo: assets/images/organisations/organisation-security-toolbox-logo.png
+  logo_alt: Security Toolbox
+  repository: https://github.com/lupaxa-security-toolbox/dead-drop
+  documentation: https://dead-drop.thelupaxaproject.org/
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T11:53:32"
+
 - id: design-patterns
   published: true
   name: Design Patterns
