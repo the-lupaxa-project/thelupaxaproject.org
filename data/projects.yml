@@ -1748,6 +1748,26 @@
   version: "0.1.1"
   released_date: "2026-11-04T12:59:02"
 
+- id: package-autopsy
+  published: true
+  name: Package Autopsy
+  icon: material-source-repository
+  publish_date: "2026-11-18T09:56:38"
+  description: >-
+    Inspect, validate, compare, and audit Python wheels and source distributions without installing
+    them. You can see what a package contains before it is installed.
+  categories:
+    - Developer Tools
+    - Packaging
+    - Python
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/package-autopsy
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T10:33:53"
+
 - id: passive-aggressive-email
   published: true
   name: Passive Aggressive Email
