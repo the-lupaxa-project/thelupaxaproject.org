@@ -2253,6 +2253,26 @@
   version: "0.1.6"
   released_date: "2026-10-07T09:18:18"
 
+- id: regexlab
+  published: true
+  name: Regexlab
+  icon: material-source-repository
+  publish_date: "2026-11-18T08:50:45"
+  description: >-
+    Explain, test, generate, compare, and debug regular expressions from the command line. You can try
+    a pattern and see what it matches before it lands in code.
+  categories:
+    - CLI
+    - Developer Tools
+    - Regular Expressions
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/regexlab
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-18T09:55:49"
+
 - id: reusable-workflows
   published: true
   name: Reusable Workflows
