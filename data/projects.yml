@@ -59,8 +59,8 @@
   logo_alt: Docker Toolbox
   repository: https://github.com/lupaxa-docker-toolbox/anyenv
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T16:43:16"
+  version: "0.1.1"
+  released_date: "2026-11-18T17:10:40"
 
 - id: archive-explorer
   published: true
@@ -1281,8 +1281,8 @@
   logo_alt: Docker Toolbox
   repository: https://github.com/lupaxa-docker-toolbox/goenv
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T16:44:21"
+  version: "0.1.1"
+  released_date: "2026-11-18T17:11:04"
 
 - id: hadolint
   published: true
@@ -2359,8 +2359,8 @@
   logo_alt: Docker Toolbox
   repository: https://github.com/lupaxa-docker-toolbox/pyenv
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T16:46:39"
+  version: "0.1.1"
+  released_date: "2026-11-18T17:11:38"
 
 - id: pylama
   published: true
@@ -2469,8 +2469,8 @@
   logo_alt: Docker Toolbox
   repository: https://github.com/lupaxa-docker-toolbox/rbenv
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T16:47:12"
+  version: "0.1.1"
+  released_date: "2026-11-18T17:11:28"
 
 - id: reek
   published: true
@@ -3072,8 +3072,8 @@
   logo_alt: Docker Toolbox
   repository: https://github.com/lupaxa-docker-toolbox/tfenv
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T16:44:34"
+  version: "0.1.1"
+  released_date: "2026-11-18T17:12:19"
 
 - id: tgenv
   published: true
@@ -3093,8 +3093,8 @@
   logo_alt: Docker Toolbox
   repository: https://github.com/lupaxa-docker-toolbox/tgenv
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T16:48:26"
+  version: "0.1.1"
+  released_date: "2026-11-18T17:18:13"
 
 - id: time-to-first-byte
   published: true
