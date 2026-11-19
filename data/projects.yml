@@ -1377,8 +1377,8 @@
   repository: https://github.com/lupaxa-gh-toolbox/github-repo-sync
   documentation: https://github-repo-sync.thelupaxaproject.org/
   banner: released
-  version: "0.1.7"
-  released_date: "2026-10-07T09:20:04"
+  version: "0.1.8"
+  released_date: "2026-11-19T23:24:50"
 
 - id: github-token-validator
   published: true
