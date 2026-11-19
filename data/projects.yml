@@ -2024,6 +2024,30 @@
   version: "0.1.0"
   released_date: "2026-10-08T10:35:56"
 
+- id: number-oddities
+  published: true
+  name: Number Oddities
+  icon: material-source-repository
+  publish_date: "2026-11-19T20:15:54"
+  description: >-
+    An offline command-line inspector of recreational mathematical properties of integers. You give it a
+    number, and it reports the properties that number has.
+  categories:
+    - After Hours
+    - Fun
+    - CLI
+    - Math
+    - Numbers
+    - Offline
+  language: Python
+  organisation: After Hours
+  logo: assets/images/organisations/organisation-after-hours-logo.png
+  logo_alt: After Hours
+  repository: https://github.com/lupaxa-after-hours/number-oddities
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-19T20:52:03"
+
 - id: opengraphtester.com
   published: true
   name: Open Graph Tester
