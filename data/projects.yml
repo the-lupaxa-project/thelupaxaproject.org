@@ -805,6 +805,28 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:22:02"
 
+- id: dockerhub-intel
+  published: true
+  name: Dockerhub Intel
+  icon: material-source-repository
+  publish_date: "2026-11-19T13:35:14"
+  description: >-
+    Monitor an explicit list of Docker Hub repositories from a local cache. Profiles choose which pull
+    statistics, tag, and image checks to run.
+  categories:
+    - Docker
+    - Containers
+    - Monitoring
+  language: Python
+  organisation: Docker Toolbox
+  logo: assets/images/organisations/organisation-docker-toolbox-logo.png
+  logo_alt: Docker Toolbox
+  repository: https://github.com/lupaxa-docker-toolbox/dockerhub-intel
+  documentation: https://dockerhub-intel.thelupaxaproject.org/
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-19T15:00:45"
+
 - id: domain-expiry
   published: true
   name: Domain Expiry
