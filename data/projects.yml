@@ -2695,6 +2695,27 @@
   version: "0.1.1"
   released_date: "2026-10-07T09:25:32"
 
+- id: sandbox
+  published: true
+  name: Sandbox
+  icon: material-source-repository
+  publish_date: "2026-11-19T15:45:43"
+  description: >-
+    Run commands in disposable workspaces and inspect what they change. The workspace is thrown away
+    after the run, and the report shows what changed.
+  categories:
+    - Developer Tools
+    - CLI
+  language: Python
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/sandbox
+  documentation: https://sandbox.thelupaxaproject.org/
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-19T16:48:07"
+
 - id: scheduler-library
   published: true
   name: Scheduler Library
