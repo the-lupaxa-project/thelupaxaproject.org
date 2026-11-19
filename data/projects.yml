@@ -2674,8 +2674,8 @@
   repository: https://github.com/lupaxa-developers-toolbox/relay
   documentation: https://relay.thelupaxaproject.org/
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-19T18:28:46"
+  version: "0.1.1"
+  released_date: "2026-11-19T19:48:22"
 
 - id: reusable-workflows
   published: true
@@ -2789,8 +2789,8 @@
   repository: https://github.com/lupaxa-developers-toolbox/sandbox
   documentation: https://sandbox.thelupaxaproject.org/
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-19T16:48:07"
+  version: "0.1.1"
+  released_date: "2026-11-19T19:57:29"
 
 - id: scheduler-library
   published: true
@@ -3074,6 +3074,29 @@
   banner: released
   version: "0.1.0"
   released_date: "2026-11-06T16:33:42"
+
+- id: switchboard
+  published: true
+  name: Switchboard
+  icon: material-source-repository
+  publish_date: "2026-11-19T18:30:01"
+  description: >-
+    Connect applications that use different protocols without extra infrastructure. A program on one
+    protocol can reach a program on another, and nothing else has to be running.
+  categories:
+    - CLI
+    - Gateway
+    - Networking
+    - Protocols
+  language: Python
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/switchboard
+  documentation: https://switchboard.thelupaxaproject.org/
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-19T20:13:05"
 
 - id: sysinfo
   published: true
