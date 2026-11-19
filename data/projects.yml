@@ -1068,6 +1068,28 @@
   version: "0.1.4"
   released_date: "2026-10-07T09:12:53"
 
+- id: ghostport
+  published: true
+  name: Ghostport
+  icon: material-source-repository
+  publish_date: "2026-11-19T15:04:00"
+  description: >-
+    Simulate HTTP APIs from declarative YAML projects. The YAML describes the API, and the tool serves
+    those responses.
+  categories:
+    - Developer Tools
+    - HTTP
+    - YAML
+  language: Python
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/ghostport
+  documentation: https://ghostport.thelupaxaproject.org/
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-19T15:44:08"
+
 - id: git-archaeologist
   published: true
   name: Git Archaeologist
