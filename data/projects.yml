@@ -1237,6 +1237,27 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:20:52"
 
+- id: github-intel
+  published: true
+  name: GitHub Intel
+  icon: material-source-repository
+  publish_date: "2026-11-18T22:12:57"
+  description: >-
+    Monitor an explicit list of GitHub repositories from a local cache. Profiles choose which release,
+    workflow, and standards checks to run.
+  categories:
+    - GitHub
+    - Workflow
+    - Standards
+  language: Python
+  organisation: GitHub Toolbox
+  logo: assets/images/organisations/organisation-gh-toolbox-logo.png
+  logo_alt: GitHub Toolbox
+  repository: https://github.com/lupaxa-gh-toolbox/github-intel
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-19T13:29:48"
+
 - id: github-repository-sync
   published: true
   name: GitHub Repository Sync
@@ -1390,7 +1411,7 @@
   documentation_label: Visit Site
   website: true
   banner: updated
-  released_date: "2026-11-10T14:00:53"
+  released_date: "2026-11-18T17:55:18"
 
 - id: image-converter
   published: true
@@ -2554,8 +2575,8 @@
   logo_alt: The Lupaxa Project
   repository: https://github.com/the-lupaxa-project/workflows
   banner: released
-  version: "0.1.26"
-  released_date: "2026-11-06T19:17:43"
+  version: "0.1.27"
+  released_date: "2026-11-19T00:26:57"
 
 - id: rubocop
   published: true
