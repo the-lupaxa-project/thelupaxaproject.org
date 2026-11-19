@@ -10,7 +10,7 @@
     - Actionlint
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - YAML
   language: Shell
   organisation: CI/CD Toolbox
@@ -31,7 +31,8 @@
   categories:
     - Alpine
     - Bash
-    - Containers
+    - Docker
+    - Dockerfile
   language: Shell
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -50,9 +51,9 @@
     Docker images with anyenv installed so other version managers can be added. Anyenv is already
     in the image.
   categories:
-    - Containers
+    - Anyenv
     - Docker
-    - Version Managers
+    - Dockerfile
   language: Shell
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -71,9 +72,11 @@
     Inspect, search, compare, and extract archive members without unpacking the whole archive. The rest
     of the archive stays packed.
   categories:
-    - Archives
-    - Files
-    - Search
+    - Archive
+    - CLI
+    - Compression
+    - Tar
+    - Zip
   language: Python
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
@@ -95,7 +98,7 @@
     - CI/CD
     - GitHub Actions
     - Links
-    - Linting
+    - Lint
     - Markdown
   language: Shell
   organisation: CI/CD Toolbox
@@ -162,7 +165,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Python
     - Security
   language: Shell
@@ -296,12 +299,13 @@
     cleanup, doctor, and package lists, and it asks before anything destructive.
   categories:
     - Bash
+    - Brew
     - CLI
     - Homebrew
     - Interactive
     - macOS
     - Maintenance
-    - Package Management
+    - Package Manager
     - Workstation
   language: Shell
   organisation: Workstation Toolbox
@@ -352,7 +356,7 @@
     - CI/CD
     - Cppcheck
     - GCC
-    - Linting
+    - Lint
   language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -394,6 +398,8 @@
     A terminal client for the chat server. It keeps the server's text separate from what you are
     typing.
   categories:
+    - After Hours
+    - Fun
     - Chat Client
     - CLI
     - Nostalgia
@@ -415,6 +421,8 @@
     A bare-bones multi-room TCP chat server. It is a throwback to the telnet talkers, MUDs, and
     MUSHes we grew up on.
   categories:
+    - After Hours
+    - Fun
     - Chat Server
     - CLI
     - Nostalgia
@@ -463,7 +471,7 @@
     - CLI
     - CMS
     - Fingerprinting
-    - Reconnaissance
+    - Recon
     - Security
   language: Python
   organisation: Security Toolbox
@@ -485,7 +493,7 @@
   categories:
     - Containers
     - Docker
-    - Packaging
+    - Dockerfile
   language: Shell
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -504,9 +512,9 @@
     Manage Docker images and containers on this machine. List them, delete them, and purge the ones
     that are unused.
   categories:
+    - CLI
     - Containers
     - Docker
-    - Images
   language: Shell
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -551,6 +559,10 @@
     - After Hours
     - Fun
     - CLI
+    - Corporate
+    - Humor
+    - Jargon
+    - Offline
   language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
@@ -656,8 +668,8 @@
     Generate, mutate, explain, test, and minimise difficult or malformed data. It works on awkward inputs
     rather than tidy sample records.
   categories:
-    - Developer Tools
-    - Data
+    - CLI
+    - Fuzzing
     - Testing
   language: Python
   organisation: Developers Toolbox
@@ -677,9 +689,12 @@
     An offline laboratory for concealing, encrypting, distributing, analysing, and recovering data in
     ordinary carrier files. It includes a carrier-backed encrypted filesystem.
   categories:
-    - Encryption
-    - Files
+    - CLI
+    - Cryptography
+    - Digital Forensics
+    - Secret Sharing
     - Security
+    - Steganography
   language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
@@ -725,7 +740,7 @@
     treated as differences. A Python command-line tool.
   categories:
     - CLI
-    - Configuration
+    - Config
     - Diff
     - INI
   language: Python
@@ -794,7 +809,7 @@
     - DNS
     - DNSBL
     - IPv6
-    - Networking
+    - Network
     - SRE
   language: Python
   organisation: SRE Toolbox
@@ -814,9 +829,14 @@
     Monitor an explicit list of Docker Hub repositories from a local cache. Profiles choose which pull
     statistics, tag, and image checks to run.
   categories:
+    - CLI
     - Docker
-    - Containers
+    - Docker Hub
+    - Dockerhub Intel
     - Monitoring
+    - Statistics
+    - Toolbox
+    - TUI
   language: Python
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -840,7 +860,7 @@
     - DNS
     - Domain
     - Domain Expiry
-    - Networking
+    - Network
     - SRE
     - WHOIS
   language: Python
@@ -906,6 +926,8 @@
     A small Python library and command-line tool that invents a random excuse. You choose a category and
     how absurd the excuse should be.
   categories:
+    - After Hours
+    - Fun
     - CLI
     - Excuse Generator
   language: Python
@@ -970,8 +992,9 @@
     before the workflow runs.
   categories:
     - Automation
-    - Files
-    - Workflow
+    - CLI
+    - Filesystem
+    - TOML
   language: Python
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
@@ -990,6 +1013,8 @@
     A Python library and command-line tool that draws a developer fortune. The line might be dubious
     wisdom, a warning, a prediction, or a joke about Friday.
   categories:
+    - After Hours
+    - Fun
     - CLI
     - Fortune Cookie
   language: Python
@@ -1077,9 +1102,10 @@
     Simulate HTTP APIs from declarative YAML projects. The YAML describes the API, and the tool serves
     those responses.
   categories:
-    - Developer Tools
+    - API
+    - CLI
     - HTTP
-    - YAML
+    - Mocking
   language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
@@ -1225,6 +1251,7 @@
   categories:
     - Git
     - Git Hooks
+    - Hooks
     - Multiplexer
   language: Python
   organisation: Git Hooks Toolbox
@@ -1245,8 +1272,9 @@
     reports what the rules do without changing them.
   categories:
     - CLI
-    - Developer Tools
+    - Diagnostics
     - Git
+    - Gitignore
   language: Python
   organisation: Git Toolbox
   logo: assets/images/organisations/organisation-git-toolbox-logo.png
@@ -1290,9 +1318,14 @@
     Monitor an explicit list of GitHub repositories from a local cache. Profiles choose which release,
     workflow, and standards checks to run.
   categories:
+    - CLI
     - GitHub
-    - Workflow
-    - Standards
+    - GitHub Intel
+    - Monitoring
+    - Releases
+    - Toolbox
+    - TUI
+    - Workflows
   language: Python
   organisation: GitHub Toolbox
   logo: assets/images/organisations/organisation-gh-toolbox-logo.png
@@ -1359,9 +1392,10 @@
   description: >-
     Docker images with goenv installed so any Go version can be used. Goenv is already in the image.
   categories:
-    - Containers
     - Docker
+    - Dockerfile
     - Go
+    - Goenv
   language: Shell
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -1384,7 +1418,7 @@
     - Docker
     - Dockerfile
     - GitHub Actions
-    - Linting
+    - Lint
   language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1442,11 +1476,12 @@
     Homebrew formulae for The Lupaxa Project tools. The tap itself tracks HEAD, and each formula points
     at a tagged release of that tool's own repository.
   categories:
+    - Brew
     - Formulae
     - Homebrew
     - Homebrew Tap
     - macOS
-    - Package Management
+    - Package Manager
   language: Python
   organisation: The Lupaxa Project
   logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
@@ -1469,8 +1504,8 @@
     an SVG document rather than vectorised.
   categories:
     - CLI
+    - Image
     - Image Converter
-    - Images
     - Pillow
     - SVG
     - WebP
@@ -1493,7 +1528,7 @@
     sourced into a script rather than run on its own.
   categories:
     - Bash
-    - Configuration
+    - Config
     - INI
     - INI Parser
   language: Shell
@@ -1515,7 +1550,9 @@
     offline, and the carrier still reads as normal text.
   categories:
     - CLI
+    - Cryptography
     - Security
+    - Steganography
     - Unicode
   language: Python
   organisation: Security Toolbox
@@ -1582,7 +1619,7 @@
     - CI/CD
     - GitHub Actions
     - JavaScript
-    - Linting
+    - Lint
     - Standard
   language: Shell
   organisation: CI/CD Toolbox
@@ -1626,7 +1663,7 @@
     - GitHub Actions
     - jq
     - JSON
-    - Linting
+    - Lint
   language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -1686,6 +1723,8 @@
     Ask a yes-or-no question and get one of the twenty classic Magic 8-Ball replies. The question is
     checked and then discarded, and the answer is chosen at random from the traditional set.
   categories:
+    - After Hours
+    - Fun
     - CLI
     - Magic 8 Ball
   language: Python
@@ -1708,7 +1747,9 @@
   categories:
     - Binary
     - CLI
-    - Files
+    - File Formats
+    - Forensics
+    - Security
   language: Python
   organisation: Security Toolbox
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
@@ -1730,7 +1771,7 @@
     - Checkmake
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Makefile
   language: Shell
   organisation: CI/CD Toolbox
@@ -1749,7 +1790,8 @@
   description: >-
     Reusable Makefile skills for project versioning and for Python, MkDocs, Bash, Ruby, Perl, and PHP. A
     project turns on versioning and only the language skills it needs.
-  categories: []
+  categories:
+    - Makefiles
   language: Makefile
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
@@ -1795,7 +1837,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Markdown
   language: Shell
   organisation: CI/CD Toolbox
@@ -1835,10 +1877,12 @@
     Inspect, identify, remove, and verify privacy-sensitive metadata in photographs. It reports the
     metadata a picture carries and can clear it.
   categories:
+    - CLI
+    - EXIF
+    - Images
     - Metadata
-    - Photographs
+    - Photography
     - Privacy
-    - Security
   language: Python
   organisation: Miscellaneous Toolbox
   logo: assets/images/organisations/organisation-miscellaneous-toolbox-logo.png
@@ -1886,7 +1930,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Mypy
     - Python
     - Typing
@@ -2012,8 +2056,10 @@
     Inspect, validate, compare, and audit Python wheels and source distributions without installing
     them. You can see what a package contains before it is installed.
   categories:
-    - Developer Tools
+    - CLI
     - Packaging
+    - Sdist
+    - Wheel
   language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
@@ -2035,6 +2081,9 @@
     - After Hours
     - Fun
     - CLI
+    - Email
+    - Humor
+    - Offline
   language: Python
   organisation: After Hours
   logo: assets/images/organisations/organisation-after-hours-logo.png
@@ -2074,7 +2123,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Perl
   language: Shell
   organisation: CI/CD Toolbox
@@ -2120,7 +2169,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - PHP
   language: Shell
   organisation: CI/CD Toolbox
@@ -2146,7 +2195,7 @@
     - CI/CD
     - GitHub Actions
     - Pipeline
-    - Templates
+    - Template
   language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -2215,7 +2264,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - PowerShell
     - PowerShell Linter
   language: Shell
@@ -2239,7 +2288,7 @@
     - Git
     - Git Hooks
     - Pre-commit
-    - Templates
+    - Template
   language: Python
   organisation: Git Hooks Toolbox
   logo: assets/images/organisations/organisation-git-hooks-toolbox-logo.png
@@ -2327,7 +2376,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Puppet
   language: Shell
   organisation: CI/CD Toolbox
@@ -2350,7 +2399,7 @@
     - CI/CD
     - Dependencies
     - GitHub Actions
-    - Linting
+    - Lint
     - Python
   language: Shell
   organisation: CI/CD Toolbox
@@ -2393,7 +2442,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - PEP 8
     - Python
   language: Shell
@@ -2417,7 +2466,7 @@
     - CI/CD
     - Docstrings
     - GitHub Actions
-    - Linting
+    - Lint
     - Python
   language: Shell
   organisation: CI/CD Toolbox
@@ -2437,8 +2486,9 @@
     Docker images with pyenv installed so any Python version can be used. Pyenv is already in the
     image.
   categories:
-    - Containers
     - Docker
+    - Dockerfile
+    - Pyenv
     - Python
   language: Shell
   organisation: Docker Toolbox
@@ -2460,7 +2510,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Python
   language: Shell
   organisation: CI/CD Toolbox
@@ -2482,7 +2532,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Python
   language: Shell
   organisation: CI/CD Toolbox
@@ -2504,7 +2554,7 @@
   categories:
     - CLI
     - PyPI
-    - QR Codes
+    - QR Code
     - Segno
   language: Python
   organisation: Developers Toolbox
@@ -2547,8 +2597,9 @@
     Docker images with rbenv installed so any Ruby version can be used. Rbenv is already in the
     image.
   categories:
-    - Containers
     - Docker
+    - Dockerfile
+    - Rbenv
     - Ruby
   language: Shell
   organisation: Docker Toolbox
@@ -2570,7 +2621,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Ruby
   language: Shell
   organisation: CI/CD Toolbox
@@ -2591,8 +2642,9 @@
     a pattern and see what it matches before it lands in code.
   categories:
     - CLI
-    - Developer Tools
+    - Regex
     - Regular Expressions
+    - Textual
   language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
@@ -2601,6 +2653,29 @@
   banner: released
   version: "0.1.0"
   released_date: "2026-11-18T09:55:49"
+
+- id: relay
+  published: true
+  name: Relay
+  icon: material-source-repository
+  publish_date: "2026-11-19T16:58:36"
+  description: >-
+    Exchange messages between independent programs without extra infrastructure. The programs talk to
+    each other directly, and nothing else has to be running.
+  categories:
+    - CLI
+    - Messaging
+    - Pubsub
+    - Queue
+  language: Python
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/relay
+  documentation: https://relay.thelupaxaproject.org/
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-19T18:28:46"
 
 - id: reusable-workflows
   published: true
@@ -2613,7 +2688,7 @@
     copying the same workflow into every repository.
   categories:
     - Reusable Workflows
-    - Workflow
+    - Workflows
   language: Shell
   organisation: The Lupaxa Project
   logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
@@ -2634,7 +2709,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Ruby
   language: Shell
   organisation: CI/CD Toolbox
@@ -2656,7 +2731,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - Python
     - Ruff
   language: Shell
@@ -2704,8 +2779,9 @@
     Run commands in disposable workspaces and inspect what they change. The workspace is thrown away
     after the run, and the report shows what changed.
   categories:
-    - Developer Tools
     - CLI
+    - Sandbox
+    - Workspace
   language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
@@ -2746,6 +2822,7 @@
   categories:
     - Git
     - Git Hooks
+    - Hooks
     - Setup Git Hooks
   language: Python
   organisation: Git Hooks Toolbox
@@ -2768,7 +2845,7 @@
     - Bash
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
   language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -2914,9 +2991,10 @@
     agent. It checks the client setup without changing it.
   categories:
     - CLI
-    - Security
+    - Diagnostics
+    - OpenSSH
+    - SRE
     - SSH
-    - Workstation
   language: Python
   organisation: Workstation Toolbox
   logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
@@ -2934,10 +3012,10 @@
   description: >-
     Check when a TLS certificate on port 443 expires. A Python command-line tool and library.
   categories:
-    - Certificates
+    - Certificate
     - CLI
     - Expiry
-    - Networking
+    - Network
     - SRE
     - SSL
     - SSL Expiry
@@ -2960,9 +3038,14 @@
     Show the TLS leaf certificate and the handshake details for port 443. The report covers the
     certificate the server presents on that port.
   categories:
-    - Certificates
-    - Networking
+    - Certificate
+    - CLI
+    - Network
+    - SRE
+    - SSL
+    - SSL Info
     - TLS
+    - X509
   language: Python
   organisation: SRE Toolbox
   logo: assets/images/organisations/organisation-sre-toolbox-logo.png
@@ -3003,7 +3086,8 @@
     for a short report, CI, and support.
   categories:
     - CLI
-    - System Information
+    - Sysinfo
+    - System Info
   language: Python
   organisation: Developers Toolbox
   logo: assets/images/organisations/organisation-developers-toolbox-logo.png
@@ -3023,7 +3107,7 @@
     command-line tool and library.
   categories:
     - CLI
-    - Networking
+    - Network
     - Ping
     - SRE
     - TCP
@@ -3171,9 +3255,10 @@
     Docker images with tfenv installed so any Terraform version can be used. Tfenv is already in
     the image.
   categories:
-    - Containers
     - Docker
+    - Dockerfile
     - Terraform
+    - Tfenv
   language: Shell
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -3192,9 +3277,10 @@
     Docker images with tgenv installed so any Terragrunt version can be used. Tgenv is already in
     the image.
   categories:
-    - Containers
     - Docker
+    - Dockerfile
     - Terragrunt
+    - Tgenv
   language: Shell
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -3215,7 +3301,7 @@
   categories:
     - CLI
     - HTTP
-    - Networking
+    - Network
     - SRE
     - TTFB
   language: Python
@@ -3351,7 +3437,7 @@
     - CI/CD
     - Citation CFF
     - GitHub Actions
-    - Linting
+    - Lint
   language: Shell
   organisation: CI/CD Toolbox
   logo: assets/images/organisations/organisation-cicd-toolbox-logo.png
@@ -3396,9 +3482,9 @@
     Print pinned package install lines for a Dockerfile. It queries a distro image so the lines
     match the packages that image provides.
   categories:
-    - Containers
     - Docker
-    - Packaging
+    - Dockerfile
+    - Packages
   language: Shell
   organisation: Docker Toolbox
   logo: assets/images/organisations/organisation-docker-toolbox-logo.png
@@ -3445,7 +3531,7 @@
   categories:
     - CI/CD
     - GitHub Actions
-    - Linting
+    - Lint
     - YAML
   language: Shell
   organisation: CI/CD Toolbox
