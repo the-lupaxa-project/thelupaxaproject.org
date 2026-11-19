@@ -1254,6 +1254,7 @@
   logo: assets/images/organisations/organisation-gh-toolbox-logo.png
   logo_alt: GitHub Toolbox
   repository: https://github.com/lupaxa-gh-toolbox/github-intel
+  documentation: https://github-intel.thelupaxaproject.org/
   banner: released
   version: "0.1.0"
   released_date: "2026-11-19T13:29:48"
