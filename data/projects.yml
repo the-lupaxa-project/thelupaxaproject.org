@@ -1113,6 +1113,27 @@
   version: "0.1.4"
   released_date: "2026-10-07T09:12:53"
 
+- id: ghcr-intel
+  published: true
+  name: GHCR Intel
+  icon: material-source-repository
+  publish_date: "2026-11-20T13:35:46"
+  description: >-
+    Monitor an explicit list of ghcr.io container images from the local machine. You choose the images,
+    and the checks run here.
+  categories:
+    - CLI
+    - GHCR
+    - GitHub
+  language: Python
+  organisation: GitHub Toolbox
+  logo: assets/images/organisations/organisation-gh-toolbox-logo.png
+  logo_alt: GitHub Toolbox
+  repository: https://github.com/lupaxa-gh-toolbox/ghcr-intel
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-20T17:07:07"
+
 - id: ghostport
   published: true
   name: Ghostport
