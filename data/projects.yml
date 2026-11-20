@@ -1130,6 +1130,7 @@
   logo: assets/images/organisations/organisation-gh-toolbox-logo.png
   logo_alt: GitHub Toolbox
   repository: https://github.com/lupaxa-gh-toolbox/ghcr-intel
+  documentation: https://ghcr-intel.thelupaxaproject.org/
   banner: released
   version: "0.1.0"
   released_date: "2026-11-20T17:07:07"
@@ -1349,6 +1350,25 @@
   banner: released
   version: "0.1.5"
   released_date: "2026-10-07T09:20:52"
+
+- id: github-extractor
+  published: true
+  name: GitHub Extractor
+  icon: material-source-repository
+  publish_date: "2026-11-20T17:47:04"
+  description: >-
+    List GitHub organisations, repositories, and related data. The list comes from the GitHub API.
+  categories:
+    - API
+    - Extractor
+    - GitHub
+  language: Python
+  organisation: API Extractor Toolbox
+  logo: assets/images/organisations/organisation-api-extractor-toolbox-logo.png
+  logo_alt: API Extractor Toolbox
+  repository: https://github.com/lupaxa-api-extractor-toolbox/github-extractor
+  documentation: https://github-extractor.thelupaxaproject.org/
+  banner: in-development
 
 - id: github-intel
   published: true
