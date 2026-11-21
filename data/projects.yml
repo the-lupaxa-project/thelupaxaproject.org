@@ -702,8 +702,8 @@
   repository: https://github.com/lupaxa-security-toolbox/dead-drop
   documentation: https://dead-drop.thelupaxaproject.org/
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T11:53:32"
+  version: "0.1.1"
+  released_date: "2026-11-21T19:03:17"
 
 - id: design-patterns
   published: true
@@ -1623,8 +1623,8 @@
   logo_alt: Security Toolbox
   repository: https://github.com/lupaxa-security-toolbox/invisible-ink
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T12:19:15"
+  version: "0.1.1"
+  released_date: "2026-11-21T19:02:09"
 
 - id: invisible-timing-toolkit
   published: true
@@ -1863,8 +1863,8 @@
   logo_alt: Security Toolbox
   repository: https://github.com/lupaxa-security-toolbox/magic-bytes
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-18T12:52:20"
+  version: "0.1.1"
+  released_date: "2026-11-21T18:59:00"
 
 - id: makefile-lint
   published: true
@@ -2265,8 +2265,8 @@
   logo_alt: Security Toolbox
   repository: https://github.com/lupaxa-security-toolbox/password-strength-checker
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-21T13:27:22"
+  version: "0.1.1"
+  released_date: "2026-11-21T19:01:26"
 
 - id: pattern-match-library
   published: true
