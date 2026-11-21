@@ -2244,6 +2244,26 @@
   version: "0.1.0"
   released_date: "2026-11-14T16:28:22"
 
+- id: password-strength-checker
+  published: true
+  name: Password Strength Checker
+  icon: material-source-repository
+  publish_date: "2026-11-21T11:33:08"
+  description: >-
+    A Python library and command-line tool that scores password strength. It can also check a password
+    against Have I Been Pwned.
+  categories:
+    - CLI
+    - Password
+    - Python
+    - Security
+    - Zxcvbn
+  organisation: Security Toolbox
+  logo: assets/images/organisations/organisation-security-toolbox-logo.png
+  logo_alt: Security Toolbox
+  repository: https://github.com/lupaxa-security-toolbox/password-strength-checker
+  banner: in-development
+
 - id: pattern-match-library
   published: true
   name: Pattern Match Library
