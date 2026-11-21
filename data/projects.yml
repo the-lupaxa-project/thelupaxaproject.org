@@ -1368,7 +1368,9 @@
   logo_alt: API Extractor Toolbox
   repository: https://github.com/lupaxa-api-extractor-toolbox/github-extractor
   documentation: https://github-extractor.thelupaxaproject.org/
-  banner: in-development
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-21T13:31:44"
 
 - id: github-intel
   published: true
