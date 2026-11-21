@@ -2262,7 +2262,9 @@
   logo: assets/images/organisations/organisation-security-toolbox-logo.png
   logo_alt: Security Toolbox
   repository: https://github.com/lupaxa-security-toolbox/password-strength-checker
-  banner: in-development
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-21T13:27:22"
 
 - id: pattern-match-library
   published: true
