@@ -1554,7 +1554,7 @@
   documentation_label: Visit Site
   website: true
   banner: updated
-  released_date: "2026-11-18T17:55:18"
+  released_date: "2026-11-21T16:46:30"
 
 - id: image-converter
   published: true
@@ -2375,6 +2375,28 @@
   banner: released
   version: "0.1.1"
   released_date: "2026-11-20T12:22:39"
+
+- id: pip-drop-editables
+  published: true
+  name: Pip Drop Editables
+  icon: material-source-repository
+  publish_date: "2026-11-21T14:22:33"
+  description: >-
+    Uninstall editable pip installs so a published release can replace them. Once those editable copies
+    are gone, the published package can be installed in their place.
+  categories:
+    - Bash
+    - CLI
+    - Pip
+    - Python
+  language: Shell
+  organisation: Workstation Toolbox
+  logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
+  logo_alt: Workstation Toolbox
+  repository: https://github.com/lupaxa-workstation-toolbox/pip-drop-editables
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-21T16:44:55"
 
 - id: pipeline-template
   published: true
