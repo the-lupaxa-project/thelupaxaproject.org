@@ -2468,6 +2468,28 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:23:01"
 
+- id: pomodoro
+  published: true
+  name: Pomodoro
+  icon: material-source-repository
+  publish_date: "2026-11-21T19:09:57"
+  description: >-
+    A terminal Pomodoro timer with configurable work and break sessions. It shows a live progress
+    bar and sends session alerts.
+  categories:
+    - CLI
+    - Pomodoro
+    - Productivity
+    - Timer
+  language: Python
+  organisation: Workstation Toolbox
+  logo: assets/images/organisations/organisation-workstation-toolbox-logo.png
+  logo_alt: Workstation Toolbox
+  repository: https://github.com/lupaxa-workstation-toolbox/pomodoro
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-21T19:45:33"
+
 - id: post-clone
   published: true
   name: Post Clone
