@@ -50,10 +50,10 @@
   const markActiveFilter = (filters, selected) => {
     const wanted = normaliseFilter(selected);
     filters.forEach((filter) => {
-      filter.classList.toggle(
-        "is-active",
-        normaliseFilter(filter.getAttribute("data-filter")) === wanted,
-      );
+      const active =
+        normaliseFilter(filter.getAttribute("data-filter")) === wanted;
+      filter.classList.toggle("is-active", active);
+      filter.setAttribute("aria-pressed", active ? "true" : "false");
     });
   };
 

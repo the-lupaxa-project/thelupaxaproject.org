@@ -168,6 +168,9 @@ def test_policy_card_without_banner_is_unchanged(tmp_path, monkeypatch):
 
     assert "catalogue-banner" not in markup
     assert "Synthetic Policy" in markup
+    assert 'href="https://github.com/example/synthetic"' in markup
+    assert 'title="View Synthetic Policy on GitHub"' in markup
+    assert "View on GitHub" not in markup
 
 
 def test_policy_card_includes_default_brand_logo(tmp_path, monkeypatch):

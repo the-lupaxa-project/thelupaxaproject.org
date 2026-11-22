@@ -9,7 +9,7 @@
  *               organisation | category | language
  *               status | sort | clear
  *   Websites:   search
- *               organisation | category
+ *               organisation | category | language
  *               status | sort | clear
  *   Articles:   search
  *               tag | view | sort | clear (each 25%)
@@ -26,14 +26,9 @@
     auto;
   gap: 0.75rem;
   align-items: end;
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--lupaxa-spacing-md);
   padding: 0.9rem 1rem;
-  background:
-    color-mix(
-      in srgb,
-      var(--md-default-bg-color) 96%,
-      var(--lupaxa-blue)
-    );
+  background: linear-gradient(180deg, var(--lupaxa-card-bg-raised), var(--lupaxa-card-bg));
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 0.5rem;
   box-shadow: var(--md-shadow-z1);
@@ -56,8 +51,6 @@
  *   status | sort | clear
  *
  * The second row uses the same three column widths as the third.
- * Websites use the same grid without a language slot, so organisation
- * and category each take half of that row.
  */
 .filter-panel[data-project-filters],
 .filter-panel[data-website-filters] {
@@ -88,17 +81,10 @@
 }
 
 .filter-panel[data-project-filters] > [data-filter-slot="language"],
+.filter-panel[data-website-filters] > [data-filter-slot="language"],
 .filter-panel[data-project-filters] > [data-filter-slot="clear"],
 .filter-panel[data-website-filters] > [data-filter-slot="clear"] {
   grid-column: 5 / 7;
-}
-
-.filter-panel[data-website-filters] > [data-filter-slot="organisation"] {
-  grid-column: 1 / 4;
-}
-
-.filter-panel[data-website-filters] > [data-filter-slot="category"] {
-  grid-column: 4 / 7;
 }
 
 .filter-panel[data-project-filters] > [data-filter-slot="clear"],
@@ -191,6 +177,24 @@
   line-height: 1;
   white-space: nowrap;
   vertical-align: middle;
+  border-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .md-button.filter-panel-expand:hover,
+.md-typeset .md-button.filter-panel-expand:focus,
+.md-typeset .md-button.filter-panel-expand:focus-visible {
+  border-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .md-button.filter-panel-clear:not(:disabled),
+.filter-panel-clear:not(:disabled) {
+  border-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .md-button.filter-panel-clear:not(:disabled):hover,
+.md-typeset .md-button.filter-panel-clear:not(:disabled):focus,
+.md-typeset .md-button.filter-panel-clear:not(:disabled):focus-visible {
+  border-color: var(--md-default-fg-color--lightest);
 }
 
 .filter-panel-expand__icon {
@@ -300,7 +304,7 @@
 article.md-content__inner:has(> .filter-panel:first-child)::before {
   content: "";
   display: block;
-  height: 1.5rem;
+  height: var(--lupaxa-spacing-md);
 }
 
 .filter-panel-search,
@@ -337,7 +341,7 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
   font-size: 0.82rem;
   line-height: 1;
   white-space: nowrap;
-  background: var(--md-default-bg-color);
+  background: var(--lupaxa-dark-blue);
   border: 1px solid var(--md-default-fg-color--lightest);
   cursor: pointer;
   appearance: none;
@@ -416,7 +420,7 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
   font: inherit;
   font-size: 0.82rem;
   line-height: 1.3;
-  background: var(--md-default-bg-color);
+  background: var(--lupaxa-dark-blue);
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 0.3rem;
   transition:
@@ -501,12 +505,7 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
 }
 
 [data-md-color-scheme="slate"] .filter-panel {
-  background:
-    color-mix(
-      in srgb,
-      var(--md-default-bg-color) 94%,
-      var(--lupaxa-light-blue)
-    );
+  background: linear-gradient(180deg, var(--lupaxa-card-bg-raised), var(--lupaxa-card-bg));
 }
 
 /* =============================================================================
@@ -555,7 +554,7 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
 /*
  * Tablet portrait (~960px):
  *   Projects:      search / organisation|category|language / status|sort|clear
- *   Websites:      search / organisation|category / status|sort|clear
+ *   Websites:      search / organisation|category|language / status|sort|clear
  *   Articles:      search / tag|view|sort|clear (each 25%)
  *   Organisations: search / category|sort|clear (each one third)
  */
@@ -590,19 +589,12 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
   }
 
   .filter-panel[data-project-filters] > [data-filter-slot="language"],
+  .filter-panel[data-website-filters] > [data-filter-slot="language"],
   .filter-panel[data-project-filters] > [data-filter-slot="clear"],
-.filter-panel[data-website-filters] > [data-filter-slot="clear"] {
+  .filter-panel[data-website-filters] > [data-filter-slot="clear"] {
     grid-column: 5 / 7;
     justify-self: stretch;
     justify-content: flex-start;
-  }
-
-  .filter-panel[data-website-filters] > [data-filter-slot="organisation"] {
-    grid-column: 1 / 4;
-  }
-
-  .filter-panel[data-website-filters] > [data-filter-slot="category"] {
-    grid-column: 4 / 7;
   }
 
   /* --- Articles: search; tag | view | sort | clear, each one quarter --- */

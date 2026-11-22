@@ -1255,6 +1255,7 @@
       singular: "website",
       plural: "websites",
       organisation: true,
+      language: true,
       status: true,
       sort: true,
     }),

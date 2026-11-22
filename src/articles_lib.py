@@ -168,8 +168,6 @@ def _article_entry(slug: str, meta: dict[str, Any], *, today: date | None = None
     return (
         f"-   **[{title}](articles/{slug}.md)**\n"
         f"\n"
-        f"    ---\n"
-        f"\n"
         f"{banner_block}"
         f'    ![Article](assets/images/articles/{slug}.webp){{ class="catalogue-logo"{name_attr}{date_attr} }}\n'
         f"\n"

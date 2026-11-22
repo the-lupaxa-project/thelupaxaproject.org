@@ -153,22 +153,59 @@ def _organisation_logo_title(name: str) -> str:
     return f"View projects in the {name}"
 
 
-def catalogue_card_heading(item: dict) -> str:
-    """Card title as a heading so site search can deep-link to the card."""
-    return f"-   ### {item['name']} {{ #{item['id']} .no_toc translate=no }}"
+def _organisation_link_title(name: str) -> str:
+    if name.startswith("The "):
+        return f"View {name} on GitHub"
+    return f"View the {name} organisation on GitHub"
 
 
-def _action_link(modifier: str, href: str, label: str, icon: str) -> str:
+def _title_icon_link(href: str, tooltip: str, icon: str, modifier: str) -> str:
+    """Icon link for a card title. The title text itself is not the link."""
+    safe_href = html.escape(href, quote=True)
+    safe_tip = html.escape(tooltip, quote=True)
     return (
-        f"    <a\n"
-        f'        class="catalogue-action catalogue-action--{modifier}"\n'
-        f'        href="{href}"\n'
-        f'        target="_blank"\n'
-        f'        rel="noopener noreferrer">\n'
-        f'        <span class="md-icon">:{icon}:</span>\n'
-        f"        {label}\n"
-        f"    </a>"
+        f'<a class="catalogue-title-link catalogue-title-link--{modifier}" '
+        f'href="{safe_href}" target="_blank" rel="noopener noreferrer" '
+        f'title="{safe_tip}" aria-label="{safe_tip}">'
+        f'<span class="md-icon">:{icon}:</span></a>'
     )
+
+
+def catalogue_card_heading(
+    item: dict,
+    *,
+    github_href: str | None = None,
+    github_title: str | None = None,
+    site_href: str | None = None,
+    site_title: str | None = None,
+    site_icon: str = "material-web",
+) -> str:
+    """Card title as a heading so site search can deep-link to the card.
+
+    The heading text stays plain. A GitHub icon on the left and, when the
+    card has a site or docs URL, an icon on the right are the links.
+    """
+    parts = []
+    if github_href:
+        parts.append(
+            _title_icon_link(
+                github_href,
+                github_title or f"View {item['name']} on GitHub",
+                "material-github",
+                "github",
+            )
+        )
+    parts.append(f'<span class="catalogue-title-text">{html.escape(item["name"])}</span>')
+    if site_href:
+        parts.append(
+            _title_icon_link(
+                site_href,
+                site_title or f"Visit {item['name']}",
+                site_icon,
+                "site",
+            )
+        )
+    return f"-   ### {''.join(parts)} {{ #{item['id']} .no_toc translate=no }}"
 
 
 def _resolve_banner(raw: Any) -> tuple[str, str, str] | None:
@@ -401,16 +438,13 @@ def define_env(env):
             else ""
         )
         name_attr = html.escape(item["name"], quote=True)
-        action = _action_link(
-            "repository",
-            item["repository"],
-            "View on GitHub",
-            "material-github",
+        heading = catalogue_card_heading(
+            item,
+            github_href=item["repository"],
+            github_title=_organisation_link_title(item["name"]),
         )
         return f"""
-{catalogue_card_heading(item)}
-
-    ---
+{heading}
 
     <img
         class="catalogue-logo"
@@ -425,25 +459,16 @@ def define_env(env):
 {description}
 
 {categories}
-
-    ---
-
-{action}
 """.strip()
 
     def project_card(item: dict) -> str:
-        # Language chips and the language filter live on Projects only.
-        language = None if item.get("website") is True else item.get("language")
-        categories = _categories_markup(item.get("categories"), language)
+        categories = _categories_markup(item.get("categories"), item.get("language"))
         description = _indent(item["description"])
         raw_banner = item.get("banner")
         raw_version = item.get("version")
         has_version = normalise_project_version(raw_version) is not None
-        # A website with no tagged release still shows when it last changed.
-        if item.get("website") is True and not has_version:
-            raw_banner = "updated"
         # Older cards used Stable for a shipped line. A version is Released.
-        elif isinstance(raw_banner, str) and raw_banner.strip() == "stable":
+        if isinstance(raw_banner, str) and raw_banner.strip() == "stable":
             raw_banner = "released" if has_version else False
         if raw_banner is None or (isinstance(raw_banner, str) and not raw_banner.strip()):
             raw_banner = "in-development"
@@ -462,29 +487,8 @@ def define_env(env):
             version=raw_version if is_released and has_version else None,
             center_date=is_updated,
         )
-        banner_block = f"{banner}\n\n" if banner else ""
-        actions = [
-            _action_link(
-                "repository",
-                item["repository"],
-                "View on GitHub",
-                "material-github",
-            )
-        ]
-        documentation = item.get("documentation")
-        if documentation:
-            custom_label = str(item.get("documentation_label") or "").strip()
-            label = custom_label or "Documentation"
-            icon = "material-web" if custom_label else "material-book-open-page-variant"
-            actions.append(
-                _action_link(
-                    "documentation",
-                    documentation,
-                    html.escape(label),
-                    icon,
-                )
-            )
-        actions_markup = "\n".join(actions)
+        # The title opens the repository, and the status band closes the card.
+        banner_footer = f"\n\n{banner}" if banner else ""
         publish_date_value = format_publish_date_attr(item.get("publish_date"))
         publish_date_attr = (
             f'\n        data-publish-date="{publish_date_value}"'
@@ -498,12 +502,22 @@ def define_env(env):
             else ""
         )
         name_attr = html.escape(item["name"], quote=True)
+        site_href = str(item.get("documentation") or "").strip()
+        if item.get("website") is True:
+            site_title = f"Visit {item['name']}"
+        else:
+            site_title = f"Visit the {item['name']} website"
+        heading = catalogue_card_heading(
+            item,
+            github_href=item["repository"],
+            github_title=f"View {item['name']} on GitHub",
+            site_href=site_href or None,
+            site_title=site_title if site_href else None,
+        )
         return f"""
-{catalogue_card_heading(item)}
+{heading}
 
-    ---
-
-{banner_block}    <img
+    <img
         class="catalogue-logo"
         translate="no"
         title="{item["organisation"]}"
@@ -515,11 +529,7 @@ def define_env(env):
 
 {description}
 
-{categories}
-
-    ---
-
-{actions_markup}
+{categories}{banner_footer}
 """.strip()
 
     def policy_card(item: dict, *, expiry_days: int = DEFAULT_BANNER_EXPIRY_DAYS) -> str:
@@ -543,16 +553,13 @@ def define_env(env):
         logo = html.escape(catalogue_media_src(item.get("logo", DEFAULT_POLICY_LOGO)), quote=True)
         logo_alt = html.escape(item.get("logo_alt", DEFAULT_POLICY_LOGO_ALT), quote=True)
         name_attr = html.escape(item["name"], quote=True)
-        action = _action_link(
-            "repository",
-            item["document"],
-            "View on GitHub",
-            "material-github",
+        heading = catalogue_card_heading(
+            item,
+            github_href=item["document"],
+            github_title=f"View {item['name']} on GitHub",
         )
         return f"""
-{catalogue_card_heading(item)}
-
-    ---
+{heading}
 
 {banner_block}    <span class="catalogue-logo-wrap">
     <img
@@ -568,10 +575,6 @@ def define_env(env):
 {description}
 
 {categories}
-
-    ---
-
-{action}
 """.strip()
 
     @env.macro

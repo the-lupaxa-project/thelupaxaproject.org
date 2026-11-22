@@ -43,28 +43,20 @@ hide:
 
 -   :material-account-group:{ .lg .middle } **An Open Community**
 
-    ---
-
     The Lupaxa Project is an informal collective rather than a company. There
     are no customers, shareholders or commercial objectives directing its work.
 
 -   :material-source-repository-multiple:{ .lg .middle } **Built in the Open**
-
-    ---
 
     Our source code, documentation and project discussions are maintained
     openly on GitHub whenever the nature of the project permits it.
 
 -   :material-tools:{ .lg .middle } **Practical by Design**
 
-    ---
-
     Projects begin with real problems and are shaped into focused, maintainable
     tools that can be understood and used independently.
 
 -   :material-hand-heart:{ .lg .middle } **Volunteer-led**
-
-    ---
 
     The project is volunteer-led. If you want to help cover time and
     running costs, see <a href="sponsor/">Sponsor</a>.
@@ -79,39 +71,27 @@ Everything we create is guided by a consistent set of engineering principles.
 
 -   :material-hammer-wrench:{ .lg .middle } **Craftsmanship**
 
-    ---
-
     Build with care, discipline and pride rather than relying on shortcuts.
 
 -   :material-eye-outline:{ .lg .middle } **Clarity**
-
-    ---
 
     Prefer readable, understandable solutions over unnecessary cleverness.
 
 -   :material-puzzle-outline:{ .lg .middle } **Composability**
 
-    ---
-
     Create tools that work well independently and even better together.
 
 -   :material-lightbulb-outline:{ .lg .middle } **Simplicity**
-
-    ---
 
     Choose the straightforward solution whenever additional complexity provides
     no meaningful benefit.
 
 -   :material-shield-check-outline:{ .lg .middle } **Security**
 
-    ---
-
     Treat security as a fundamental design requirement rather than an
     afterthought.
 
 -   :material-compass-outline:{ .lg .middle } **Autonomy**
-
-    ---
 
     Respect user choice, transparency and the freedom to understand and adapt
     the tools they use.
@@ -127,42 +107,30 @@ shared resources across several technical disciplines.
 
 -   :material-console:{ .lg .middle } **Developer Tools**
 
-    ---
-
     Command-line applications, libraries and utilities that improve everyday
     development workflows.
 
 -   :material-cog-sync:{ .lg .middle } **Automation and CI/CD**
-
-    ---
 
     GitHub Actions, reusable workflows and automation for repeatable software
     delivery and repository management.
 
 -   :material-shield-lock-outline:{ .lg .middle } **Security Utilities**
 
-    ---
-
     Focused tools that support secure development, analysis and systems
     administration.
 
 -   :material-server-outline:{ .lg .middle } **Infrastructure Tools**
-
-    ---
 
     Utilities for managing services, platforms, containers and cloud
     environments.
 
 -   :material-file-document-outline:{ .lg .middle } **Documentation**
 
-    ---
-
     Technical guidance, standards and reference material maintained alongside
     the projects they describe.
 
 -   :material-file-tree-outline:{ .lg .middle } **Shared Resources**
-
-    ---
 
     Templates, brand assets, repository standards and common resources used
     throughout the wider ecosystem.

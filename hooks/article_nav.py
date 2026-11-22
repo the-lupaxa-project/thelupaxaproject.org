@@ -45,10 +45,8 @@ def _article_lib():
     import importlib
 
     import articles_lib
-    import banner_lib
 
-    if banner_lib.DEV_SERVER:
-        importlib.reload(articles_lib)
+    importlib.reload(articles_lib)
     return articles_lib
 
 

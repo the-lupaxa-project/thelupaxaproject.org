@@ -12,17 +12,17 @@ hide:
   data-show-count="{{ wall.page.get('show_count', 'all') | e }}"
 >
   <nav class="humour-filters" aria-label="Filter humour by tag">
-    <button type="button" class="humour-filter is-active" data-filter="all">All</button>
+    <button type="button" class="humour-filter is-active" data-filter="all" aria-pressed="true">All</button>
     {% for tag in humour_wall_tags() %}
     <span class="humour-filter-sep" aria-hidden="true">·</span>
-    <button type="button" class="humour-filter" data-filter="{{ tag | e }}">{{ tag | e }}</button>
+    <button type="button" class="humour-filter" data-filter="{{ tag | e }}" aria-pressed="false">{{ tag | e }}</button>
     {% endfor %}
   </nav>
   {% if wall.page.get('show_media_filters', false) %}
   <nav class="humour-filters humour-filters-media" aria-label="Filter by media type">
-    <button type="button" class="humour-filter" data-filter="images">images</button>
+    <button type="button" class="humour-filter" data-filter="images" aria-pressed="false">images</button>
     <span class="humour-filter-sep" aria-hidden="true">·</span>
-    <button type="button" class="humour-filter" data-filter="videos">videos</button>
+    <button type="button" class="humour-filter" data-filter="videos" aria-pressed="false">videos</button>
   </nav>
   {% endif %}
 
@@ -35,6 +35,8 @@ hide:
     {% set poster_url = poster_raw if (not poster_raw or humour_media_is_remote(poster_raw)) else poster_raw | relative_url %}
     {% set media_tag = 'videos' if is_video else 'images' %}
     {% set item_tags = [media_tag] + (item.get('tags') or []) %}
+    {% set media_file = media_src.split('?')[0].rstrip('/').split('/')[-1] %}
+    {% set media_id = media_file.rsplit('.', 1)[0] %}
     <article
       class="humour-card{% if is_video %} is-video{% endif %}"
       data-tags="{{ item_tags | join('|') | e }}"
@@ -49,6 +51,7 @@ hide:
       <button
         type="button"
         class="humour-open"
+        data-id="{{ media_id | e }}"
         data-type="{{ 'video' if is_video else 'image' }}"
         data-src="{{ media_url | e }}"
         data-poster="{{ poster_url | e }}"

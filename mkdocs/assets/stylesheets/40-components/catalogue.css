@@ -9,6 +9,9 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: stretch;
   align-items: stretch;
+  /* Same space above the grid as between card rows. With a filter above,
+     this collapses with the filter's bottom margin. */
+  margin-top: var(--lupaxa-spacing-md);
 }
 
 .md-typeset .grid.cards.catalogue-grid > ul > li,
@@ -28,17 +31,82 @@
   text-decoration: none;
 }
 
+.md-typeset .catalogue-grid > ul > li > :is(h3, p):first-child + p:has(.catalogue-banner),
+.md-typeset .catalogue-grid > li > :is(h3, p):first-child + p:has(.catalogue-banner) {
+  margin-top: 0.8rem;
+}
+
 .md-typeset .catalogue-grid > ul > li > h3:first-child,
 .md-typeset .catalogue-grid > li > h3:first-child {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr) 1.25rem;
+  align-items: center;
+  column-gap: 0.4rem;
   margin: 0;
   padding: 0;
   color: inherit;
-  font-size: 1.08rem;
+  font-size: 0.88rem;
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: normal;
   text-align: center;
+  white-space: nowrap;
   scroll-margin-top: calc(var(--lupaxa-header-height) + 0.75rem);
+}
+
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-text,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-text,
+.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a,
+.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--lupaxa-light-blue);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.12em;
+  text-decoration-skip-ink: auto;
+}
+
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-link,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lupaxa-light-blue);
+  line-height: 0;
+  text-decoration: none;
+}
+
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-link--github,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-link--github {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-text,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-text {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-link--site,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-link--site {
+  grid-column: 3;
+  justify-self: end;
+}
+
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-link:hover,
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-link:focus-visible,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-link:hover,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-link:focus-visible {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-link .twemoji,
+.md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-link svg,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-link .twemoji,
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-link svg {
+  width: 1.15rem;
+  height: 1.15rem;
 }
 
 .md-typeset .catalogue-grid > ul > li:has(> h3:target),
@@ -48,10 +116,10 @@
       145deg,
       color-mix(
         in srgb,
-        var(--md-default-bg-color) 90%,
+        var(--lupaxa-card-bg-raised) 90%,
         var(--lupaxa-light-blue)
       ),
-      var(--md-default-bg-color)
+      var(--lupaxa-card-bg)
     );
   border-color:
     color-mix(
@@ -77,6 +145,15 @@
   color: var(--lupaxa-light-blue);
 }
 
+.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a:hover,
+.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a:focus,
+.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a:active,
+.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child a:hover,
+.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child a:focus,
+.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child a:active {
+  color: inherit;
+}
+
 .md-typeset .catalogue-grid > ul > li:focus-within,
 .md-typeset .catalogue-grid > li:focus-within {
   background:
@@ -84,10 +161,10 @@
       145deg,
       color-mix(
         in srgb,
-        var(--md-default-bg-color) 90%,
+        var(--lupaxa-card-bg-raised) 90%,
         var(--lupaxa-light-blue)
       ),
-      var(--md-default-bg-color)
+      var(--lupaxa-card-bg)
     );
   border-color: var(--lupaxa-card-hover-border);
   box-shadow: var(--lupaxa-shadow-card-hover);
@@ -107,10 +184,10 @@
 
 .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles p:has(img.catalogue-logo) {
   min-height: 0;
-  margin-top: calc(var(--lupaxa-spacing-md) + 0.56em);
-  margin-bottom: var(--lupaxa-spacing-md);
+  margin-top: 0.9rem;
+  margin-bottom: 0.9rem;
   padding: 0.4rem;
-  background-color: color-mix(in srgb, var(--lupaxa-white) 16%, var(--md-default-bg-color));
+  background-color: color-mix(in srgb, var(--lupaxa-white) 16%, var(--lupaxa-card-bg));
   border-radius: var(--lupaxa-radius-card);
 }
 
@@ -119,7 +196,7 @@
   max-width: 100%;
   max-height: none;
   height: auto;
-  background-color: var(--md-default-bg-color);
+  background-color: var(--lupaxa-card-bg);
   border-radius: calc(var(--lupaxa-radius-card) - 0.4rem);
 }
 
@@ -127,8 +204,9 @@
 .md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child strong,
 .md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > h3:first-child,
 .md-typeset .catalogue-grid.catalogue-grid--articles > li > h3:first-child {
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 
@@ -143,10 +221,11 @@
   line-height: 1.35;
 }
 
-.md-typeset .catalogue-grid > ul > li > hr:first-of-type,
-.md-typeset .catalogue-grid > li > hr:first-of-type {
-  width: 100%;
-  margin: 0.8rem 0;
+.md-typeset .catalogue-grid > ul > li > hr,
+.md-typeset .catalogue-grid > li > hr {
+  display: none;
+  margin: 0;
+  border: 0;
 }
 
 .md-typeset .catalogue-grid li:has(> p:only-child) {
@@ -192,10 +271,11 @@
 .md-typeset .grid.cards.catalogue-grid[data-organisation-catalogue] p:has(img.catalogue-logo),
 .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] p:has(img.catalogue-logo),
 .md-typeset .grid.cards.catalogue-grid[data-website-catalogue] p:has(img.catalogue-logo),
-.md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) {
+.md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo),
+.md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles p:has(img.catalogue-logo) {
   min-height: 0;
-  /* Matches the logo's bottom margin plus the description half-leading down to the cap height. */
-  margin-top: calc(0.9rem + 0.56em);
+  /* Same gap above the logo and between the logo and the description. */
+  margin-top: 0.9rem;
   margin-bottom: 0.9rem;
 }
 
@@ -245,7 +325,7 @@
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) > a,
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) > button,
 .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) > .catalogue-logo-wrap {
-  /* 22px corners on the 128px organisation mark. */
+  /* 16.5px corners on the 96px organisation mark. */
   border-radius: 17.1875%;
 }
 
@@ -266,9 +346,9 @@
 .md-typeset .catalogue-grid img.catalogue-logo {
   display: block;
   width: auto;
-  max-width: min(100%, 128px);
+  max-width: min(100%, 96px);
   height: auto;
-  max-height: 128px;
+  max-height: 96px;
   margin: 0;
   object-fit: contain;
   transition: filter var(--lupaxa-transition-fast);
@@ -335,7 +415,7 @@
   width: 100%;
   min-height: 1.45rem;
   margin: 0;
-  padding: 0.28rem 0.6rem;
+  padding: 0.28rem var(--lupaxa-spacing-md);
   box-sizing: border-box;
   background: var(--lupaxa-blue);
   border-radius: 0.2rem;
@@ -492,12 +572,22 @@
   margin-top: 0.5rem;
 }
 
+/* Description copy matches the preview: 15.2px type, 1.45 line height,
+   14.4px under the paragraph. Rems are based on Material's 20px root.
+   Justification stays on the shared card paragraph rule. */
+.md-typeset .catalogue-grid p:has(img.catalogue-logo) + p:not(:has(> .catalogue-category, > .catalogue-language)) {
+  margin-bottom: 0.72rem;
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
 .md-typeset .catalogue-grid code {
   display: inline;
   margin: 0;
   padding: 0;
   color: var(--lupaxa-light-blue);
   font: inherit;
+  font-family: var(--md-code-font-family);
   white-space: inherit;
   word-break: break-word;
   background: none;
@@ -627,9 +717,13 @@
   text-decoration: none !important;
 }
 
+.md-typeset .catalogue-grid a:hover,
+.md-typeset .catalogue-grid a:focus,
+.md-typeset .catalogue-grid a:active,
 .md-typeset .catalogue-action:hover,
-.md-typeset .catalogue-action:focus {
-  color: var(--lupaxa-blue);
+.md-typeset .catalogue-action:focus,
+.md-typeset .catalogue-action:active {
+  color: var(--md-default-fg-color--light);
 }
 
 .md-typeset .catalogue-action .twemoji,
@@ -644,8 +738,10 @@
   margin: 0.8rem 0;
 }
 
-.md-typeset .catalogue-grid > ul > li > p:last-child:not(:has(> .catalogue-category, > .catalogue-language)),
-.md-typeset .catalogue-grid > li > p:last-child:not(:has(> .catalogue-category, > .catalogue-language)) {
+.md-typeset .catalogue-grid > ul > li > p:last-child:not(:has(> .catalogue-category, > .catalogue-language)):not(:has(.catalogue-banner)),
+.md-typeset .catalogue-grid > li > p:last-child:not(:has(> .catalogue-category, > .catalogue-language)):not(:has(.catalogue-banner)),
+.md-typeset .catalogue-grid > ul > li > p:has(> .catalogue-action),
+.md-typeset .catalogue-grid > li > p:has(> .catalogue-action) {
   display: flex;
   width: 100%;
   align-items: center;
@@ -655,6 +751,20 @@
   text-align: left;
   hyphens: manual;
   -webkit-hyphens: manual;
+}
+
+/* Status band closes the card, flush with the bottom edge. */
+.md-typeset .grid.cards.catalogue-grid[data-project-catalogue] > ul > li > p:has(.catalogue-banner),
+.md-typeset .grid.cards.catalogue-grid[data-project-catalogue] > li > p:has(.catalogue-banner),
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > ul > li > p:has(.catalogue-banner),
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > li > p:has(.catalogue-banner) {
+  width: auto;
+  margin: var(--lupaxa-spacing-md) calc(var(--lupaxa-spacing-md) * -1) calc(var(--lupaxa-spacing-md) * -1);
+}
+
+.md-typeset .grid.cards.catalogue-grid[data-project-catalogue] .catalogue-banner__band,
+.md-typeset .grid.cards.catalogue-grid[data-website-catalogue] .catalogue-banner__band {
+  border-radius: 0 0 var(--lupaxa-radius-card) var(--lupaxa-radius-card);
 }
 
 .md-typeset .catalogue-grid > ul > li > p:has(> .catalogue-category, > .catalogue-language),

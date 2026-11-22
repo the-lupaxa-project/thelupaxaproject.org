@@ -99,6 +99,7 @@
     const close = () => {
       if (lightbox.hidden) return;
       reset();
+      syncImageUrl(null);
       if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
       lastFocus = null;
     };
@@ -114,6 +115,7 @@
       if (currentIndex < 0) currentIndex = 0;
       lastFocus = button;
       showFromButton(button);
+      syncImageUrl(imageIdFromButton(button));
       lightbox.hidden = false;
       document.body.classList.add("lightbox-open");
       if (wall) wall.inert = true;
@@ -127,6 +129,7 @@
       const button = buttons[currentIndex];
       lastFocus = button;
       showFromButton(button);
+      syncImageUrl(imageIdFromButton(button));
     };
 
     const handleKeydown = (event) => {
@@ -173,6 +176,37 @@
   };
 
   const CATEGORY_PARAM = "category";
+  const IMAGE_PARAM = "image";
+
+  const imageIdFromButton = (button) => {
+    const explicit = (button.getAttribute("data-id") || "").trim();
+    if (explicit) return explicit;
+    const src = button.getAttribute("data-src") || "";
+    const file = src.split("?")[0].split("/").pop() || "";
+    const dot = file.lastIndexOf(".");
+    return dot > 0 ? file.slice(0, dot) : file;
+  };
+
+  const imageFromUrl = () =>
+    new URLSearchParams(window.location.search).get(IMAGE_PARAM);
+
+  const syncImageUrl = (id) => {
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+
+    if (!id) {
+      params.delete(IMAGE_PARAM);
+    } else {
+      params.set(IMAGE_PARAM, id);
+    }
+
+    const search = params.toString();
+    const next = `${url.pathname}${search ? `?${search}` : ""}${url.hash}`;
+    const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (next === current) return;
+
+    window.history.replaceState(window.history.state, "", next);
+  };
 
   const categoryFromUrl = () =>
     new URLSearchParams(window.location.search).get(CATEGORY_PARAM);
@@ -236,6 +270,22 @@
       document.addEventListener("keydown", (event) => {
         if (activeLightbox) activeLightbox.handleKeydown(event);
       });
+    }
+
+    const imageId = imageFromUrl();
+    if (imageId && wall) {
+      const findButton = () =>
+        Array.from(masonry.querySelectorAll(".humour-open")).find(
+          (button) => imageIdFromButton(button) === imageId,
+        );
+      let button = findButton();
+      if (!button) {
+        const all = wall.querySelector('.humour-filter[data-filter="all"]');
+        if (all && !all.classList.contains("is-active")) all.click();
+        button = findButton();
+      }
+      if (button) activeLightbox.open(button);
+      else syncImageUrl(null);
     }
   };
 

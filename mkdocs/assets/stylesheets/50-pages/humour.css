@@ -4,7 +4,7 @@
 
 .humour-filters-media {
   margin-top: -0.8rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--lupaxa-spacing-md);
   font-size: 0.85rem;
 }
 

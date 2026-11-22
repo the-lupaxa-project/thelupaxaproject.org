@@ -88,10 +88,10 @@ The sash reads **Updated:** and the date, centred. Set `released_date` from
 the latest commit on `master` (not a tag) so that date, and Newest sort, follow
 the catalogue itself.
 If `banner` is omitted, the card is **In Development**.
-`documentation` is the docs or site URL. The link reads **Documentation** with
-a book icon unless `documentation_label` is set. Product sites use
-`documentation_label: Visit Site`, which also switches the icon to a globe.
-Set `website: true` to list that card on Websites instead of Projects.
+`documentation` is a website URL. It is a website icon on the right of the
+card title. The GitHub icon on the left opens the repository.
+Set `website: true` to list that card on Websites instead of Projects. Website
+cards use the same title row, language chip, and footer sash as Projects.
 
 Catalogue pages (organisations, projects, websites, policies, articles) always render A–Z
 by name/title. YAML or filename order is never used. Newest is an explicit sort,

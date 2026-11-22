@@ -15,7 +15,7 @@
 
 #humour-wall {
   box-sizing: border-box;
-  margin: 1.25rem 0 var(--lupaxa-spacing-lg);
+  margin: var(--lupaxa-spacing-md) 0 var(--lupaxa-spacing-lg);
   padding: 0;
   background: transparent;
 }
@@ -25,31 +25,56 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 0.35rem 0.15rem;
-  margin: 0 0 1.25rem;
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 0.9rem;
+  gap: 0.5rem;
+  margin: 0 0 var(--lupaxa-spacing-md);
 }
 
-.humour-filter {
-  padding: 0.15rem 0.35rem;
-  color: var(--md-default-fg-color--light);
+.md-typeset .humour-filter {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.25rem;
+  margin: 0;
+  padding: 0.42rem 0.85rem;
+  color: var(--md-default-fg-color);
   font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
   appearance: none;
   cursor: pointer;
-  background: transparent;
-  border: 0;
-  transition: color var(--lupaxa-transition-fast);
+  background: var(--lupaxa-dark-blue);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--lupaxa-radius-button);
+  transition:
+    color var(--lupaxa-transition-fast),
+    background-color var(--lupaxa-transition-fast),
+    border-color var(--lupaxa-transition-fast);
 }
 
-.humour-filter:hover,
-.humour-filter.is-active {
-  color: var(--lupaxa-light-blue);
+.md-typeset .humour-filter:hover,
+.md-typeset .humour-filter:focus-visible {
+  border-color: var(--lupaxa-light-blue);
+  outline: none;
+}
+
+.md-typeset .humour-filter.is-active {
+  color: var(--lupaxa-white);
+  background: var(--lupaxa-blue);
+  border-color: var(--lupaxa-blue);
+}
+
+.md-typeset .humour-filter.is-active:hover,
+.md-typeset .humour-filter.is-active:focus-visible {
+  color: var(--lupaxa-dark-blue);
+  background: var(--lupaxa-light-blue);
+  border-color: var(--lupaxa-light-blue);
 }
 
 .humour-filter-sep {
-  color: var(--md-default-fg-color--lighter);
-  user-select: none;
+  display: none;
 }
 
 .humour-masonry {

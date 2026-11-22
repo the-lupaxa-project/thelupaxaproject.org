@@ -33,14 +33,15 @@ def test_new_banner_renders_for_recent_article():
     assert "catalogue-banner--blue" in entry
 
 
-def test_new_banner_sits_between_rule_and_image():
+def test_new_banner_sits_between_title_and_image():
     entry = _article_entry("example", _meta(banner="new", publish_date="2026-07-20"), today=TODAY)
 
-    rule = entry.index("    ---")
+    title = entry.index("**[")
     banner = entry.index("catalogue-banner")
     image = entry.index("catalogue-logo")
 
-    assert rule < banner < image
+    assert "    ---" not in entry
+    assert title < banner < image
 
 
 def test_new_banner_hidden_after_expiry():

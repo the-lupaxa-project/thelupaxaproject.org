@@ -114,6 +114,9 @@ def test_organisation_card_local_logo_is_site_root_relative(tmp_path, monkeypatc
     grid = _grid(tmp_path, monkeypatch, organisations=organisations)
     markup = grid("organisation", "organisation")
     assert 'src="/assets/images/organisations/organisation-actions-toolbox-logo.png"' in markup
+    assert 'href="https://github.com/example/a"' in markup
+    assert 'title="View the Alpha Org organisation on GitHub"' in markup
+    assert "View on GitHub" not in markup
 
 
 def test_policy_grid_is_alphabetical(tmp_path, monkeypatch):

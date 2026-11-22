@@ -72,7 +72,7 @@ def test_project_card_shows_language_outside_the_category_filters(tmp_path, monk
     assert 'catalogue-category">Python' not in markup
 
 
-def test_website_card_omits_the_language_chip(tmp_path, monkeypatch):
+def test_website_card_shows_the_language_chip(tmp_path, monkeypatch):
     catalogue_grid = _catalogue_grid(
         tmp_path,
         monkeypatch,
@@ -87,12 +87,12 @@ def test_website_card_omits_the_language_chip(tmp_path, monkeypatch):
 
     markup = catalogue_grid("website", "website")
 
-    assert "catalogue-language" not in markup
+    assert 'class="catalogue-language__name" translate="no">Python</span>' in markup
     assert 'class="catalogue-category">CLI</button>' in markup
 
     websites_page = (ROOT / "mkdocs" / "websites.md").read_text(encoding="utf-8")
     projects_page = (ROOT / "mkdocs" / "projects.md").read_text(encoding="utf-8")
-    assert "include_language" not in websites_page
+    assert "include_language=True" in websites_page
     assert "include_language=True" in projects_page
 
 
@@ -294,11 +294,11 @@ def test_project_card_in_testing_omits_version(tmp_path, monkeypatch):
     assert "catalogue-banner--magenta" in markup
 
 
-def test_website_without_version_centers_updated_date(tmp_path, monkeypatch):
+def test_website_updated_banner_centers_the_date_in_the_footer(tmp_path, monkeypatch):
     projects = [
         _synthetic_project(
             website=True,
-            banner=False,
+            banner="updated",
             released_date="2026-11-10T14:00:53",
         )
     ]
@@ -312,6 +312,7 @@ def test_website_without_version_centers_updated_date(tmp_path, monkeypatch):
     assert "catalogue-banner--split" not in markup
     assert 'data-banner-status="updated"' in markup
     assert "catalogue-banner--blue" in markup
+    assert markup.index("catalogue-logo") < markup.index("catalogue-banner")
 
 
 def test_lifecycle_banners_stay_centred_status_words(tmp_path, monkeypatch):
@@ -402,34 +403,43 @@ def test_project_card_includes_publish_date_on_logo(tmp_path, monkeypatch):
     assert "data-released-date" not in markup
 
 
-def test_project_card_documentation_link_defaults_to_documentation(tmp_path, monkeypatch):
+def test_project_card_omits_repository_and_documentation_links(tmp_path, monkeypatch):
     projects = [_synthetic_project(documentation="https://example.com/docs/")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
 
-    assert "Documentation" in markup
-    assert "Visit Site" not in markup
-    assert ":material-book-open-page-variant:" in markup
-    assert ":material-web:" not in markup
+    assert "View on GitHub" not in markup
+    assert 'class="catalogue-title-text">Synthetic Project</span>' in markup
+    assert 'href="https://github.com/example/synthetic"' in markup
+    assert 'title="View Synthetic Project on GitHub"' in markup
     assert 'href="https://example.com/docs/"' in markup
+    assert 'title="Visit the Synthetic Project website"' in markup
+    assert ":material-github:" in markup
+    assert ":material-web:" in markup
 
 
-def test_project_card_documentation_label_overrides_link_text(tmp_path, monkeypatch):
+def test_website_card_title_opens_the_repository(tmp_path, monkeypatch):
     projects = [
         _synthetic_project(
-            documentation="https://example.com/",
+            website=True,
+            documentation="https://docs.example/site/",
             documentation_label="Visit Site",
         )
     ]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
-    markup = catalogue_grid("project", "project")
+    markup = catalogue_grid("website", "website")
 
-    assert "Visit Site" in markup
-    assert "Documentation" not in markup
+    assert 'class="catalogue-title-text">Synthetic Project</span>' in markup
+    assert 'href="https://github.com/example/synthetic"' in markup
+    assert 'title="View Synthetic Project on GitHub"' in markup
+    assert 'href="https://docs.example/site/"' in markup
+    assert 'title="Visit Synthetic Project"' in markup
     assert ":material-web:" in markup
-    assert ":material-book-open-page-variant:" not in markup
+    assert "View on GitHub" not in markup
+    assert "Visit Site" not in markup
+    assert markup.index("catalogue-logo") < markup.index("catalogue-banner")
 
 
 def test_site_cards_use_visit_site_label():
@@ -466,7 +476,8 @@ def test_website_cards_leave_the_projects_grid(tmp_path, monkeypatch):
     assert "Example Site" not in projects_markup
     assert "Example Site" in websites_markup
     assert "Synthetic Project" not in websites_markup
-    assert "Visit Site" in websites_markup
+    assert "Visit Site" not in websites_markup
+    assert 'title="View Example Site on GitHub"' in websites_markup
 
 
 def test_nav_lists_websites_between_projects_and_articles():
@@ -485,8 +496,13 @@ def test_project_card_title_is_searchable_heading(tmp_path, monkeypatch):
 
     markup = catalogue_grid("project", "project")
 
-    assert "### Synthetic Project" in markup
+    assert 'class="catalogue-title-text">Synthetic Project</span>' in markup
+    assert 'href="https://github.com/example/synthetic"' in markup
+    assert 'title="View Synthetic Project on GitHub"' in markup
+    assert 'target="_blank"' in markup
+    assert ">Synthetic Project</a>" not in markup
     assert "{ #synthetic-project .no_toc translate=no }" in markup
+    assert markup.index("catalogue-logo") < markup.index("catalogue-banner")
 
 
 def test_project_card_includes_released_date_time_on_logo(tmp_path, monkeypatch):
