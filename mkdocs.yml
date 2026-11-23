@@ -103,7 +103,6 @@ plugins:
       module_name: main
 
 hooks:
-  - hooks/article_nav.py
   - hooks/asset_cache_bust.py
   - hooks/template_whitespace.py
 
@@ -116,9 +115,8 @@ nav:
   - Organisations: organisations.md
   - Projects: projects.md
   - Websites: websites.md
-  - Articles: articles.md
-  - Humour: humour.md
   - Policies: policies.md
+  - Humour: humour.md
   - Sponsor: sponsor.md
 
 markdown_extensions:
@@ -175,7 +173,6 @@ extra_css:
   - assets/stylesheets/40-components/masonry-wall.css
 
   - assets/stylesheets/50-pages/about.css
-  - assets/stylesheets/50-pages/article.css
   - assets/stylesheets/50-pages/humour.css
   - assets/stylesheets/50-pages/sponsor.css
 
@@ -188,7 +185,6 @@ extra_javascript:
   - assets/javascript/language-preference.js
   - assets/javascript/header-active-nav.js
   - assets/javascript/catalogue-filters.js
-  - assets/javascript/article-pager.js
   - assets/javascript/masonry-wall.js
   - assets/javascript/humour.js
 

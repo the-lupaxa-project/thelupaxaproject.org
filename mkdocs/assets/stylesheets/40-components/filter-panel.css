@@ -11,8 +11,6 @@
  *   Websites:   search
  *               organisation | category | language
  *               status | sort | clear
- *   Articles:   search
- *               tag | view | sort | clear (each 25%)
  *   Orgs:       search
  *               category | sort | clear
  */
@@ -95,40 +93,6 @@
 
 .filter-panel[data-project-filters] .filter-panel-clear,
 .filter-panel[data-website-filters] .filter-panel-clear {
-  width: 100%;
-  min-width: 0;
-}
-
-/*
- * Articles (expanded):
- *   search (full width)
- *   tag | view | sort | clear
- *
- * The control row is four equal columns.
- */
-.filter-panel[data-article-filters] {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 1rem;
-  row-gap: 0.9rem;
-}
-
-.filter-panel[data-article-filters] > .filter-panel-toolbar,
-.filter-panel[data-article-filters] > .filter-panel-search {
-  grid-column: 1 / -1;
-}
-
-.filter-panel[data-article-filters] > .filter-panel-select,
-.filter-panel[data-article-filters] > .filter-panel-toggle,
-.filter-panel[data-article-filters] > .filter-panel-actions {
-  grid-column: auto;
-}
-
-.filter-panel[data-article-filters] > .filter-panel-actions {
-  justify-self: stretch;
-  justify-content: flex-start;
-}
-
-.filter-panel[data-article-filters] .filter-panel-clear {
   width: 100%;
   min-width: 0;
 }
@@ -295,7 +259,6 @@
 .filter-panel.filter-panel--compact:not(.filter-panel--expanded),
 .filter-panel[data-project-filters]:not(.filter-panel--expanded),
 .filter-panel[data-website-filters]:not(.filter-panel--expanded),
-.filter-panel[data-article-filters]:not(.filter-panel--expanded),
 .filter-panel[data-organisation-filters]:not(.filter-panel--expanded) {
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
@@ -522,7 +485,6 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
 /* Shared: Clear stretches in multi-control rows */
 .filter-panel[data-project-filters] .filter-panel-clear,
 .filter-panel[data-website-filters] .filter-panel-clear,
-.filter-panel[data-article-filters] .filter-panel-clear,
 .filter-panel[data-organisation-filters] .filter-panel-clear {
   flex: 1 1 auto;
   width: 100%;
@@ -544,7 +506,6 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
   .filter-panel.filter-panel--compact:not(.filter-panel--expanded),
   .filter-panel[data-project-filters]:not(.filter-panel--expanded),
 .filter-panel[data-website-filters]:not(.filter-panel--expanded),
-  .filter-panel[data-article-filters]:not(.filter-panel--expanded),
   .filter-panel[data-organisation-filters]:not(.filter-panel--expanded) {
     grid-template-columns: minmax(0, 1fr);
     align-items: center;
@@ -555,7 +516,6 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
  * Tablet portrait (~960px):
  *   Projects:      search / organisation|category|language / status|sort|clear
  *   Websites:      search / organisation|category|language / status|sort|clear
- *   Articles:      search / tag|view|sort|clear (each 25%)
  *   Organisations: search / category|sort|clear (each one third)
  */
 @media screen and (max-width: 59.984375em) {
@@ -597,29 +557,6 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
     justify-content: flex-start;
   }
 
-  /* --- Articles: search; tag | view | sort | clear, each one quarter --- */
-  .filter-panel[data-article-filters] {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 0.85rem;
-    row-gap: 0.85rem;
-  }
-
-  .filter-panel[data-article-filters] > .filter-panel-toolbar,
-  .filter-panel[data-article-filters] > .filter-panel-search {
-    grid-column: 1 / -1;
-  }
-
-  .filter-panel[data-article-filters] > .filter-panel-select,
-  .filter-panel[data-article-filters] > .filter-panel-toggle,
-  .filter-panel[data-article-filters] > .filter-panel-actions {
-    grid-column: auto;
-  }
-
-  .filter-panel[data-article-filters] > .filter-panel-actions {
-    justify-self: stretch;
-    justify-content: flex-start;
-  }
-
   /* --- Organisations: search; category | sort | clear, each one third --- */
   .filter-panel[data-organisation-filters] {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -652,7 +589,6 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
   .filter-panel.filter-panel--compact:not(.filter-panel--expanded),
   .filter-panel[data-project-filters]:not(.filter-panel--expanded),
 .filter-panel[data-website-filters]:not(.filter-panel--expanded),
-  .filter-panel[data-article-filters]:not(.filter-panel--expanded),
   .filter-panel[data-organisation-filters]:not(.filter-panel--expanded) {
     grid-template-columns: minmax(0, 1fr);
     align-items: center;
@@ -669,7 +605,6 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
   .filter-panel.filter-panel--compact,
   .filter-panel[data-project-filters],
 .filter-panel[data-website-filters],
-  .filter-panel[data-article-filters],
   .filter-panel[data-organisation-filters] {
     grid-template-columns: minmax(0, 1fr);
     column-gap: 0.7rem;
@@ -685,9 +620,6 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
   .filter-panel > .filter-panel-actions,
   .filter-panel[data-project-filters] > [data-filter-slot],
 .filter-panel[data-website-filters] > [data-filter-slot],
-  .filter-panel[data-article-filters] > .filter-panel-select,
-  .filter-panel[data-article-filters] > .filter-panel-toggle,
-  .filter-panel[data-article-filters] > .filter-panel-actions,
   .filter-panel[data-organisation-filters] > .filter-panel-select,
   .filter-panel[data-organisation-filters] > .filter-panel-toggle,
   .filter-panel[data-organisation-filters] > .filter-panel-actions {
@@ -742,7 +674,6 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
   .filter-panel.filter-panel--compact:not(.filter-panel--expanded),
   .filter-panel[data-project-filters]:not(.filter-panel--expanded),
 .filter-panel[data-website-filters]:not(.filter-panel--expanded),
-  .filter-panel[data-article-filters]:not(.filter-panel--expanded),
   .filter-panel[data-organisation-filters]:not(.filter-panel--expanded) {
     grid-template-columns: minmax(0, 1fr);
     align-items: center;

@@ -107,8 +107,8 @@ def test_project_card_defaults_missing_banner_to_in_development(tmp_path, monkey
     assert "catalogue-banner--red" in markup
 
 
-def test_project_card_rejects_article_only_presets(tmp_path, monkeypatch):
-    """Project cards must not render banners from the article-only preset set."""
+def test_project_card_rejects_unknown_banner_slug(tmp_path, monkeypatch):
+    """Project cards ignore a banner slug that is not a project preset."""
     projects = [_synthetic_project(banner="new")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
@@ -480,14 +480,15 @@ def test_website_cards_leave_the_projects_grid(tmp_path, monkeypatch):
     assert 'title="View Example Site on GitHub"' in websites_markup
 
 
-def test_nav_lists_websites_between_projects_and_articles():
+def test_nav_lists_websites_between_projects_and_policies():
     nav = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
     projects = "- Projects: projects.md"
     websites = "- Websites: websites.md"
-    articles = "- Articles: articles.md"
+    policies = "- Policies: policies.md"
     assert projects in nav
     assert websites in nav
-    assert nav.index(projects) < nav.index(websites) < nav.index(articles)
+    assert "- Articles:" not in nav
+    assert nav.index(projects) < nav.index(websites) < nav.index(policies)
 
 
 def test_project_card_title_is_searchable_heading(tmp_path, monkeypatch):

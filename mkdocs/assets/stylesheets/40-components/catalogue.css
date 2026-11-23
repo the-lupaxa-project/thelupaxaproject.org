@@ -55,9 +55,7 @@
 }
 
 .md-typeset .catalogue-grid > ul > li > h3:first-child .catalogue-title-text,
-.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-text,
-.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a,
-.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child a {
+.md-typeset .catalogue-grid > li > h3:first-child .catalogue-title-text {
   color: inherit;
   text-decoration: underline;
   text-decoration-color: var(--lupaxa-light-blue);
@@ -145,15 +143,6 @@
   color: var(--lupaxa-light-blue);
 }
 
-.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a:hover,
-.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a:focus,
-.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a:active,
-.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child a:hover,
-.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child a:focus,
-.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child a:active {
-  color: inherit;
-}
-
 .md-typeset .catalogue-grid > ul > li:focus-within,
 .md-typeset .catalogue-grid > li:focus-within {
   background:
@@ -169,46 +158,6 @@
   border-color: var(--lupaxa-card-hover-border);
   box-shadow: var(--lupaxa-shadow-card-hover);
 }
-
-/* Grey plate around the artwork. The image keeps the card colour so
-   transparent cutouts in the file do not pick up the grey. */
-.md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > hr:first-of-type,
-.md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > li > hr:first-of-type {
-  margin-bottom: var(--lupaxa-spacing-md);
-}
-
-.md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > hr:first-of-type:has(+ p img.catalogue-logo),
-.md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > li > hr:first-of-type:has(+ p img.catalogue-logo) {
-  margin-bottom: 0;
-}
-
-.md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles p:has(img.catalogue-logo) {
-  min-height: 0;
-  margin-top: 0.9rem;
-  margin-bottom: 0.9rem;
-  padding: 0.4rem;
-  background-color: color-mix(in srgb, var(--lupaxa-white) 16%, var(--lupaxa-card-bg));
-  border-radius: var(--lupaxa-radius-card);
-}
-
-.md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles img.catalogue-logo {
-  width: 100%;
-  max-width: 100%;
-  max-height: none;
-  height: auto;
-  background-color: var(--lupaxa-card-bg);
-  border-radius: calc(var(--lupaxa-radius-card) - 0.4rem);
-}
-
-.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > p:first-child strong,
-.md-typeset .catalogue-grid.catalogue-grid--articles > li > p:first-child strong,
-.md-typeset .catalogue-grid.catalogue-grid--articles > ul > li > h3:first-child,
-.md-typeset .catalogue-grid.catalogue-grid--articles > li > h3:first-child {
-  font-size: 0.88rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
 
 .md-typeset .catalogue-grid > ul > li > p:first-child,
 .md-typeset .catalogue-grid > li > p:first-child {
@@ -271,8 +220,7 @@
 .md-typeset .grid.cards.catalogue-grid[data-organisation-catalogue] p:has(img.catalogue-logo),
 .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] p:has(img.catalogue-logo),
 .md-typeset .grid.cards.catalogue-grid[data-website-catalogue] p:has(img.catalogue-logo),
-.md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo),
-.md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles p:has(img.catalogue-logo) {
+.md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] p:has(img.catalogue-logo) {
   min-height: 0;
   /* Same gap above the logo and between the logo and the description. */
   margin-top: 0.9rem;

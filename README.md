@@ -81,7 +81,7 @@ Quote `version` as a string (`"0.1.0"`) when the project has tagged releases.
 and **Released:** with the release date on the right, on Projects and Websites.
 The sash is Lupaxa blue and stays up; it does not expire.
 In Development, In Testing, and In Review show the status words only, centred,
-with no version. New Article, New Policy, and Updated Policy use that same
+with no version. New Policy and Updated Policy use that same
 centred sash.
 A website with no tagged release omits `version` and sets `banner: updated`.
 The sash reads **Updated:** and the date, centred. Set `released_date` from
@@ -93,7 +93,7 @@ card title. The GitHub icon on the left opens the repository.
 Set `website: true` to list that card on Websites instead of Projects. Website
 cards use the same title row, language chip, and footer sash as Projects.
 
-Catalogue pages (organisations, projects, websites, policies, articles) always render A–Z
+Catalogue pages (organisations, projects, websites, policies) always render A–Z
 by name/title. YAML or filename order is never used. Newest is an explicit sort,
 not the default.
 
@@ -168,8 +168,8 @@ social_image: https://raw.githubusercontent.com/the-lupaxa-project/brand-assets/
 
 Push to `master` or the nightly schedule (about 02:18 UTC) triggers
 `.github/workflows/publish-mkdocs.yml`, which calls the org reusable MkDocs
-publisher. That rebuild picks up banner expiry (article New, and policy
-New/Updated, dropping) without a YAML edit. The workflow installs from
+publisher. That rebuild picks up banner expiry (policy New and Updated
+dropping) without a YAML edit. The workflow installs from
 `requirements.txt` when the file is present.
 
 Pull requests run `.github/workflows/validate-mkdocs.yml`, which calls the org

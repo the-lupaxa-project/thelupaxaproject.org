@@ -55,9 +55,8 @@ def test_apply_asset_version_replaces_an_existing_query():
 
 def test_mkdocs_registers_the_hook():
     yml = (Path(__file__).resolve().parent.parent / "mkdocs.yml").read_text(encoding="utf-8")
-    assert "- hooks/article_nav.py" in yml
     assert "- hooks/asset_cache_bust.py" in yml
-    assert yml.index("- hooks/article_nav.py") < yml.index("- hooks/asset_cache_bust.py")
+    assert "- hooks/article_nav.py" not in yml
     for entry in (
         "- main.py",
         "- data",
@@ -94,6 +93,3 @@ def test_serve_uses_file_time_for_asset_urls(tmp_path):
         assert served == dev_asset_token([css])
     finally:
         asset_cache_bust._DEV_SERVER = False
-        import banner_lib
-
-        banner_lib.DEV_SERVER = False

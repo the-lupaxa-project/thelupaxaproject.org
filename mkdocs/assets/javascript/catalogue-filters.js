@@ -1,5 +1,5 @@
 /**
- * Searchable catalogue filters for projects, websites, organisations, and articles.
+ * Searchable catalogue filters for projects, websites, and organisations.
  */
 
 (() => {
@@ -17,8 +17,6 @@
   const SORT_ALPHA = "alpha";
   const FALLBACK_ORG = "Other";
   const CATALOGUE_LOCALE = "en-GB";
-  /** Shared with article-pager.js — filtered prev/next sequence. */
-  const ARTICLE_PAGER_STORAGE_KEY = "lupaxa.articlePager";
 
   /**
    * Build catalogue selector config from a short id prefix.
@@ -257,121 +255,6 @@
   }
 
   /**
-   * Persist the visible articles sequence for filtered prev/next paging.
-   *
-   * Cleared when no filters are active and sort is A–Z, so article pages
-   * use the full build-time A–Z pager again. Kept whenever a filter is
-   * active or the Newest sort is selected, since both change the visible
-   * order relative to that build-time pager.
-   *
-   * @param {Object} config
-   * @param {Array<{ element: HTMLElement }>} cardData
-   * @param {{
-   *   searchTerm: string,
-   *   selectedCategory: string,
-   *   selectedOrganisation: string,
-   *   selectedStatus: string
-   * }} filters
-   * @param {string} [activeSort]
-   */
-  function syncArticlePagerSequence(
-    config,
-    cardData,
-    filters,
-    activeSort,
-  ) {
-    if (config.singular !== "article") {
-      return;
-    }
-
-    const hasFilter =
-      filters.searchTerm !== "" ||
-      filters.selectedCategory !== "" ||
-      filters.selectedOrganisation !== "" ||
-      filters.selectedStatus !== "";
-
-    const needsCustomOrder =
-      hasFilter || activeSort === SORT_NEWEST;
-
-    if (!needsCustomOrder) {
-      sessionStorage.removeItem(ARTICLE_PAGER_STORAGE_KEY);
-      return;
-    }
-
-    const articlesBase = articleCatalogueBasePath();
-
-    const sequence = cardData
-      .filter((card) => !card.element.hidden)
-      .map((card) => {
-        const link = card.element.querySelector(
-          ":scope > p:first-child a[href]",
-        );
-
-        if (!(link instanceof HTMLAnchorElement)) {
-          return null;
-        }
-
-        const title = link.textContent?.trim() || "";
-        const slug = articleSlugFromHref(
-          link.getAttribute("href") || "",
-        );
-
-        if (!title || !slug) {
-          return null;
-        }
-
-        return {
-          title,
-          slug,
-          url: `${articlesBase}/${slug}/`,
-        };
-      })
-      .filter(Boolean);
-
-    if (sequence.length === 0) {
-      sessionStorage.removeItem(ARTICLE_PAGER_STORAGE_KEY);
-      return;
-    }
-
-    sessionStorage.setItem(
-      ARTICLE_PAGER_STORAGE_KEY,
-      JSON.stringify({ sequence }),
-    );
-  }
-
-  /**
-   * Base path for article pages (handles optional site prefix).
-   *
-   * @returns {string}
-   */
-  function articleCatalogueBasePath() {
-    const path = window.location.pathname;
-    const match = path.match(/^(.*?\/articles)(?:\/|$)/);
-
-    return match ? match[1].replace(/\/+$/, "") : "/articles";
-  }
-
-  /**
-   * Article slug from a catalogue href such as "cli-design/".
-   *
-   * @param {string} href
-   * @returns {string}
-   */
-  function articleSlugFromHref(href) {
-    const cleaned = String(href || "")
-      .split(/[?#]/)[0]
-      .replace(/\/+$/, "")
-      .replace(/\.html$/i, "");
-
-    if (!cleaned) {
-      return "";
-    }
-
-    const parts = cleaned.split("/").filter(Boolean);
-    return parts[parts.length - 1] || "";
-  }
-
-  /**
    * Remove catalogue filter parameters from the current URL.
    */
   function clearCatalogueUrlParameters() {
@@ -566,7 +449,7 @@
       : [];
 
     let activeSort = SORT_ALPHA;
-    // Segmented status toggle (articles): "" = All, "new" = New.
+    // Segmented status toggle: "" = All.
     let activeStatus = "";
 
     /**
@@ -858,7 +741,7 @@
       const totalCount = cardData.length;
 
       // Keep copy short for the collapsed toolbar (esp. mobile).
-      // Page context already implies projects / articles / etc.
+      // Page context already implies projects, websites, or organisations.
       summary.textContent =
         `Showing ${visibleCount} of ${totalCount}`;
     };
@@ -957,12 +840,6 @@
       updateClearButton(filters);
       updateEmptyState(visibleCount);
       syncUrlWithFilters(filters);
-      syncArticlePagerSequence(
-        config,
-        cardData,
-        filters,
-        activeSort,
-      );
       scheduleCategoryLayout();
     };
 
@@ -1265,13 +1142,6 @@
       plural: "organisations",
       sort: true,
     }),
-    catalogueConfig({
-      id: "article",
-      singular: "article",
-      plural: "articles",
-      status: true,
-      sort: true,
-    }),
   ];
 
   /**
@@ -1327,8 +1197,7 @@
       path.includes("/organisations") ||
       path.includes("/projects") ||
       path.includes("/websites") ||
-      path.includes("/policies") ||
-      path.includes("/articles")
+      path.includes("/policies")
     ) {
       return;
     }

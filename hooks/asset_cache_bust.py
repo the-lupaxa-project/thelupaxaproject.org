@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import re
 import subprocess
-import sys
 from pathlib import Path
 from typing import Any
 
@@ -18,12 +17,6 @@ def on_serve(server: object, config: dict[str, Any], **kwargs: object) -> object
     del config, kwargs
     global _DEV_SERVER
     _DEV_SERVER = True
-    src = Path(__file__).resolve().parents[1] / "src"
-    if str(src) not in sys.path:
-        sys.path.insert(0, str(src))
-    import banner_lib
-
-    banner_lib.DEV_SERVER = True
     return server
 
 

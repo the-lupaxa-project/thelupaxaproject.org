@@ -17,9 +17,19 @@
     display: none !important;
   }
 
+  html,
+  body,
+  .md-container,
+  .md-main,
+  .md-content,
   .md-content__inner {
     max-width: none;
     margin: 0;
+    background: #ffffff !important;
+    color: #111a32;
+  }
+
+  .md-content__inner {
     padding: 0;
   }
 
@@ -55,8 +65,14 @@
   }
 
   .md-typeset .grid.cards > ul > li,
-  .md-typeset .grid.cards > li {
+  .md-typeset .grid.cards > li,
+  [data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+  [data-md-color-scheme="slate"] .md-typeset .grid.cards > li {
     padding: 0.45rem 0.55rem;
+    background: #ffffff !important;
+    color: #111a32;
+    border-color: rgba(0, 0, 0, 0.35);
+    box-shadow: none;
   }
 
   .md-typeset .catalogue-grid img.catalogue-logo {
@@ -84,7 +100,11 @@
     line-height: 1.2;
   }
 
-  /* GitHub and documentation buttons cannot be used on paper. */
+  /* GitHub and documentation links cannot be used on paper. */
+  .md-typeset .catalogue-title-link {
+    display: none !important;
+  }
+
   .md-typeset .catalogue-action,
   .md-typeset .catalogue-grid > ul > li > p:has(.catalogue-action),
   .md-typeset .catalogue-grid > li > p:has(.catalogue-action),
@@ -93,98 +113,27 @@
     display: none;
   }
 
-  /* Plain status line under the title. No colour plate on paper. */
-  .md-typeset .catalogue-grid > ul > li > *,
-  .md-typeset .catalogue-grid > li > * {
-    order: 2;
+  /* Keep the on-screen footer sash. The negative margin matches the
+     tighter print padding so Version / Released stays flush on the
+     bottom edge, version on the left and date on the right. */
+  .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] > ul > li > p:has(.catalogue-banner),
+  .md-typeset .grid.cards.catalogue-grid[data-project-catalogue] > li > p:has(.catalogue-banner),
+  .md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > ul > li > p:has(.catalogue-banner),
+  .md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > li > p:has(.catalogue-banner) {
+    margin: 0.45rem -0.55rem -0.45rem;
   }
 
-  .md-typeset .catalogue-grid > ul > li > h3:first-child,
-  .md-typeset .catalogue-grid > li > h3:first-child,
-  .md-typeset .catalogue-grid > ul > li > p:first-child,
-  .md-typeset .catalogue-grid > li > p:first-child {
-    order: 0;
-    text-align: center;
+  .md-typeset .catalogue-grid .catalogue-banner__band {
+    background: #ffffff !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.35);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  /* Article titles are a paragraph. Keep them one centered line, like the
-     organisation and project headings. */
-  .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > p:first-child,
-  .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > li > p:first-child,
-  .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > p:first-child strong,
-  .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > li > p:first-child strong,
-  .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > p:first-child a,
-  .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > li > p:first-child a {
-    text-align: center;
-    white-space: nowrap;
-    hyphens: manual;
-    font-size: 0.78rem;
-    line-height: 1.25;
-  }
-
-  .md-typeset .catalogue-grid > ul > li > p:has(.catalogue-banner),
-  .md-typeset .catalogue-grid > li > p:has(.catalogue-banner) {
-    display: block;
-    flex: none;
-    order: 1;
-    height: auto;
-    min-height: 0;
-    margin: 0.05rem 0 0;
-    overflow: visible;
-    text-align: center;
-  }
-
-  .md-typeset .catalogue-grid .catalogue-banner,
-  .md-typeset .catalogue-grid .catalogue-banner .catalogue-banner__band {
-    position: static;
-    display: block;
-    width: 100%;
-    height: auto;
-    top: auto;
-    right: auto;
-    overflow: visible;
-    padding: 0;
-    background: none;
-    box-shadow: none;
-    transform: none;
-    text-align: center;
-  }
-
-  .md-typeset .catalogue-grid .catalogue-banner .catalogue-banner__text,
-  .md-typeset .catalogue-grid .catalogue-banner .catalogue-banner__version,
-  .md-typeset .catalogue-grid .catalogue-banner .catalogue-banner__date {
-    display: inline;
-    margin: 0;
-    color: var(--lupaxa-dark-blue);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 1.3;
-    white-space: normal;
-  }
-
-  .md-typeset .catalogue-grid .catalogue-banner .catalogue-banner__version,
-  .md-typeset .catalogue-grid .catalogue-banner .catalogue-banner__date {
-    margin-left: 0.35rem;
-  }
-
-  .md-typeset .catalogue-grid .catalogue-banner--split .catalogue-banner__text {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    text-align: left;
-    text-transform: none;
-    white-space: nowrap;
-  }
-
-  .md-typeset .catalogue-grid .catalogue-banner--split .catalogue-banner__version,
-  .md-typeset .catalogue-grid .catalogue-banner--split .catalogue-banner__date {
-    margin-left: 0;
-  }
-
-  .md-typeset .catalogue-grid .catalogue-banner--split .catalogue-banner__date {
-    margin-left: auto;
-    text-align: right;
+  .md-typeset .catalogue-grid .catalogue-banner__text,
+  .md-typeset .catalogue-grid .catalogue-banner__version,
+  .md-typeset .catalogue-grid .catalogue-banner__date {
+    color: #111a32 !important;
   }
 
   .md-typeset .catalogue-grid > ul > li > hr:first-of-type,
@@ -196,18 +145,8 @@
   .md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > ul > li > hr:first-of-type,
   .md-typeset .grid.cards.catalogue-grid[data-website-catalogue] > li > hr:first-of-type,
   .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] > ul > li > hr:first-of-type,
-  .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] > li > hr:first-of-type,
-  .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > ul > li > hr:first-of-type,
-  .md-typeset .grid.cards.catalogue-grid.catalogue-grid--articles > li > hr:first-of-type {
+  .md-typeset .grid.cards.catalogue-grid[data-policy-catalogue] > li > hr:first-of-type {
     margin-top: 0.2rem;
-  }
-
-  .md-typeset .lupaxa-article-card {
-    padding: 0;
-    background: none;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
   }
 
   .md-typeset .grid.cards > ul > li,
@@ -217,6 +156,8 @@
   .about-introduction,
   .about-name {
     break-inside: avoid;
+    background: #ffffff !important;
+    color: #111a32;
     box-shadow: none;
   }
 

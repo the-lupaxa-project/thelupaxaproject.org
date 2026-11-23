@@ -70,16 +70,3 @@ def test_released_markup_shown_when_fresh():
     assert "v0.1.0" in html
     assert "20 Jul 2026" in html
     assert "Stable" not in html
-
-
-def test_new_article_markup():
-    html = banner_markup(
-        "new",
-        presets={"new": ("New Article", "blue")},
-        event_date=date(2026, 7, 20),
-        today=date(2026, 7, 31),
-        expiry_days=28,
-        time_limited_statuses=frozenset({"new"}),
-    )
-    assert "New Article" in html
-    assert 'data-banner-status="new"' in html

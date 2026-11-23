@@ -308,7 +308,7 @@ def define_env(env):
                 raise ValueError(f"Unrecognised status_kind: {status_kind!r}")
 
             if status_kind == "policy":
-                # Segmented All | New | Updated (same pattern as articles).
+                # Segmented All | New | Updated.
                 toggle_buttons = [
                     ("all", "All"),
                     ("new", "New"),

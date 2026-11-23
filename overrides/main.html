@@ -47,12 +47,11 @@
       </feMerge>
     </filter>
   </svg>
-  {% set is_article_page = page and page.file and page.file.src_uri.startswith("articles/") %}
   <div class="md-content" data-md-component="content">
     {% if "navigation.path" in features %}
       {% include "partials/path.html" %}
     {% endif %}
-    <article class="md-content__inner md-typeset{% if is_article_page %} lupaxa-article-page{% endif %}">
+    <article class="md-content__inner md-typeset">
       {% block content %}
         {% include "partials/content.html" %}
       {% endblock %}

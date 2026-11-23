@@ -10,10 +10,10 @@ MD004:
 MD007:
   indent: 2
 
-# Long-form article prose often exceeds a fixed wrap; do not force reflow.
+# Long-form page prose often exceeds a fixed wrap; do not force reflow.
 MD013: false
 
-# Front matter `title` (nav/cards) plus an in-page H1 is intentional for articles.
+# Front matter `title` plus an in-page H1 is intentional.
 MD025: false
 
 MD024:
