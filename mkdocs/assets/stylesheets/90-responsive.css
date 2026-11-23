@@ -192,9 +192,4 @@
   .about-name {
     grid-template-columns: minmax(0, 1fr);
   }
-
-  .about-name-mark {
-    padding-bottom: var(--lupaxa-spacing-md);
-    border-bottom: 1px solid var(--md-default-fg-color--lightest);
-  }
 }
