@@ -71,13 +71,32 @@ hide:
   aria-label="Media viewer"
 >
   <button type="button" class="lightbox-backdrop" aria-label="Close"></button>
-  <button type="button" class="lightbox-prev" aria-label="Previous">‹</button>
-  <button type="button" class="lightbox-next" aria-label="Next">›</button>
+  <button type="button" class="lightbox-prev" aria-label="Previous">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
+  </button>
   <div class="lightbox-dialog">
-    <button type="button" class="lightbox-close" aria-label="Close">×</button>
-    <img class="lightbox-image" src="" alt="" hidden />
-    <video class="lightbox-video" controls playsinline hidden></video>
-    <p class="lightbox-comment" hidden></p>
-    <div class="lightbox-date" hidden></div>
+    <button type="button" class="lightbox-print" aria-label="Print">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+      </svg>
+    </button>
+    <button type="button" class="lightbox-close" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </button>
+    <div class="lightbox-panel">
+      <img class="lightbox-image" src="" alt="" hidden />
+      <video class="lightbox-video" controls playsinline hidden></video>
+      <p class="lightbox-comment" hidden></p>
+      <div class="lightbox-date" hidden></div>
+    </div>
   </div>
+  <button type="button" class="lightbox-next" aria-label="Next">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    </svg>
+  </button>
 </div>

@@ -34,11 +34,13 @@
   }
 
   .lupaxa-hero,
-  .lupaxa-error-hero {
+  .lupaxa-error-hero,
+  [data-md-color-scheme="slate"] .lupaxa-hero,
+  [data-md-color-scheme="slate"] .lupaxa-error-hero {
     margin: 0 0 var(--lupaxa-spacing-lg);
     padding: var(--lupaxa-spacing-lg) 0 var(--lupaxa-spacing-md);
-    background: none;
-    border-bottom: 1px solid #999999;
+    background: none !important;
+    border-bottom: none !important;
   }
 
   .lupaxa-hero-logo,
@@ -51,28 +53,64 @@
     display: none !important;
   }
 
-  /* Keep the on-screen columns. display:block stacked every card
-     full width, which is the mobile layout and wastes the page. */
+  /* Same two-column grid on catalogue and home cards. Items in a row
+     stretch to one height, and the grid may break between rows. */
   .md-typeset .grid.cards,
   .md-typeset .grid.cards.catalogue-grid,
   .md-typeset .grid.cards.about-summary,
   .md-typeset .grid.cards.about-principles,
-  .md-typeset .grid.cards.about-build,
-  .md-typeset .grid.cards.sponsor-reasons {
+  .md-typeset .grid.cards.about-build {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
     gap: 0.45rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  /* Same stack as the narrow screen: one card across the page. */
+  .md-typeset .grid.cards.sponsor-reasons {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.45rem;
+    margin-top: 0.45rem;
+    margin-bottom: 0;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .about-introduction.about-introduction-lead,
+  .about-introduction.sponsor-close,
+  .about-introduction.sponsor-print-card {
+    margin-top: 0.45rem;
+    margin-bottom: 0;
+  }
+
+  .md-typeset .grid.cards > ul,
+  .md-typeset .grid.cards > ol {
+    display: contents;
   }
 
   .md-typeset .grid.cards > ul > li,
+  .md-typeset .grid.cards > ol > li,
   .md-typeset .grid.cards > li,
   [data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+  [data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li,
   [data-md-color-scheme="slate"] .md-typeset .grid.cards > li {
+    float: none;
+    width: auto;
+    height: auto;
+    margin: 0;
     padding: 0.45rem 0.55rem;
+    overflow: visible;
     background: #ffffff !important;
     color: #111a32;
-    border-color: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(0, 0, 0, 0.35);
     box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .md-typeset .catalogue-grid img.catalogue-logo {
@@ -150,14 +188,18 @@
   }
 
   .md-typeset .grid.cards > ul > li,
+  .md-typeset .grid.cards > ol > li,
   .md-typeset .grid.cards > li,
   [data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+  [data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li,
   [data-md-color-scheme="slate"] .md-typeset .grid.cards > li,
   .about-introduction,
+  .about-introduction:hover,
   .about-name {
     break-inside: avoid;
     background: #ffffff !important;
     color: #111a32;
+    border: 1px solid rgba(0, 0, 0, 0.35);
     box-shadow: none;
   }
 
@@ -176,6 +218,54 @@
   .humour-filters,
   .humour-lightbox {
     display: none !important;
+  }
+
+  /* The viewer print button prints only the open image. */
+  body.humour-print-one .md-header,
+  body.humour-print-one .md-tabs,
+  body.humour-print-one .md-sidebar,
+  body.humour-print-one .md-footer,
+  body.humour-print-one .md-top,
+  body.humour-print-one .md-content__inner > :not(#humour-lightbox) {
+    display: none !important;
+  }
+
+  body.humour-print-one .humour-lightbox {
+    position: static;
+    display: block !important;
+    padding: 0;
+    background: none !important;
+  }
+
+  body.humour-print-one .lightbox-backdrop,
+  body.humour-print-one .lightbox-prev,
+  body.humour-print-one .lightbox-next,
+  body.humour-print-one .lightbox-close,
+  body.humour-print-one .lightbox-print,
+  body.humour-print-one .lightbox-comment,
+  body.humour-print-one .lightbox-date {
+    display: none !important;
+  }
+
+  body.humour-print-one .lightbox-dialog,
+  body.humour-print-one .lightbox-panel {
+    width: auto;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    overflow: visible;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  body.humour-print-one .lightbox-image:not([hidden]),
+  body.humour-print-one .lightbox-video:not([hidden]) {
+    display: block !important;
+    width: auto;
+    max-width: 100%;
+    max-height: 100vh;
+    margin: 0 auto;
   }
 
   .humour-masonry,
@@ -224,8 +314,129 @@
     color: #444444 !important;
   }
 
-  .no-print-page {
+  .sponsor-widget,
+  .sponsor-widget-frame,
+  .sponsor-widget iframe,
+  #kofiframe {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .about-introduction.sponsor-print-card {
+    display: block !important;
+    width: 100%;
+    margin-top: 0.45rem;
+    margin-bottom: 0;
+    padding: 0.45rem 0.55rem;
+    text-align: center;
+  }
+
+  .md-typeset .about-introduction.sponsor-print-card p {
+    margin: 0;
+    text-align: center !important;
+  }
+
+  .md-typeset .about-introduction.sponsor-print-card p:first-child {
+    margin-bottom: 0.35rem;
+  }
+
+  .md-typeset .about-introduction strong,
+  [data-md-color-scheme="slate"] .about-introduction strong {
+    color: #111a32 !important;
+    font-weight: 700;
+  }
+
+  .md-typeset .sponsor-print-card p:first-child strong {
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .md-typeset .sponsor-print-card .twemoji,
+  .md-typeset .sponsor-print-card .twemoji svg {
+    color: #111a32 !important;
+    fill: currentcolor;
+  }
+
+  .md-typeset .sponsor-print-card a {
+    color: #111a32 !important;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .md-typeset .sponsor-print-card a[href]::after {
+    content: none;
+  }
+
+  .lupaxa-hero-title,
+  .lupaxa-hero-subtitle,
+  .md-typeset h1,
+  .md-typeset h2,
+  .md-typeset h3,
+  .md-typeset .about-introduction,
+  .md-typeset .about-introduction p,
+  .md-typeset .grid.cards,
+  .md-typeset .grid.cards strong,
+  .md-typeset .grid.cards a,
+  .md-typeset .grid.cards .twemoji,
+  .md-typeset .grid.cards .twemoji svg {
+    color: #111a32 !important;
+  }
+
+  .md-typeset .grid.cards .twemoji svg {
+    fill: currentcolor;
+  }
+
+  html,
+  body,
+  .md-container,
+  .md-main,
+  .md-main__inner,
+  .md-content {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .md-main__inner {
+    display: block;
+    margin-top: 0;
+  }
+
+  .md-typeset .grid.cards:not(.catalogue-grid) > ul > li > p:not(:first-child),
+  .md-typeset .grid.cards:not(.catalogue-grid) > li > p:not(:first-child),
+  .md-typeset .about-introduction p {
+    text-align: left !important;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+  }
+
+  .md-typeset .grid.cards,
+  .md-typeset .grid.cards > ul,
+  .md-typeset .grid.cards > ol {
+    overflow: visible;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  /* Slate cards carry a raised shadow that outranks a plain
+     box-shadow: none. Paper keeps the border only. */
+  .md-typeset .grid.cards > ul > li,
+  .md-typeset .grid.cards > ol > li,
+  .md-typeset .grid.cards > li,
+  [data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+  [data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li,
+  [data-md-color-scheme="slate"] .md-typeset .grid.cards > li,
+  .about-introduction,
+  [data-md-color-scheme="slate"] .about-introduction,
+  .about-name,
+  .sponsor-widget {
+    box-shadow: none !important;
+    filter: none !important;
+    text-shadow: none !important;
   }
 
   .md-typeset .print-page-notice {

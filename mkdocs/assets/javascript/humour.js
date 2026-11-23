@@ -33,6 +33,7 @@
     const commentEl = lightbox.querySelector(".lightbox-comment");
     const dateEl = lightbox.querySelector(".lightbox-date");
     const closeBtn = lightbox.querySelector(".lightbox-close");
+    const printBtn = lightbox.querySelector(".lightbox-print");
     const backdrop = lightbox.querySelector(".lightbox-backdrop");
     const prevBtn = lightbox.querySelector(".lightbox-prev");
     const nextBtn = lightbox.querySelector(".lightbox-next");
@@ -89,7 +90,7 @@
 
     const reset = () => {
       lightbox.hidden = true;
-      document.body.classList.remove("lightbox-open");
+      document.body.classList.remove("lightbox-open", "humour-print-one");
       if (wall) wall.inert = false;
       stopVideo();
       clearImage();
@@ -162,7 +163,19 @@
       }
     };
 
+    const printCurrent = () => {
+      if (lightbox.hidden) return;
+      document.body.classList.add("humour-print-one");
+      const finish = () => {
+        document.body.classList.remove("humour-print-one");
+        window.removeEventListener("afterprint", finish);
+      };
+      window.addEventListener("afterprint", finish);
+      window.print();
+    };
+
     closeBtn.addEventListener("click", close);
+    if (printBtn) printBtn.addEventListener("click", printCurrent);
     backdrop.addEventListener("click", close);
     prevBtn.addEventListener("click", () => step(-1));
     nextBtn.addEventListener("click", () => step(1));

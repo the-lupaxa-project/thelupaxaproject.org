@@ -34,6 +34,9 @@ def test_sponsor_page_states_time_then_costs_and_embeds_kofi():
     assert 'href="https://ko-fi.com/thelupaxaproject"' in SPONSOR_MD
     assert 'rel="noopener noreferrer"' in SPONSOR_MD
     assert 'target="_blank"' in SPONSOR_MD
+    assert "[https://ko-fi.com/thelupaxaproject](https://ko-fi.com/thelupaxaproject)" in SPONSOR_MD
+    assert "sponsor-print-card" in SPONSOR_MD
+    assert "Printing Unavailable" not in SPONSOR_MD
     assert "overlay-widget.js" not in SPONSOR_MD
 
 

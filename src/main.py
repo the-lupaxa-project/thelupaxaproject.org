@@ -7,7 +7,6 @@ HTML/Markdown structure previously hand-authored in the page files.
 from __future__ import annotations
 
 import html
-import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -224,28 +223,7 @@ def sort_catalogue_by_name(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return sorted(items, key=lambda item: str(item.get("name") or "").casefold())
 
 
-def _published_site_url() -> str:
-    """Return the public site address from mkdocs.yml.
-
-    `mkdocs serve` replaces the live site address with the dev server, so
-    page.canonical_url would print http://127.0.0.1:8000/.
-    """
-
-    text = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
-    match = re.search(r"(?m)^site_url:\s*(\S+)\s*$", text)
-    if match is None:
-        raise RuntimeError("site_url is missing from mkdocs.yml")
-    return str(match.group(1)).rstrip("/") + "/"
-
-
 def define_env(env):
-    site_url = _published_site_url()
-
-    @env.macro
-    def online_page_url() -> str:
-        path = str(getattr(env.page, "url", "") or "").lstrip("/")
-        return f"{site_url}{path}"
-
     def _published(items: list[dict]) -> list[dict]:
         return [item for item in items if item.get("published", True)]
 
