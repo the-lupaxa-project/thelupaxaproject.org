@@ -35,63 +35,15 @@ hide:
     {% set poster_url = poster_raw if (not poster_raw or humour_media_is_remote(poster_raw)) else poster_raw | relative_url %}
     {% set media_tag = 'videos' if is_video else 'images' %}
     {% set item_tags = [media_tag] + (item.get('tags') or []) %}
-    {% set media_file = media_src.split('?')[0].rstrip('/').split('/')[-1] %}
-    {% set media_id = media_file.rsplit('.', 1)[0] %}
-    <article
-      class="humour-card{% if is_video %} is-video{% endif %}"
-      data-tags="{{ item_tags | join('|') | e }}"
-      data-media="{{ 'video' if is_video else 'image' }}"
-      style="
-        {% set card_bg = item.get('card_color') or wall.page.get('card_color') %}
-        {% set card_fg = item.get('text_color') or wall.page.get('card_text_color') or wall.page.get('text_color') %}
-        {% if card_bg %}background: {{ card_bg | e }}; {% endif %}
-        {% if card_fg %}color: {{ card_fg | e }};{% endif %}
-      "
-    >
-      <button
-        type="button"
-        class="humour-open"
-        data-id="{{ media_id | e }}"
-        data-type="{{ 'video' if is_video else 'image' }}"
-        data-src="{{ media_url | e }}"
-        data-poster="{{ poster_url | e }}"
-        data-comment="{{ item.get('comment', '') | e }}"
-        data-date="{{ item.get('date', '') | e }}"
-        aria-label="Open {% if is_video %}video{% else %}image{% endif %}{% if item.get('comment') %}: {{ item.comment | e }}{% endif %}"
-      >
+    {% set media_id = humour_media_id(media_src) %}
+    <article class="humour-card{% if is_video %} is-video{% endif %}" data-tags="{{ item_tags | join('|') | e }}" data-media="{{ 'video' if is_video else 'image' }}" style="{% set card_bg = item.get('card_color') or wall.page.get('card_color') %}{% set card_fg = item.get('text_color') or wall.page.get('card_text_color') or wall.page.get('text_color') %}{% if card_bg %}background: {{ card_bg | e }}; {% endif %}{% if card_fg %}color: {{ card_fg | e }};{% endif %}">
+      <button type="button" class="humour-open" data-id="{{ media_id | e }}" data-type="{{ 'video' if is_video else 'image' }}" data-src="{{ media_url | e }}" data-poster="{{ poster_url | e }}" data-comment="{{ item.get('comment', '') | e }}" data-date="{{ item.get('date', '') | e }}" aria-label="Open {% if is_video %}video{% else %}image{% endif %}{% if item.get('comment') %}: {{ item.comment | e }}{% endif %}">
         <span class="humour-media">
           {% if is_video %}
-          <video
-            class="humour-image humour-video"
-            src="{{ media_url | e }}"
-            {% if poster_url %}poster="{{ poster_url | e }}"{% endif %}
-            muted
-            playsinline
-            preload="metadata"
-            {% if item.get('width') %}width="{{ item.width | int }}"{% endif %}
-            {% if item.get('height') %}height="{{ item.height | int }}"{% endif %}
-            {% if item.get('width') and item.get('height') %}
-            style="aspect-ratio: {{ item.width | int }} / {{ item.height | int }};"
-            {% elif item.get('aspect_ratio') %}
-            style="aspect-ratio: {{ item.aspect_ratio | e }};"
-            {% endif %}
-          ></video>
+          <video class="humour-image humour-video" src="{{ media_url | e }}" {% if poster_url %}poster="{{ poster_url | e }}"{% endif %} muted playsinline preload="metadata" {% if item.get('width') %}width="{{ item.width | int }}"{% endif %} {% if item.get('height') %}height="{{ item.height | int }}"{% endif %} {% if item.get('width') and item.get('height') %}style="aspect-ratio: {{ item.width | int }} / {{ item.height | int }};"{% elif item.get('aspect_ratio') %}style="aspect-ratio: {{ item.aspect_ratio | e }};"{% endif %}></video>
           <span class="humour-play" aria-hidden="true">▶</span>
           {% else %}
-          <img
-            class="humour-image"
-            src="{{ media_url | e }}"
-            alt="{{ item.get('comment', '') | e }}"
-            loading="lazy"
-            decoding="async"
-            {% if item.get('width') %}width="{{ item.width | int }}"{% endif %}
-            {% if item.get('height') %}height="{{ item.height | int }}"{% endif %}
-            {% if item.get('width') and item.get('height') %}
-            style="aspect-ratio: {{ item.width | int }} / {{ item.height | int }};"
-            {% elif item.get('aspect_ratio') %}
-            style="aspect-ratio: {{ item.aspect_ratio | e }};"
-            {% endif %}
-          />
+          <img class="humour-image" src="{{ media_url | e }}" alt="{{ item.get('comment', '') | e }}" loading="lazy" decoding="async" {% if item.get('width') %}width="{{ item.width | int }}"{% endif %} {% if item.get('height') %}height="{{ item.height | int }}"{% endif %} {% if item.get('width') and item.get('height') %}style="aspect-ratio: {{ item.width | int }} / {{ item.height | int }};"{% elif item.get('aspect_ratio') %}style="aspect-ratio: {{ item.aspect_ratio | e }};"{% endif %} />
           {% endif %}
         </span>
       </button>

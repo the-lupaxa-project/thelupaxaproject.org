@@ -40,6 +40,7 @@ from humour_lib import (
 from humour_lib import (
     is_remote_media,
     load_humour_data,
+    media_stem,
     published_entries,
     validate_humour,
 )
@@ -637,3 +638,7 @@ def define_env(env):
     @env.macro
     def humour_media_is_remote(path: str) -> bool:
         return is_remote_media(path)
+
+    @env.macro
+    def humour_media_id(path: str) -> str:
+        return media_stem(path)

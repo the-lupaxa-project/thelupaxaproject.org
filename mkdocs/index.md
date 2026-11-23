@@ -5,14 +5,8 @@ hide:
 ---
 
 <div class="lupaxa-hero">
-    <img
-        class="lupaxa-hero-logo"
-        src="{{ 'assets/images/brand/hero-logo.png' | relative_url }}"
-        alt="The Lupaxa Project Logo"
-        translate="no"/>
-    <h1 class="lupaxa-hero-title" translate="no">
-        The Lupaxa Project
-    </h1>
+    <img class="lupaxa-hero-logo" src="{{ 'assets/images/brand/hero-logo.png' | relative_url }}" alt="The Lupaxa Project Logo" translate="no"/>
+    <h1 class="lupaxa-hero-title" translate="no">The Lupaxa Project</h1>
 
     <p class="lupaxa-hero-subtitle">
         An open-source community creating practical, dependable and thoughtfully

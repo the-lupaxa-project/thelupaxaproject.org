@@ -4,6 +4,7 @@ from humour_lib import (
     collect_tags,
     is_remote_media,
     load_humour_data,
+    media_stem,
     published_entries,
     validate_humour,
 )
@@ -108,3 +109,12 @@ def test_is_remote_media():
     assert is_remote_media("https://example.com/a.jpg")
     assert is_remote_media("http://example.com/a.jpg")
     assert not is_remote_media("assets/images/humour/a.jpg")
+
+
+def test_media_stem_uses_filename_without_query_or_extension():
+    assert media_stem("assets/images/humour/comic-03-password-policy.webp") == (
+        "comic-03-password-policy"
+    )
+    assert media_stem("assets/images/humour/comic-87-smishing.webp?v=1") == "comic-87-smishing"
+    assert media_stem("https://example.com/clips/demo.mp4") == "demo"
+    assert media_stem("assets/images/humour/plain") == "plain"

@@ -52,3 +52,11 @@ def collect_tags(entries: list[dict[str, Any]]) -> list[str]:
 def is_remote_media(path: str) -> bool:
     value = (path or "").strip().lower()
     return value.startswith("http://") or value.startswith("https://")
+
+
+def media_stem(path: str) -> str:
+    """Filename stem used as a humour image deep-link id."""
+    value = (path or "").split("?", 1)[0].rstrip("/")
+    name = value.rsplit("/", 1)[-1]
+    stem, dot, _extension = name.rpartition(".")
+    return stem if dot else name

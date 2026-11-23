@@ -106,8 +106,6 @@ hide:
 
 -   **[Certificates Without the Jargon](articles/certificates-without-the-jargon.md)**
 
-    ---
-
     ![Article](assets/images/articles/certificates-without-the-jargon.webp){ class="catalogue-logo" data-name="Certificates Without the Jargon" data-publish-date="2026-07-30T16:03:17" }
 
     X.509 certificates in plain language. Keys, CSRs, self-signed versus CA-
@@ -119,8 +117,6 @@ hide:
     <span class="catalogue-category">Tools</span>
 
 -   **[CLI Design](articles/cli-design.md)**
-
-    ---
 
     ![Article](assets/images/articles/cli-design.webp){ class="catalogue-logo" data-name="CLI Design" data-publish-date="2026-07-30T14:04:44" }
 
@@ -134,8 +130,6 @@ hide:
 
 -   **[Coding Standards](articles/coding-standards.md)**
 
-    ---
-
     ![Article](assets/images/articles/coding-standards.webp){ class="catalogue-logo" data-name="Coding Standards" data-publish-date="2026-07-30T10:47:40" }
 
     What coding standards actually cover, why they save review time, and how
@@ -146,8 +140,6 @@ hide:
     <span class="catalogue-category">Standards</span>
 
 -   **[Config Design](articles/config-design.md)**
-
-    ---
 
     ![Article](assets/images/articles/config-design.webp){ class="catalogue-logo" data-name="Config Design" data-publish-date="2026-07-30T16:03:17" }
 
@@ -161,8 +153,6 @@ hide:
 
 -   **[Containers for CLI Tools](articles/containers-for-cli-tools.md)**
 
-    ---
-
     ![Article](assets/images/articles/containers-for-cli-tools.webp){ class="catalogue-logo" data-name="Containers for CLI Tools" data-publish-date="2026-07-30T16:03:17" }
 
     When and how to ship a CLI tool as a container. Pinning base images,
@@ -174,8 +164,6 @@ hide:
     <span class="catalogue-category">Tools</span>
 
 -   **[Contributing Without the Drama](articles/contributing-without-the-drama.md)**
-
-    ---
 
     ![Article](assets/images/articles/contributing-without-the-drama.webp){ class="catalogue-logo" data-name="Contributing Without the Drama" data-publish-date="2026-07-30T14:04:44" }
 
@@ -189,8 +177,6 @@ hide:
 
 -   **[Cybersecurity & Chess](articles/cybersecurity-and-chess.md)**
 
-    ---
-
     ![Article](assets/images/articles/cybersecurity-and-chess.webp){ class="catalogue-logo" data-name="Cybersecurity &amp; Chess" data-publish-date="2026-07-30T10:47:40" }
 
     The strategic parallels between cybersecurity and chess. Reading your
@@ -201,8 +187,6 @@ hide:
     <span class="catalogue-category">Strategy</span>
 
 -   **[Dependency Hygiene](articles/dependency-hygiene.md)**
-
-    ---
 
     ![Article](assets/images/articles/dependency-hygiene.webp){ class="catalogue-logo" data-name="Dependency Hygiene" data-publish-date="2026-07-30T14:04:44" }
 
@@ -216,8 +200,6 @@ hide:
 
 -   **[Deprecation Without Chaos](articles/deprecation-without-chaos.md)**
 
-    ---
-
     ![Article](assets/images/articles/deprecation-without-chaos.webp){ class="catalogue-logo" data-name="Deprecation Without Chaos" data-publish-date="2026-07-30T16:03:17" }
 
     How to retire APIs and flags without ambushing anyone. Warnings people
@@ -230,8 +212,6 @@ hide:
 
 -   **[Docs That Don't Rot](articles/docs-that-dont-rot.md)**
 
-    ---
-
     ![Article](assets/images/articles/docs-that-dont-rot.webp){ class="catalogue-logo" data-name="Docs That Don&#x27;t Rot" data-publish-date="2026-07-30T14:04:44" }
 
     How to keep project documentation alive. Examples as tests, docs sites
@@ -242,8 +222,6 @@ hide:
     <span class="catalogue-category">Open Source</span>
 
 -   **[Encryption at Rest for Repos](articles/encryption-at-rest-for-repos.md)**
-
-    ---
 
     ![Article](assets/images/articles/encryption-at-rest-for-repos.webp){ class="catalogue-logo" data-name="Encryption at Rest for Repos" data-publish-date="2026-07-30T16:03:17" }
 
@@ -257,8 +235,6 @@ hide:
 
 -   **[Error Handling People Can Use](articles/error-handling-people-can-use.md)**
 
-    ---
-
     ![Article](assets/images/articles/error-handling-people-can-use.webp){ class="catalogue-logo" data-name="Error Handling People Can Use" data-publish-date="2026-07-30T16:03:17" }
 
     Practical error handling for CLIs and libraries. Clear messages, exit
@@ -269,8 +245,6 @@ hide:
     <span class="catalogue-category">Tools</span>
 
 -   **[Git Workflows for Tiny Teams](articles/git-workflows-for-tiny-teams.md)**
-
-    ---
 
     ![Article](assets/images/articles/git-workflows-for-tiny-teams.webp){ class="catalogue-logo" data-name="Git Workflows for Tiny Teams" data-publish-date="2026-07-30T16:03:17" }
 
@@ -284,8 +258,6 @@ hide:
 
 -   **[GitHub Actions](articles/github-actions.md)**
 
-    ---
-
     ![Article](assets/images/articles/github-actions.webp){ class="catalogue-logo" data-name="GitHub Actions" data-publish-date="2026-07-30T10:47:40" }
 
     Build a working CI/CD pipeline with GitHub Actions, from a first build-
@@ -297,8 +269,6 @@ hide:
 
 -   **[Input Validation That Sticks](articles/input-validation-that-sticks.md)**
 
-    ---
-
     ![Article](assets/images/articles/input-validation-that-sticks.webp){ class="catalogue-logo" data-name="Input Validation That Sticks" data-publish-date="2026-07-30T16:03:17" }
 
     Practical input validation for CLIs and small services. Paths, URLs,
@@ -309,8 +279,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Key Lifecycle](articles/key-lifecycle.md)**
-
-    ---
 
     ![Article](assets/images/articles/key-lifecycle.webp){ class="catalogue-logo" data-name="Key Lifecycle" data-publish-date="2026-07-30T16:03:17" }
 
@@ -324,8 +292,6 @@ hide:
 
 -   **[Least Privilege for CI](articles/least-privilege-for-ci.md)**
 
-    ---
-
     ![Article](assets/images/articles/least-privilege-for-ci.webp){ class="catalogue-logo" data-name="Least Privilege for CI" data-publish-date="2026-07-30T16:03:17" }
 
     Hardening CI/CD credentials. Short-lived tokens, OIDC, protected
@@ -336,8 +302,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Licenses for Humans](articles/licenses-for-humans.md)**
-
-    ---
 
     ![Article](assets/images/articles/licenses-for-humans.webp){ class="catalogue-logo" data-name="Licenses for Humans" data-publish-date="2026-07-30T14:04:44" }
 
@@ -351,8 +315,6 @@ hide:
 
 -   **[Maintainer Boundaries](articles/maintainer-boundaries.md)**
 
-    ---
-
     ![Article](assets/images/articles/maintainer-boundaries.webp){ class="catalogue-logo" data-name="Maintainer Boundaries" data-publish-date="2026-07-30T16:03:17" }
 
     How open-source maintainers stay in the game. Write down scope, decline
@@ -365,8 +327,6 @@ hide:
 
 -   **[mTLS and Client Certificates](articles/mtls-and-client-certificates.md)**
 
-    ---
-
     ![Article](assets/images/articles/mtls-and-client-certificates.webp){ class="catalogue-logo" data-name="mTLS and Client Certificates" data-publish-date="2026-07-30T16:03:17" }
 
     Mutual TLS and client certificates in practice. How they differ from
@@ -377,8 +337,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Observability for Small Projects](articles/observability-for-small-projects.md)**
-
-    ---
 
     ![Article](assets/images/articles/observability-for-small-projects.webp){ class="catalogue-logo" data-name="Observability for Small Projects" data-publish-date="2026-07-30T14:04:44" }
 
@@ -392,8 +350,6 @@ hide:
 
 -   **[Practical SECURITY.md](articles/practical-security-md.md)**
 
-    ---
-
     ![Article](assets/images/articles/practical-security-md.webp){ class="catalogue-logo" data-name="Practical SECURITY.md" data-publish-date="2026-07-31T17:42:00" }
 
     A practical SECURITY.md playbook for small projects. What to include,
@@ -406,8 +362,6 @@ hide:
 
 -   **[Programming Fundamentals](articles/programming-fundamentals.md)**
 
-    ---
-
     ![Article](assets/images/articles/programming-fundamentals.webp){ class="catalogue-logo" data-name="Programming Fundamentals" data-publish-date="2026-07-30T10:47:40" }
 
     Why the principles underneath programming outlast any single language,
@@ -418,8 +372,6 @@ hide:
     <span class="catalogue-category">Fundamentals</span>
 
 -   **[README as Product](articles/readme-as-product.md)**
-
-    ---
 
     ![Article](assets/images/articles/readme-as-product.webp){ class="catalogue-logo" data-name="README as Product" data-publish-date="2026-07-30T14:04:44" }
 
@@ -432,8 +384,6 @@ hide:
 
 -   **[Red Team vs Blue Team](articles/red-team-vs-blue-team.md)**
 
-    ---
-
     ![Article](assets/images/articles/red-team-vs-blue-team.webp){ class="catalogue-logo" data-name="Red Team vs Blue Team" data-publish-date="2026-07-30T10:47:40" }
 
     What Red Teams and Blue Teams actually do, why running them against each
@@ -444,8 +394,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Release Automation](articles/release-automation.md)**
-
-    ---
 
     ![Article](assets/images/articles/release-automation.webp){ class="catalogue-logo" data-name="Release Automation" data-publish-date="2026-07-30T14:04:44" }
 
@@ -459,8 +407,6 @@ hide:
 
 -   **[Reproducible Builds](articles/reproducible-builds.md)**
 
-    ---
-
     ![Article](assets/images/articles/reproducible-builds.webp){ class="catalogue-logo" data-name="Reproducible Builds" data-publish-date="2026-07-30T16:03:17" }
 
     Lightweight reproducible builds for small tools. Pinning inputs, killing
@@ -471,8 +417,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Responsible Dependency Updates](articles/responsible-dependency-updates.md)**
-
-    ---
 
     ![Article](assets/images/articles/responsible-dependency-updates.webp){ class="catalogue-logo" data-name="Responsible Dependency Updates" data-publish-date="2026-07-30T16:03:17" }
 
@@ -486,8 +430,6 @@ hide:
 
 -   **[Right Tools for the Job](articles/right-tools-for-the-job.md)**
 
-    ---
-
     ![Article](assets/images/articles/right-tools-for-the-job.webp){ class="catalogue-logo" data-name="Right Tools for the Job" data-publish-date="2026-07-30T16:03:17" }
 
     How to match languages, operating systems, cloud providers, frameworks,
@@ -498,8 +440,6 @@ hide:
     <span class="catalogue-category">Tools</span>
 
 -   **[SAST and DAST](articles/sast-and-dast.md)**
-
-    ---
 
     ![Article](assets/images/articles/sast-and-dast.webp){ class="catalogue-logo" data-name="SAST and DAST" data-publish-date="2026-07-30T16:03:17" }
 
@@ -513,8 +453,6 @@ hide:
 
 -   **[Secrets Management](articles/secrets-management.md)**
 
-    ---
-
     ![Article](assets/images/articles/secrets-management.webp){ class="catalogue-logo" data-name="Secrets Management" data-publish-date="2026-07-30T10:47:40" }
 
     What counts as a secret, the five ways secrets management usually goes
@@ -525,8 +463,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Secure Defaults](articles/secure-defaults.md)**
-
-    ---
 
     ![Article](assets/images/articles/secure-defaults.webp){ class="catalogue-logo" data-name="Secure Defaults" data-publish-date="2026-07-30T16:03:17" }
 
@@ -539,8 +475,6 @@ hide:
 
 -   **[Secure Logging](articles/secure-logging.md)**
 
-    ---
-
     ![Article](assets/images/articles/secure-logging.webp){ class="catalogue-logo" data-name="Secure Logging" data-publish-date="2026-07-30T16:03:17" }
 
     Practical secure logging for tools and services. What never to log,
@@ -552,8 +486,6 @@ hide:
 
 -   **[Security by Design](articles/security-by-design.md)**
 
-    ---
-
     ![Article](assets/images/articles/security-by-design.webp){ class="catalogue-logo" data-name="Security by Design" data-publish-date="2026-07-30T10:47:40" }
 
     Security by Design in practice. The principles behind it, why fixing
@@ -564,8 +496,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Security Disclosures That Work](articles/security-disclosures-that-work.md)**
-
-    ---
 
     ![Article](assets/images/articles/security-disclosures-that-work.webp){ class="catalogue-logo" data-name="Security Disclosures That Work" data-publish-date="2026-07-30T16:03:17" }
 
@@ -579,8 +509,6 @@ hide:
 
 -   **[Semantic Versioning](articles/semantic-versioning.md)**
 
-    ---
-
     ![Article](assets/images/articles/semantic-versioning.webp){ class="catalogue-logo" data-name="Semantic Versioning" data-publish-date="2026-07-30T14:04:44" }
 
     Semantic versioning as it actually plays out in open-source tools. What
@@ -593,8 +521,6 @@ hide:
 
 -   **[Supply-Chain Signing](articles/supply-chain-signing.md)**
 
-    ---
-
     ![Article](assets/images/articles/supply-chain-signing.webp){ class="catalogue-logo" data-name="Supply-Chain Signing" data-publish-date="2026-07-30T16:03:17" }
 
     Practical supply-chain signing for open-source releases. Checksums,
@@ -605,8 +531,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Testing What Matters](articles/testing-what-matters.md)**
-
-    ---
 
     ![Article](assets/images/articles/testing-what-matters.webp){ class="catalogue-logo" data-name="Testing What Matters" data-publish-date="2026-07-30T14:04:44" }
 
@@ -619,8 +543,6 @@ hide:
 
 -   **[The Cybersecurity Rainbow](articles/the-cybersecurity-rainbow.md)**
 
-    ---
-
     ![Article](assets/images/articles/the-cybersecurity-rainbow.webp){ class="catalogue-logo" data-name="The Cybersecurity Rainbow" data-publish-date="2026-07-30T10:47:40" }
 
     A map of the colour-coded cybersecurity teams. Red, Blue, Purple, Green,
@@ -631,8 +553,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[The Optimisation Trap](articles/the-optimization-trap.md)**
-
-    ---
 
     ![Article](assets/images/articles/the-optimization-trap.webp){ class="catalogue-logo" data-name="The Optimisation Trap" data-publish-date="2026-07-30T10:47:40" }
 
@@ -646,8 +566,6 @@ hide:
 
 -   **[Threat Modelling for Small Tools](articles/threat-modelling-for-small-tools.md)**
 
-    ---
-
     ![Article](assets/images/articles/threat-modelling-for-small-tools.webp){ class="catalogue-logo" data-name="Threat Modelling for Small Tools" data-publish-date="2026-07-30T16:03:17" }
 
     Lightweight threat modelling for CLIs, libraries, and small services.
@@ -659,8 +577,6 @@ hide:
     <span class="catalogue-category">Security</span>
 
 -   **[Understanding CI/CD](articles/understanding-ci-cd.md)**
-
-    ---
 
     ![Article](assets/images/articles/understanding-ci-cd.webp){ class="catalogue-logo" data-name="Understanding CI/CD" data-publish-date="2026-07-30T10:47:40" }
 
