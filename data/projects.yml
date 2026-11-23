@@ -3688,6 +3688,29 @@
   version: "0.2.1"
   released_date: "2026-10-07T09:24:19"
 
+- id: token-decoder
+  published: true
+  name: Token Decoder
+  icon: material-source-repository
+  publish_date: "2026-11-23T21:54:13"
+  description: >-
+    Decode and inspect JWTs and other common token formats. It reads the token and shows what is
+    inside.
+  categories:
+    - CLI
+    - Decoder
+    - JWT
+    - Security
+    - Tokens
+  language: Python
+  organisation: Security Toolbox
+  logo: assets/images/organisations/organisation-security-toolbox-logo.png
+  logo_alt: Security Toolbox
+  repository: https://github.com/lupaxa-security-toolbox/token-decoder
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-23T22:15:57"
+
 - id: trapper
   published: true
   name: Trapper
