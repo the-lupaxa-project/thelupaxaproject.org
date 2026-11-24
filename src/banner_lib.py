@@ -139,10 +139,35 @@ _RELEASE_DATE_MONTHS = (
 )
 
 
-def format_release_date(value: date) -> str:
-    """Return a release date for the sash, such as ``11 Nov 2026``."""
+def day_ordinal(day: int) -> str:
+    """Return ``st``, ``nd``, ``rd``, or ``th`` for a calendar day."""
 
-    return f"{value.day} {_RELEASE_DATE_MONTHS[value.month - 1]} {value.year}"
+    if 11 <= day % 100 <= 13:
+        return "th"
+    return {1: "st", 2: "nd", 3: "rd"}.get(day % 10, "th")
+
+
+def format_release_date(value: date) -> str:
+    """Return a release date for the sash, such as ``11th Nov 2026``."""
+
+    suffix = day_ordinal(value.day)
+    return f"{value.day}{suffix} {_RELEASE_DATE_MONTHS[value.month - 1]} {value.year}"
+
+
+def release_date_markup(release_date: str) -> str:
+    """Visible sash date. The ordinal is a CSS superscript on the day number."""
+
+    head, separator, rest = release_date.partition(" ")
+    if not separator:
+        return html.escape(release_date, quote=True)
+    for suffix in ("st", "nd", "rd", "th"):
+        day = head[: -len(suffix)]
+        if head.endswith(suffix) and day.isdigit():
+            return (
+                f'<span class="catalogue-ordinal" data-ordinal="{suffix}">'
+                f"{day}</span> {html.escape(rest, quote=True)}"
+            )
+    return html.escape(release_date, quote=True)
 
 
 def banner_still_active(
@@ -227,7 +252,7 @@ def banner_markup_from_resolved(
         safe_date = html.escape(release_date, quote=True)
         text_html = (
             f'<span class="catalogue-banner__date">{safe_label}: '
-            f'<span translate="no">{safe_date}</span></span>'
+            f'<span translate="no">{release_date_markup(release_date)}</span></span>'
         )
         aria_label = f"{safe_label}: {safe_date}"
     elif version or release_date:
@@ -246,7 +271,7 @@ def banner_markup_from_resolved(
             safe_date = html.escape(release_date, quote=True)
             parts.append(
                 f'<span class="catalogue-banner__date">{safe_label}: '
-                f'<span translate="no">{safe_date}</span></span>'
+                f'<span translate="no">{release_date_markup(release_date)}</span></span>'
             )
             aria_parts.append(f"{safe_label}: {safe_date}")
         text_html = "".join(parts)

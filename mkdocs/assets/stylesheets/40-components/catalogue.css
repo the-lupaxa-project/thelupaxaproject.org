@@ -380,6 +380,21 @@
   text-transform: none;
 }
 
+/* The day and its ordinal stay in one element. A sup tag is split onto its
+   own line, and the browser then puts a space on either side. */
+.md-typeset .catalogue-grid .catalogue-ordinal {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.md-typeset .catalogue-grid .catalogue-ordinal::after {
+  content: attr(data-ordinal);
+  font-size: 0.65em;
+  letter-spacing: 0;
+  line-height: 0;
+  vertical-align: super;
+}
+
 .md-typeset .catalogue-grid .catalogue-banner__text {
   display: inline-flex;
   align-items: baseline;

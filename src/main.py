@@ -441,7 +441,8 @@ def define_env(env):
 """.strip()
 
     def project_card(item: dict) -> str:
-        categories = _categories_markup(item.get("categories"), item.get("language"))
+        language = None if item.get("website") is True else item.get("language")
+        categories = _categories_markup(item.get("categories"), language)
         description = _indent(item["description"])
         raw_banner = item.get("banner")
         raw_version = item.get("version")

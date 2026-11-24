@@ -9,7 +9,7 @@
  *               organisation | category | language
  *               status | sort | clear
  *   Websites:   search
- *               organisation | category | language
+ *               organisation | category
  *               status | sort | clear
  *   Orgs:       search
  *               category | sort | clear
@@ -48,7 +48,8 @@
  *   organisation | category | language
  *   status | sort | clear
  *
- * The second row uses the same three column widths as the third.
+ * Websites use the same grid. Organisation and category each take half
+ * of the second row, and status, sort, and clear stay in thirds.
  */
 .filter-panel[data-project-filters],
 .filter-panel[data-website-filters] {
@@ -83,6 +84,15 @@
 .filter-panel[data-project-filters] > [data-filter-slot="clear"],
 .filter-panel[data-website-filters] > [data-filter-slot="clear"] {
   grid-column: 5 / 7;
+}
+
+/* Websites have no language control, so the two filters share the row. */
+.filter-panel[data-website-filters] > [data-filter-slot="organisation"] {
+  grid-column: 1 / 4;
+}
+
+.filter-panel[data-website-filters] > [data-filter-slot="category"] {
+  grid-column: 4 / 7;
 }
 
 .filter-panel[data-project-filters] > [data-filter-slot="clear"],
@@ -515,7 +525,7 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
 /*
  * Tablet portrait (~960px):
  *   Projects:      search / organisation|category|language / status|sort|clear
- *   Websites:      search / organisation|category|language / status|sort|clear
+ *   Websites:      search / organisation|category / status|sort|clear
  *   Organisations: search / category|sort|clear (each one third)
  */
 @media screen and (max-width: 59.984375em) {
@@ -555,6 +565,14 @@ article.md-content__inner:has(> .filter-panel:first-child)::before {
     grid-column: 5 / 7;
     justify-self: stretch;
     justify-content: flex-start;
+  }
+
+  .filter-panel[data-website-filters] > [data-filter-slot="organisation"] {
+    grid-column: 1 / 4;
+  }
+
+  .filter-panel[data-website-filters] > [data-filter-slot="category"] {
+    grid-column: 4 / 7;
   }
 
   /* --- Organisations: search; category | sort | clear, each one third --- */

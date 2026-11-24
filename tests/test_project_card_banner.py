@@ -72,7 +72,7 @@ def test_project_card_shows_language_outside_the_category_filters(tmp_path, monk
     assert 'catalogue-category">Python' not in markup
 
 
-def test_website_card_shows_the_language_chip(tmp_path, monkeypatch):
+def test_website_card_omits_the_language_chip(tmp_path, monkeypatch):
     catalogue_grid = _catalogue_grid(
         tmp_path,
         monkeypatch,
@@ -87,12 +87,12 @@ def test_website_card_shows_the_language_chip(tmp_path, monkeypatch):
 
     markup = catalogue_grid("website", "website")
 
-    assert 'class="catalogue-language__name" translate="no">Python</span>' in markup
+    assert "catalogue-language" not in markup
     assert 'class="catalogue-category">CLI</button>' in markup
 
     websites_page = (ROOT / "mkdocs" / "websites.md").read_text(encoding="utf-8")
     projects_page = (ROOT / "mkdocs" / "projects.md").read_text(encoding="utf-8")
-    assert "include_language=True" in websites_page
+    assert "include_language" not in websites_page
     assert "include_language=True" in projects_page
 
 
@@ -129,7 +129,7 @@ def test_project_card_shows_fresh_released_banner(tmp_path, monkeypatch):
     assert "Released" in markup
     assert "v0.1.0" not in markup
     assert "Stable" not in markup
-    assert f"{fresh.day} " in markup
+    assert f">{fresh.day}</span>" in markup
     assert 'data-banner-status="released"' in markup
     assert "catalogue-banner--blue" in markup
 
@@ -150,7 +150,8 @@ def test_project_card_keeps_released_version_and_date(tmp_path, monkeypatch):
     assert "Released" in markup
     assert "Stable" not in markup
     assert "v1.2.0" in markup
-    assert "15 Jan 2020" in markup
+    assert "15th Jan 2020" in markup
+    assert 'data-ordinal="th">15</span> Jan 2020' in markup
     assert 'data-banner-status="released"' in markup
     assert "catalogue-banner--blue" in markup
     assert "catalogue-banner--dark-blue" not in markup
@@ -209,7 +210,8 @@ def test_project_card_stable_with_version_renders_as_released(tmp_path, monkeypa
     assert "Released" in markup
     assert "Stable" not in markup
     assert "v0.4.0" in markup
-    assert "2 Mar 2026" in markup
+    assert "2nd Mar 2026" in markup
+    assert 'data-ordinal="nd">2</span> Mar 2026' in markup
     assert 'data-banner-status="released"' in markup
 
 
@@ -236,7 +238,8 @@ def test_project_card_unversioned_released_keeps_status_and_date(tmp_path, monke
     markup = catalogue_grid("project", "project")
 
     assert "Released:" in markup
-    assert "15 Jan 2020" in markup
+    assert "15th Jan 2020" in markup
+    assert 'data-ordinal="th">15</span> Jan 2020' in markup
     assert "Version:" not in markup
     assert "v0.1.0" not in markup
     assert "Stable" not in markup
@@ -307,7 +310,8 @@ def test_website_updated_banner_centers_the_date_in_the_footer(tmp_path, monkeyp
     markup = catalogue_grid("website", "website")
 
     assert "Updated:" in markup
-    assert "10 Nov 2026" in markup
+    assert "10th Nov 2026" in markup
+    assert 'data-ordinal="th">10</span> Nov 2026' in markup
     assert "Version:" not in markup
     assert "catalogue-banner--split" not in markup
     assert 'data-banner-status="updated"' in markup
@@ -347,7 +351,8 @@ def test_website_card_uses_the_same_released_sash(tmp_path, monkeypatch):
 
     assert "Released" in markup
     assert "v0.2.0" in markup
-    assert "11 Nov 2026" in markup
+    assert "11th Nov 2026" in markup
+    assert 'data-ordinal="th">11</span> Nov 2026' in markup
     assert "Stable" not in markup
     assert "catalogue-banner--blue" in markup
 

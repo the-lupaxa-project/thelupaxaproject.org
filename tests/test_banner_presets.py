@@ -4,6 +4,8 @@ from banner_lib import (
     DEFAULT_PROJECT_VERSION,
     PROJECT_BANNER_PRESETS,
     banner_markup,
+    day_ordinal,
+    format_release_date,
     normalise_project_version,
     resolve_banner,
     resolve_project_version,
@@ -54,6 +56,25 @@ def test_resolve_project_version_defaults_to_semver_start():
     assert resolve_project_version("1.2.0") == "1.2.0"
 
 
+def test_release_date_uses_the_day_ordinal():
+    assert [day_ordinal(day) for day in (1, 2, 3, 4, 11, 12, 13, 21, 22, 23, 31)] == [
+        "st",
+        "nd",
+        "rd",
+        "th",
+        "th",
+        "th",
+        "th",
+        "st",
+        "nd",
+        "rd",
+        "st",
+    ]
+    assert format_release_date(date(2026, 11, 11)) == "11th Nov 2026"
+    assert format_release_date(date(2026, 3, 2)) == "2nd Mar 2026"
+    assert format_release_date(date(2020, 1, 1)) == "1st Jan 2020"
+
+
 def test_released_banner_includes_version_and_date():
     html = banner_markup(
         "released",
@@ -64,7 +85,12 @@ def test_released_banner_includes_version_and_date():
     assert "Version:" in html
     assert "Released:" in html
     assert '<span translate="no">v1.2.0</span>' in html
-    assert '<span translate="no">11 Nov 2026</span>' in html
+    assert (
+        '<span translate="no">'
+        '<span class="catalogue-ordinal" data-ordinal="th">11</span> Nov 2026'
+        "</span>"
+    ) in html
+    assert "11th Nov 2026" in html
     assert "catalogue-banner--split" in html
     assert "catalogue-banner--with-version" in html
     assert "catalogue-banner--blue" in html

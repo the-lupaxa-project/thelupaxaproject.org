@@ -52,7 +52,8 @@ def test_released_markup_stays_after_the_old_window():
     assert "Released" in html
     assert "Stable" not in html
     assert "v1.2.0" in html
-    assert "1 Jan 2020" in html
+    assert "1st Jan 2020" in html
+    assert 'data-ordinal="st">1</span> Jan 2020' in html
     assert 'data-banner-status="released"' in html
     assert "catalogue-banner--blue" in html
 
@@ -68,5 +69,6 @@ def test_released_markup_shown_when_fresh():
     assert "catalogue-banner--dark-blue" not in html
     assert "Released" in html
     assert "v0.1.0" in html
-    assert "20 Jul 2026" in html
+    assert "20th Jul 2026" in html
+    assert 'data-ordinal="th">20</span> Jul 2026' in html
     assert "Stable" not in html

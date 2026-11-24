@@ -102,12 +102,16 @@ def test_banner_version_opts_out_of_translate():
         "green",
         "released",
         version="1.2.3",
-        release_date="11 Nov 2026",
+        release_date="11th Nov 2026",
     )
     assert 'class="catalogue-banner__version"' in markup
     assert 'class="catalogue-banner__date"' in markup
     assert '<span translate="no">v1.2.3</span>' in markup
-    assert '<span translate="no">11 Nov 2026</span>' in markup
+    assert (
+        '<span translate="no">'
+        '<span class="catalogue-ordinal" data-ordinal="th">11</span> Nov 2026'
+        "</span>"
+    ) in markup
     assert "Version:" in markup
     assert "Released:" in markup
 
