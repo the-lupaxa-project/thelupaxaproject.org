@@ -40,6 +40,11 @@
   position: relative;
 }
 
+.md-typeset .legal-notice > ul > li > p:first-child strong,
+.md-typeset .legal-notice > li > p:first-child strong {
+  font-size: 1.1rem;
+}
+
 .legal-notice-updated {
   position: absolute;
   top: 50%;
@@ -64,7 +69,7 @@
     position: static;
     flex: 1 0 100%;
     margin-top: 0.35rem;
-    text-align: right;
+    text-align: center;
     transform: none;
   }
 }

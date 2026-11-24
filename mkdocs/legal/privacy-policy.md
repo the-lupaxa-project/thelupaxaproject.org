@@ -5,17 +5,19 @@ hide:
 title: Privacy Policy
 ---
 
+<!-- markdownlint-disable-file MD001 -->
+
 <div class="grid cards legal-notice" markdown>
 
 -   :material-shield-lock-outline:{ .lg .middle } **Privacy Policy** <span class="legal-notice-updated">Updated 24 November 2026</span>
 
-    ## Who We Are
+    ### Who We Are
 
     The Lupaxa Project is an informal collective, not a company. For this website, the collective is the controller. That means it decides why the analytics and language tools described below are used.
 
     Privacy questions go to the <a class="legal-mail" href="mailto:compliance@thelupaxaproject.org">Lupaxa Compliance Team</a> Please use that address rather than a public GitHub issue, so the request is not posted in public.
 
-    ## What This Notice Covers
+    ### What This Notice Covers
 
     This notice covers thelupaxaproject.org. The site is a public catalogue of projects, organisations, and pages. It does not ask you to create an account.
 
@@ -23,13 +25,13 @@ title: Privacy Policy
 
     This site is written for people choosing software tools. It is not aimed at children.
 
-    ## Hosting
+    ### Hosting
 
     The site is published with GitHub Pages. Opening a page sends that request, including the IP address, to GitHub. GitHub is in the United States. This site does not keep its own server log of visits.
 
     <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub privacy statement</a>
 
-    ## What the Site Stores on Your Device
+    ### What the Site Stores on Your Device
 
     If you choose a language other than English, the site stores that choice in local storage under the name lupaxa-lang. It also stores a cache of translated phrases under lupaxa-lang-strings, so the next page can open in the same language. Dismissing the English-language note is stored for that browser session only, under lupaxa-lang-fallback-dismissed.
 
@@ -37,7 +39,7 @@ title: Privacy Policy
 
     The site does not use these values to recognise you on any other website.
 
-    ## Analytics
+    ### Analytics
 
     Every page loads Counter and Cloudflare Web Analytics, unless that tool has been turned off in this browser. They count visits so the collective can see that the site is used and which pages are opened. They are not advertising tools. The site does not sell a profile of you, and it does not make automated decisions about you.
 
@@ -59,29 +61,29 @@ title: Privacy Policy
 
     <button type="button" class="md-button lupaxa-button" data-analytics-choice data-analytics-key="lupaxa-cloudflare" data-analytics-name="Cloudflare" aria-pressed="false">Don't count my visits with Cloudflare</button>
 
-    ## Translation
+    ### Translation
 
     Choosing a language other than English sends the wording of the page you are reading to Google, so the page can be shown in that language. The wording sent is the site's own text. The request still comes from your connection, so Google can see the IP address that made it. Google is in the United States. This site does not control how long Google keeps that request.
 
     The lawful basis is legitimate interests in providing the language you asked for. Switching the site back to English stops further translation requests.
 
-    ## Sponsorship
+    ### Sponsorship
 
     The Ko-fi widget on the Sponsor page does not load until you click <span class="privacy-control">Open Ko-fi Widget</span> Open our Ko-fi Page takes you to Ko-fi. Ko-fi then handles that visit, including any payment, under its own terms. This site does not receive your card details.
 
     <a href="https://ko-fi.com/privacy" target="_blank" rel="noopener noreferrer">Ko-fi privacy</a>
 
-    ## How Long Information Is Kept
+    ### How Long Information Is Kept
 
     This site does not keep an account, a mailing list, or its own copy of analytics. Language values stay in your browser until you clear them or change the language. Each analytics choice stays until you turn that tool back on or clear site data for this browser. GitHub, Counter, Cloudflare, and Google keep what they receive for the periods described above, or under their own notices where a period is not published.
 
-    ## Who Receives Information
+    ### Who Receives Information
 
     GitHub receives the request that loads each page and may process it in the United States. Counter receives the visit counts and stores them in Germany, unless Counter is turned off in that browser. Cloudflare receives the analytics beacon and may process it outside the United Kingdom, unless Cloudflare is turned off in that browser. Google receives a translation request only if you choose a language other than English. Ko-fi receives a visit only if you open the widget or the Ko-fi page. The collective does not sell personal data and does not pass it to advertisers.
 
     A transfer to the United States is not covered by a general UK adequacy decision. It is covered where the recipient is certified under the UK-US data bridge, or where another safeguard in UK law applies. This site does not have its own transfer contract with GitHub, Cloudflare, or Google.
 
-    ## Your Rights
+    ### Your Rights
 
     You can ask for a copy of the personal data this site holds about you, ask for a correction, ask for deletion, ask for processing to be restricted, and object to processing based on legitimate interests, including the analytics. Where a right to move data to another service applies, you can ask for that too. Because the site does not keep accounts, there is often no file here to send, and the practical record is the one on your device or with the provider named above.
 
@@ -89,7 +91,7 @@ title: Privacy Policy
 
     <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer">Make a complaint to the ICO</a>
 
-    ## Changes
+    ### Changes
 
     If the site starts collecting something new, this page will be updated and the date at the top will change.
 
