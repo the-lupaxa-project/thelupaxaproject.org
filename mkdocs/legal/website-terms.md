@@ -9,7 +9,7 @@ title: Website Terms
 
 <div class="grid cards legal-notice" markdown>
 
--   :material-scale-balance:{ .lg .middle } **Website Terms** <span class="legal-notice-updated">Updated 24 November 2026</span>
+-   :material-scale-balance:{ .lg .middle } **Website Terms**
 
     ### These Terms
 
@@ -47,7 +47,7 @@ title: Website Terms
 
     ### Changes
 
-    The collective may update these terms by changing this page. The date at the top will change with them. Using the site after that date means the updated terms apply.
+    The collective may update these terms by changing this page. The date under Last Updated will change with them. Using the site after that date means the updated terms apply.
 
     ### Which Law Applies
 
@@ -56,5 +56,9 @@ title: Website Terms
     ### Contact
 
     Questions about these terms go to the <a class="legal-mail" href="mailto:legal@thelupaxaproject.org">Lupaxa Legal Team</a>
+
+    ### Last Updated
+
+    This policy was last updated on Tuesday <span class="legal-ordinal">24</span> November 2026.
 
 </div>

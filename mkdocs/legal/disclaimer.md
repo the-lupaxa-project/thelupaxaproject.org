@@ -9,7 +9,7 @@ title: Disclaimer
 
 <div class="grid cards legal-notice" markdown>
 
--   :material-alert-circle-outline:{ .lg .middle } **Disclaimer** <span class="legal-notice-updated">Updated 24 November 2026</span>
+-   :material-alert-circle-outline:{ .lg .middle } **Disclaimer**
 
     ### General Guidance
 
@@ -30,5 +30,9 @@ title: Disclaimer
     ### Contact
 
     Questions about this disclaimer go to the <a class="legal-mail" href="mailto:legal@thelupaxaproject.org">Lupaxa Legal Team</a>
+
+    ### Last Updated
+
+    This policy was last updated on Tuesday <span class="legal-ordinal">24</span> November 2026.
 
 </div>

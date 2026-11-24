@@ -35,43 +35,18 @@
   );
 }
 
-.md-typeset .legal-notice > ul > li > p:first-child,
-.md-typeset .legal-notice > li > p:first-child {
-  position: relative;
-}
-
 .md-typeset .legal-notice > ul > li > p:first-child strong,
 .md-typeset .legal-notice > li > p:first-child strong {
   font-size: 1.1rem;
 }
 
-.legal-notice-updated {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  color: var(--lupaxa-light-blue);
-  font-size: 0.76rem;
-  font-style: italic;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0;
-  white-space: nowrap;
-  transform: translateY(-50%);
-}
-
-@media screen and (max-width: 44.984375em) {
-  .md-typeset .legal-notice > ul > li > p:first-child,
-  .md-typeset .legal-notice > li > p:first-child {
-    flex-wrap: wrap;
-  }
-
-  .legal-notice-updated {
-    position: static;
-    flex: 1 0 100%;
-    margin-top: 0.35rem;
-    text-align: center;
-    transform: none;
-  }
+/* The date number and its ordinal stay in one element. A sup tag is split
+   onto its own line, and the browser then puts a space on either side. */
+.md-typeset .legal-notice .legal-ordinal::after {
+  content: "th";
+  font-size: 0.65em;
+  line-height: 0;
+  vertical-align: super;
 }
 
 .md-typeset .legal-notice .privacy-control {

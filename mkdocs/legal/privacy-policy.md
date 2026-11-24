@@ -9,7 +9,7 @@ title: Privacy Policy
 
 <div class="grid cards legal-notice" markdown>
 
--   :material-shield-lock-outline:{ .lg .middle } **Privacy Policy** <span class="legal-notice-updated">Updated 24 November 2026</span>
+-   :material-shield-lock-outline:{ .lg .middle } **Privacy Policy**
 
     ### Who We Are
 
@@ -93,6 +93,10 @@ title: Privacy Policy
 
     ### Changes
 
-    If the site starts collecting something new, this page will be updated and the date at the top will change.
+    If the site starts collecting something new, this page will be updated and the date under Last Updated will change.
+
+    ### Last Updated
+
+    This policy was last updated on Tuesday <span class="legal-ordinal">24</span> November 2026.
 
 </div>

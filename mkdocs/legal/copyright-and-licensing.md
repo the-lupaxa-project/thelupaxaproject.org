@@ -9,7 +9,7 @@ title: Copyright and Licensing
 
 <div class="grid cards legal-notice" markdown>
 
--   :material-copyright:{ .lg .middle } **Copyright and Licensing** <span class="legal-notice-updated">Updated 24 November 2026</span>
+-   :material-copyright:{ .lg .middle } **Copyright and Licensing**
 
     ### Copyright
 
@@ -32,5 +32,9 @@ title: Copyright and Licensing
     ### Contact
 
     Questions about copyright and licensing go to the <a class="legal-mail" href="mailto:legal@thelupaxaproject.org">Lupaxa Legal Team</a>
+
+    ### Last Updated
+
+    This policy was last updated on Tuesday <span class="legal-ordinal">24</span> November 2026.
 
 </div>
