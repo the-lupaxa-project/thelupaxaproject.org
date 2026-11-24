@@ -176,7 +176,7 @@ def test_filter_panel_lists_every_organisation_from_yaml():
     assert option_labels[0] == "All Organisations"
     assert option_labels[1:] == sorted(published_names, key=str.casefold)
     assert "AWS Toolbox" in option_labels
-    assert "The Lupaxa Lab" in option_labels
+    assert "The Lupaxa Lab" not in option_labels
 
 
 def test_filter_panel_language_options_stay_empty_in_markup():

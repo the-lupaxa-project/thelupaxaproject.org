@@ -300,53 +300,6 @@
   logo_alt: Workstation Toolbox
   repository: https://github.com/lupaxa-workstation-toolbox
 
-- id: the-lupaxa-blueprints
-  published: true
-  name: The Lupaxa Blueprints
-  icon: material-domain
-  publish_date: "2026-07-20T13:50:58"
-  description: Organisation and repository templates and blueprints for consistent starting
-    points, so new work begins from the same foundations instead of a blank
-    repository.
-  categories:
-    - Documentation
-    - Standards
-    - Templates
-  logo: assets/images/organisations/organisation-the-lupaxa-blueprints-logo.png
-  logo_alt: The Lupaxa Blueprints
-  repository: https://github.com/the-lupaxa-blueprints
-
-- id: the-lupaxa-internal-toolbox
-  published: true
-  name: The Lupaxa Internal Toolbox
-  icon: material-domain
-  publish_date: "2026-07-23T07:40:35"
-  description: Member-only repositories for early-stage development, security work
-    before disclosure, planning, release preparation and private support for public
-    projects.
-  categories:
-    - Planning
-    - Security
-    - Shared Resources
-  logo: assets/images/organisations/organisation-the-lupaxa-internal-toolbox-logo.png
-  logo_alt: The Lupaxa Internal Toolbox
-  repository: https://github.com/the-lupaxa-internal-toolbox
-
-- id: the-lupaxa-lab
-  published: true
-  name: The Lupaxa Lab
-  icon: material-domain
-  publish_date: "2025-11-09T23:10:02"
-  description: A space for experimental ideas, prototypes and technical investigations.
-    Work here can stay an experiment, or later grow into an established project
-    of its own.
-  categories:
-    - Experiments
-    - Research
-  logo: assets/images/organisations/organisation-the-lupaxa-lab-logo.png
-  logo_alt: The Lupaxa Lab
-  repository: https://github.com/the-lupaxa-lab
-
 - id: the-lupaxa-project
   published: true
   name: The Lupaxa Project
@@ -362,3 +315,18 @@
   logo: assets/images/organisations/organisation-the-lupaxa-project-logo.png
   logo_alt: The Lupaxa Project
   repository: https://github.com/the-lupaxa-project
+
+- id: web-toolbox
+  published: true
+  name: Web Toolbox
+  icon: material-domain
+  publish_date: "2026-11-24T15:34:42"
+  description: Website development, maintenance and analysis tools, between the
+    Developers Toolbox and the Security Toolbox.
+  categories:
+    - Analysis
+    - Web Development
+    - Websites
+  logo: assets/images/organisations/organisation-web-toolbox-logo.png
+  logo_alt: Web Toolbox
+  repository: https://github.com/lupaxa-web-toolbox
