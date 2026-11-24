@@ -174,6 +174,7 @@ extra_css:
 
   - assets/stylesheets/50-pages/about.css
   - assets/stylesheets/50-pages/humour.css
+  - assets/stylesheets/50-pages/privacy.css
   - assets/stylesheets/50-pages/sponsor.css
 
   - assets/stylesheets/90-responsive.css
@@ -187,6 +188,8 @@ extra_javascript:
   - assets/javascript/catalogue-filters.js
   - assets/javascript/masonry-wall.js
   - assets/javascript/humour.js
+  - assets/javascript/sponsor.js
+  - assets/javascript/counter-choice.js
 
 # =============================================================================
 # Copyright (rendered by overrides/partials/copyright.html)

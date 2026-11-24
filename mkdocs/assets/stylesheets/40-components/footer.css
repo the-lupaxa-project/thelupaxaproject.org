@@ -58,3 +58,36 @@
 .footer-tagline {
   font-size: clamp(0.7rem, 0.68rem + 0.1vw, 0.8rem);
 }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.28rem;
+  margin-top: 0.45rem;
+}
+
+.footer-links-sep {
+  color: var(--lupaxa-white);
+  font-size: clamp(0.58rem, 0.56rem + 0.05vw, 0.65rem);
+  font-weight: 400;
+  line-height: 1.25;
+  opacity: 0.7;
+}
+
+html .md-footer-meta .footer-links a {
+  color: var(--lupaxa-white);
+  font-size: clamp(0.58rem, 0.56rem + 0.05vw, 0.65rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+html .md-footer-meta .footer-links a:hover,
+html .md-footer-meta .footer-links a:focus-visible {
+  color: var(--lupaxa-light-blue);
+  opacity: 1;
+}
