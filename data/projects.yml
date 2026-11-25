@@ -892,6 +892,27 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:22:31"
 
+- id: draw-lines
+  published: true
+  name: Draw Lines
+  icon: material-source-repository
+  publish_date: "2026-11-25T08:54:17"
+  description: >-
+    Draw coloured lines in the terminal, with optional text on the left, centre, or right. The line
+    spans the terminal and the text sits in the position you choose.
+  categories:
+    - ANSI
+    - Colorama
+    - Terminal
+  language: Python
+  organisation: Developers Toolbox
+  logo: assets/images/organisations/organisation-developers-toolbox-logo.png
+  logo_alt: Developers Toolbox
+  repository: https://github.com/lupaxa-developers-toolbox/draw-lines
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-25T09:13:19"
+
 - id: dynamic-block-library
   published: true
   name: Dynamic Block Library
