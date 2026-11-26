@@ -1131,8 +1131,8 @@
   logo_alt: Actions Toolbox
   repository: https://github.com/lupaxa-actions-toolbox/get-language-versions
   banner: released
-  version: "0.1.4"
-  released_date: "2026-10-07T09:12:53"
+  version: "0.1.5"
+  released_date: "2026-11-26T12:39:06"
 
 - id: ghcr-intel
   published: true
@@ -1819,8 +1819,8 @@
   logo_alt: Actions Toolbox
   repository: https://github.com/lupaxa-actions-toolbox/language-versions
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-26T12:03:57"
+  version: "0.1.1"
+  released_date: "2026-11-26T12:44:27"
 
 - id: leaky-bucket
   published: true
