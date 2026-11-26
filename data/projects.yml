@@ -1801,6 +1801,27 @@
   version: "0.1.1"
   released_date: "2026-11-20T12:07:46"
 
+- id: language-versions
+  published: true
+  name: Language Versions
+  icon: material-source-repository
+  publish_date: "2026-11-26T11:06:02"
+  description: >-
+    A local command-line companion to the Get Language Versions action. It checks the same runtime
+    versions before you write a workflow.
+  categories:
+    - CLI
+    - GitHub Actions
+    - Versions
+  language: Python
+  organisation: Actions Toolbox
+  logo: assets/images/organisations/organisation-actions-toolbox-logo.png
+  logo_alt: Actions Toolbox
+  repository: https://github.com/lupaxa-actions-toolbox/language-versions
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-26T12:03:57"
+
 - id: leaky-bucket
   published: true
   name: Leaky Bucket
