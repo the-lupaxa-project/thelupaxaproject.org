@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "the-lupaxa-project-org"
-version = "0.1.0"
+version = "0.2.0-rc1"
 description = "The Lupaxa Project public portal (MkDocs + GitHub Pages)."
 readme = "README.md"
 license = { file = "LICENCE" }
