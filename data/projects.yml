@@ -1372,6 +1372,27 @@
   version: "0.1.5"
   released_date: "2026-10-07T09:20:52"
 
+- id: github-billing
+  published: true
+  name: GitHub Billing
+  icon: material-source-repository
+  publish_date: "2026-11-27T12:33:07"
+  description: >-
+    Report which GitHub organisations are about to cost money. It shows the organisations whose usage
+    is heading for a charge.
+  categories:
+    - Billing
+    - CLI
+    - GitHub
+  language: Python
+  organisation: GitHub Toolbox
+  logo: assets/images/organisations/organisation-gh-toolbox-logo.png
+  logo_alt: GitHub Toolbox
+  repository: https://github.com/lupaxa-gh-toolbox/github-billing
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-27T13:21:35"
+
 - id: github-extractor
   published: true
   name: GitHub Extractor
