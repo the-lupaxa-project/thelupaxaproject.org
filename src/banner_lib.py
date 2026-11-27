@@ -123,20 +123,7 @@ def format_publish_date_attr(value: Any) -> str | None:
     return parsed.date().isoformat()
 
 
-_RELEASE_DATE_MONTHS = (
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-)
+_RELEASE_DATE_MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
 
 def day_ordinal(day: int) -> str:
@@ -163,19 +150,11 @@ def release_date_markup(release_date: str) -> str:
     for suffix in ("st", "nd", "rd", "th"):
         day = head[: -len(suffix)]
         if head.endswith(suffix) and day.isdigit():
-            return (
-                f'<span class="catalogue-ordinal" data-ordinal="{suffix}">'
-                f"{day}</span> {html.escape(rest, quote=True)}"
-            )
+            return f'<span class="catalogue-ordinal" data-ordinal="{suffix}">{day}</span> {html.escape(rest, quote=True)}'
     return html.escape(release_date, quote=True)
 
 
-def banner_still_active(
-    event_date: date | None,
-    *,
-    today: date,
-    expiry_days: int,
-) -> bool:
+def banner_still_active(event_date: date | None, *, today: date, expiry_days: int) -> bool:
     if event_date is None:
         return False
     delta = (today - event_date).days
@@ -193,11 +172,7 @@ def _banner_filter_key(status: str | None, label: str) -> str:
     return slug.strip("-")
 
 
-def resolve_banner(
-    raw: Any,
-    *,
-    presets: dict[str, tuple[str, str]] | None = None,
-) -> tuple[str, str, str] | None:
+def resolve_banner(raw: Any, *, presets: dict[str, tuple[str, str]] | None = None) -> tuple[str, str, str] | None:
     presets = presets if presets is not None else BANNER_PRESETS
     if raw is None or raw is False:
         return None
@@ -233,15 +208,7 @@ def resolve_banner(
     return label, tone, _banner_filter_key(status, label)
 
 
-def banner_markup_from_resolved(
-    label: str,
-    tone: str,
-    filter_key: str,
-    *,
-    version: str | None = None,
-    release_date: str | None = None,
-    center_date: bool = False,
-) -> str:
+def banner_markup_from_resolved(label: str, tone: str, filter_key: str, *, version: str | None = None, release_date: str | None = None, center_date: bool = False) -> str:
     safe_label = html.escape(label, quote=True)
     safe_key = html.escape(filter_key, quote=True)
     version_class = ""
@@ -250,10 +217,7 @@ def banner_markup_from_resolved(
     aria_label = f"Status: {safe_label}"
     if release_date and center_date and not version:
         safe_date = html.escape(release_date, quote=True)
-        text_html = (
-            f'<span class="catalogue-banner__date">{safe_label}: '
-            f'<span translate="no">{release_date_markup(release_date)}</span></span>'
-        )
+        text_html = f'<span class="catalogue-banner__date">{safe_label}: <span translate="no">{release_date_markup(release_date)}</span></span>'
         aria_label = f"{safe_label}: {safe_date}"
     elif version or release_date:
         parts: list[str] = []
@@ -262,17 +226,11 @@ def banner_markup_from_resolved(
         if version:
             safe_version = html.escape(f"v{version}", quote=True)
             version_class = " catalogue-banner--with-version"
-            parts.append(
-                f'<span class="catalogue-banner__version">Version: '
-                f'<span translate="no">{safe_version}</span></span>'
-            )
+            parts.append(f'<span class="catalogue-banner__version">Version: <span translate="no">{safe_version}</span></span>')
             aria_parts.append(f"Version: {safe_version}")
         if release_date:
             safe_date = html.escape(release_date, quote=True)
-            parts.append(
-                f'<span class="catalogue-banner__date">{safe_label}: '
-                f'<span translate="no">{release_date_markup(release_date)}</span></span>'
-            )
+            parts.append(f'<span class="catalogue-banner__date">{safe_label}: <span translate="no">{release_date_markup(release_date)}</span></span>')
             aria_parts.append(f"{safe_label}: {safe_date}")
         text_html = "".join(parts)
         aria_label = " ".join(aria_parts)
@@ -321,11 +279,4 @@ def banner_markup(
             release_date = format_release_date(event_date)
     elif center_date and event_date is not None:
         release_date = format_release_date(event_date)
-    return banner_markup_from_resolved(
-        label,
-        tone,
-        filter_key,
-        version=version_text,
-        release_date=release_date,
-        center_date=center_date,
-    )
+    return banner_markup_from_resolved(label, tone, filter_key, version=version_text, release_date=release_date, center_date=center_date)

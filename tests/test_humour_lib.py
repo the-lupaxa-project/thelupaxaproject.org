@@ -1,13 +1,6 @@
 import pytest
 
-from humour_lib import (
-    collect_tags,
-    is_remote_media,
-    load_humour_data,
-    media_stem,
-    published_entries,
-    validate_humour,
-)
+from humour_lib import collect_tags, is_remote_media, load_humour_data, media_stem, published_entries, validate_humour
 
 SAMPLE = {
     "page": {"background": "#111111", "text_color": "#f5f5f5"},
@@ -60,11 +53,7 @@ def test_collect_tags_excludes_reserved_media_tags():
 
 def test_load_humour_data_reads_yaml(tmp_path):
     path = tmp_path / "humour.yml"
-    path.write_text(
-        "page:\n  background: '#1a1a1a'\n  text_color: '#f5f5f5'\n"
-        "entries:\n  - image: assets/images/humour/x.jpg\n    comment: Hi\n",
-        encoding="utf-8",
-    )
+    path.write_text("page:\n  background: '#1a1a1a'\n  text_color: '#f5f5f5'\nentries:\n  - image: assets/images/humour/x.jpg\n    comment: Hi\n", encoding="utf-8")
     data = load_humour_data(path)
     assert data["page"]["background"] == "#1a1a1a"
     assert data["entries"][0]["image"] == "assets/images/humour/x.jpg"
@@ -112,9 +101,7 @@ def test_is_remote_media():
 
 
 def test_media_stem_uses_filename_without_query_or_extension():
-    assert media_stem("assets/images/humour/comic-03-password-policy.webp") == (
-        "comic-03-password-policy"
-    )
+    assert media_stem("assets/images/humour/comic-03-password-policy.webp") == ("comic-03-password-policy")
     assert media_stem("assets/images/humour/comic-87-smishing.webp?v=1") == "comic-87-smishing"
     assert media_stem("https://example.com/clips/demo.mp4") == "demo"
     assert media_stem("assets/images/humour/plain") == "plain"

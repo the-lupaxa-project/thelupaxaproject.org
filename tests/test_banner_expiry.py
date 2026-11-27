@@ -1,12 +1,6 @@
 from datetime import date, datetime
 
-from banner_lib import (
-    banner_markup,
-    banner_still_active,
-    format_publish_date_attr,
-    parse_iso_date,
-    parse_iso_datetime,
-)
+from banner_lib import banner_markup, banner_still_active, format_publish_date_attr, parse_iso_date, parse_iso_datetime
 
 
 def test_parse_iso_date():
@@ -43,12 +37,7 @@ def test_banner_still_active_window():
 
 
 def test_released_markup_stays_after_the_old_window():
-    html = banner_markup(
-        "released",
-        event_date=date(2020, 1, 1),
-        today=date(2026, 7, 31),
-        version="1.2.0",
-    )
+    html = banner_markup("released", event_date=date(2020, 1, 1), today=date(2026, 7, 31), version="1.2.0")
     assert "Released" in html
     assert "Stable" not in html
     assert "v1.2.0" in html
@@ -59,12 +48,7 @@ def test_released_markup_stays_after_the_old_window():
 
 
 def test_released_markup_shown_when_fresh():
-    html = banner_markup(
-        "released",
-        event_date=date(2026, 7, 20),
-        today=date(2026, 7, 31),
-        version="0.1.0",
-    )
+    html = banner_markup("released", event_date=date(2026, 7, 20), today=date(2026, 7, 31), version="0.1.0")
     assert "catalogue-banner--blue" in html
     assert "catalogue-banner--dark-blue" not in html
     assert "Released" in html

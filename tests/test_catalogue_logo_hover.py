@@ -2,9 +2,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 MAIN = (ROOT / "overrides/main.html").read_text(encoding="utf-8")
-CATALOGUE = (ROOT / "mkdocs/assets/stylesheets/40-components/catalogue.css").read_text(
-    encoding="utf-8"
-)
+CATALOGUE = (ROOT / "mkdocs/assets/stylesheets/40-components/catalogue.css").read_text(encoding="utf-8")
 TOKENS = (ROOT / "mkdocs/assets/stylesheets/00-tokens.css").read_text(encoding="utf-8")
 
 

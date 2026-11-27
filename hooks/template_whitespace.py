@@ -8,52 +8,56 @@ from typing import Any
 
 _HEAD_CHILD = "    "
 _HEAD_NESTED = "      "
-_VOID_TAGS = frozenset({
-    "area",
-    "base",
-    "br",
-    "col",
-    "embed",
-    "hr",
-    "img",
-    "input",
-    "link",
-    "meta",
-    "source",
-    "track",
-    "wbr",
-})
+_VOID_TAGS = frozenset(
+    {
+        "area",
+        "base",
+        "br",
+        "col",
+        "embed",
+        "hr",
+        "img",
+        "input",
+        "link",
+        "meta",
+        "source",
+        "track",
+        "wbr",
+    }
+)
 _RAW_TAGS = frozenset({"pre", "script", "style", "textarea"})
-_BREAK_TAGS = frozenset({
-    "article",
-    "aside",
-    "blockquote",
-    "body",
-    "details",
-    "div",
-    "dl",
-    "fieldset",
-    "figcaption",
-    "figure",
-    "footer",
-    "form",
-    "head",
-    "header",
-    "html",
-    "li",
-    "main",
-    "nav",
-    "ol",
-    "section",
-    "table",
-    "tbody",
-    "td",
-    "tfoot",
-    "th",
-    "thead",
-    "tr",
-    "ul",
-})
+_BREAK_TAGS = frozenset(
+    {
+        "article",
+        "aside",
+        "blockquote",
+        "body",
+        "details",
+        "div",
+        "dl",
+        "fieldset",
+        "figcaption",
+        "figure",
+        "footer",
+        "form",
+        "head",
+        "header",
+        "html",
+        "li",
+        "main",
+        "nav",
+        "ol",
+        "section",
+        "table",
+        "tbody",
+        "td",
+        "tfoot",
+        "th",
+        "thead",
+        "tr",
+        "ul",
+    }
+)
 
 
 def on_env(env: Any, *, config: Any, files: Any) -> Any:
@@ -455,7 +459,7 @@ def _head_bucket(element: list[str]) -> str:
     if tag.startswith("<style"):
         return "style"
     if tag.startswith("<link"):
-        if "modulepreload" in blob or ('preload' in blob and 'as="script"' in blob):
+        if "modulepreload" in blob or ("preload" in blob and 'as="script"' in blob):
             return "script"
         if "stylesheet" in blob or "preconnect" in blob or "preload" in blob:
             return "style"

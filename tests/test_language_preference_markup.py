@@ -45,16 +45,10 @@ def test_header_has_custom_picker_not_alternate():
 
 
 def test_language_script_follows_page_lifecycle():
-    scripts = [
-        line.strip()
-        for line in MKDOCS.splitlines()
-        if line.strip().startswith("- assets/javascript/")
-    ]
+    scripts = [line.strip() for line in MKDOCS.splitlines() if line.strip().startswith("- assets/javascript/")]
     assert "- assets/javascript/page-lifecycle.js" in scripts
     assert "- assets/javascript/language-preference.js" in scripts
-    assert scripts.index("- assets/javascript/page-lifecycle.js") < scripts.index(
-        "- assets/javascript/language-preference.js"
-    )
+    assert scripts.index("- assets/javascript/page-lifecycle.js") < scripts.index("- assets/javascript/language-preference.js")
     assert "extra.alternate" not in MKDOCS
     assert "mkdocs-static-i18n" not in MKDOCS
     assert "  language: en" in MKDOCS
@@ -86,9 +80,7 @@ class _FakeEnv:
 
 
 def test_catalogue_heading_and_logo_opt_out_of_translate():
-    heading = main.catalogue_card_heading(
-        {"icon": "material-source-repository", "name": "Synthetic", "id": "synthetic"}
-    )
+    heading = main.catalogue_card_heading({"icon": "material-source-repository", "name": "Synthetic", "id": "synthetic"})
     assert "translate=no" in heading
     env = _FakeEnv(ROOT)
     main.define_env(env)
@@ -97,21 +89,11 @@ def test_catalogue_heading_and_logo_opt_out_of_translate():
 
 
 def test_banner_version_opts_out_of_translate():
-    markup = banner_markup_from_resolved(
-        "Released",
-        "green",
-        "released",
-        version="1.2.3",
-        release_date="11th Nov 2026",
-    )
+    markup = banner_markup_from_resolved("Released", "green", "released", version="1.2.3", release_date="11th Nov 2026")
     assert 'class="catalogue-banner__version"' in markup
     assert 'class="catalogue-banner__date"' in markup
     assert '<span translate="no">v1.2.3</span>' in markup
-    assert (
-        '<span translate="no">'
-        '<span class="catalogue-ordinal" data-ordinal="th">11</span> Nov 2026'
-        "</span>"
-    ) in markup
+    assert ('<span translate="no"><span class="catalogue-ordinal" data-ordinal="th">11</span> Nov 2026</span>') in markup
     assert "Version:" in markup
     assert "Released:" in markup
 

@@ -19,30 +19,11 @@ _SRC = Path(__file__).resolve().parent
 if str(_SRC) not in sys.path:
     sys.path.insert(0, str(_SRC))
 
-from banner_lib import (
-    DEFAULT_BANNER_EXPIRY_DAYS,
-    POLICY_BANNER_PRESETS,
-    PROJECT_BANNER_PRESETS,
-    format_publish_date_attr,
-    normalise_project_version,
-    parse_iso_date,
-)
-from banner_lib import (
-    banner_markup as _shared_banner_markup,
-)
-from banner_lib import (
-    resolve_banner as _shared_resolve_banner,
-)
-from humour_lib import (
-    collect_tags as collect_humour_tags,
-)
-from humour_lib import (
-    is_remote_media,
-    load_humour_data,
-    media_stem,
-    published_entries,
-    validate_humour,
-)
+from banner_lib import DEFAULT_BANNER_EXPIRY_DAYS, POLICY_BANNER_PRESETS, PROJECT_BANNER_PRESETS, format_publish_date_attr, normalise_project_version, parse_iso_date
+from banner_lib import banner_markup as _shared_banner_markup
+from banner_lib import resolve_banner as _shared_resolve_banner
+from humour_lib import collect_tags as collect_humour_tags
+from humour_lib import is_remote_media, load_humour_data, media_stem, published_entries, validate_humour
 
 DATA_DIR = ROOT / "data"
 
@@ -111,21 +92,14 @@ def _load_yaml(name: str) -> list[dict]:
 
 
 def _indent(text: str, prefix: str = "    ") -> str:
-    return "\n".join(
-        f"{prefix}{line}" if line else prefix.rstrip() for line in text.strip().splitlines()
-    )
+    return "\n".join(f"{prefix}{line}" if line else prefix.rstrip() for line in text.strip().splitlines())
 
 
 def _normalise_catalogue_value(value: str) -> str:
     return " ".join(value.casefold().split())
 
 
-def _categories_markup(
-    categories: list[str] | None,
-    language: str | None = None,
-    *,
-    interactive: bool = True,
-) -> str:
+def _categories_markup(categories: list[str] | None, language: str | None = None, *, interactive: bool = True) -> str:
     chips: list[str] = []
     language_name = language.strip() if isinstance(language, str) else ""
     if language_name:
@@ -140,10 +114,7 @@ def _categories_markup(
         )
     category_tag = "button" if interactive else "span"
     category_type = ' type="button"' if interactive else ""
-    chips.extend(
-        f'    <{category_tag}{category_type} class="catalogue-category">{category}</{category_tag}>'
-        for category in sorted(categories or [], key=str.casefold)
-    )
+    chips.extend(f'    <{category_tag}{category_type} class="catalogue-category">{category}</{category_tag}>' for category in sorted(categories or [], key=str.casefold))
     return "\n".join(chips)
 
 
@@ -172,13 +143,7 @@ def _title_icon_link(href: str, tooltip: str, icon: str, modifier: str) -> str:
 
 
 def catalogue_card_heading(
-    item: dict,
-    *,
-    github_href: str | None = None,
-    github_title: str | None = None,
-    site_href: str | None = None,
-    site_title: str | None = None,
-    site_icon: str = "material-web",
+    item: dict, *, github_href: str | None = None, github_title: str | None = None, site_href: str | None = None, site_title: str | None = None, site_icon: str = "material-web"
 ) -> str:
     """Card title as a heading so site search can deep-link to the card.
 
@@ -187,24 +152,10 @@ def catalogue_card_heading(
     """
     parts = []
     if github_href:
-        parts.append(
-            _title_icon_link(
-                github_href,
-                github_title or f"View {item['name']} on GitHub",
-                "material-github",
-                "github",
-            )
-        )
+        parts.append(_title_icon_link(github_href, github_title or f"View {item['name']} on GitHub", "material-github", "github"))
     parts.append(f'<span class="catalogue-title-text">{html.escape(item["name"])}</span>')
     if site_href:
-        parts.append(
-            _title_icon_link(
-                site_href,
-                site_title or f"Visit {item['name']}",
-                site_icon,
-                "site",
-            )
-        )
+        parts.append(_title_icon_link(site_href, site_title or f"Visit {item['name']}", site_icon, "site"))
     return f"-   ### {''.join(parts)} {{ #{item['id']} .no_toc translate=no }}"
 
 
@@ -262,11 +213,7 @@ def define_env(env):
         organisation_block = ""
         if include_organisation:
             # Fixed list from organisations.yml (not derived from project cards).
-            org_options = "\n".join(
-                f'            <option value="{html.escape(_normalise_catalogue_value(org["name"]), quote=True)}">'
-                f"{html.escape(org['name'])}</option>"
-                for org in organisations
-            )
+            org_options = "\n".join(f'            <option value="{html.escape(_normalise_catalogue_value(org["name"]), quote=True)}">{html.escape(org["name"])}</option>' for org in organisations)
             organisation_block = f"""
     <div class="filter-panel-select" data-filter-slot="organisation">
         <label for="{prefix}-organisation">{organisation_label}</label>
@@ -311,11 +258,7 @@ def define_env(env):
         </div>
     </div>"""
             else:
-                status_options = "\n".join(
-                    f'            <option value="{html.escape(slug, quote=True)}">'
-                    f"{html.escape(label)}</option>"
-                    for slug, (label, _) in presets.items()
-                )
+                status_options = "\n".join(f'            <option value="{html.escape(slug, quote=True)}">{html.escape(label)}</option>' for slug, (label, _) in presets.items())
                 status_block = f"""
     <div class="filter-panel-select" data-filter-slot="status">
         <label for="{prefix}-status">{status_label}</label>
@@ -411,17 +354,9 @@ def define_env(env):
         description = _indent(item["description"])
         title = _organisation_logo_title(item["name"])
         publish_date_value = format_publish_date_attr(item.get("publish_date"))
-        publish_date_attr = (
-            f'\n        data-publish-date="{publish_date_value}"'
-            if publish_date_value is not None
-            else ""
-        )
+        publish_date_attr = f'\n        data-publish-date="{publish_date_value}"' if publish_date_value is not None else ""
         name_attr = html.escape(item["name"], quote=True)
-        heading = catalogue_card_heading(
-            item,
-            github_href=item["repository"],
-            github_title=_organisation_link_title(item["name"]),
-        )
+        heading = catalogue_card_heading(item, github_href=item["repository"], github_title=_organisation_link_title(item["name"]))
         return f"""
 {heading}
 
@@ -460,40 +395,21 @@ def define_env(env):
         elif is_updated:
             event_date = parse_iso_date(item.get("released_date") or item.get("publish_date"))
         banner = _shared_banner_markup(
-            raw_banner,
-            presets=PROJECT_BANNER_PRESETS,
-            event_date=event_date,
-            time_limited_statuses=frozenset(),
-            version=raw_version if is_released and has_version else None,
-            center_date=is_updated,
+            raw_banner, presets=PROJECT_BANNER_PRESETS, event_date=event_date, time_limited_statuses=frozenset(), version=raw_version if is_released and has_version else None, center_date=is_updated
         )
         # The title opens the repository, and the status band closes the card.
         banner_footer = f"\n\n{banner}" if banner else ""
         publish_date_value = format_publish_date_attr(item.get("publish_date"))
-        publish_date_attr = (
-            f'\n        data-publish-date="{publish_date_value}"'
-            if publish_date_value is not None
-            else ""
-        )
+        publish_date_attr = f'\n        data-publish-date="{publish_date_value}"' if publish_date_value is not None else ""
         released_date_value = format_publish_date_attr(item.get("released_date"))
-        released_date_attr = (
-            f'\n        data-released-date="{released_date_value}"'
-            if released_date_value is not None
-            else ""
-        )
+        released_date_attr = f'\n        data-released-date="{released_date_value}"' if released_date_value is not None else ""
         name_attr = html.escape(item["name"], quote=True)
         site_href = str(item.get("documentation") or "").strip()
         if item.get("website") is True:
             site_title = f"Visit {item['name']}"
         else:
             site_title = f"Visit the {item['name']} website"
-        heading = catalogue_card_heading(
-            item,
-            github_href=item["repository"],
-            github_title=f"View {item['name']} on GitHub",
-            site_href=site_href or None,
-            site_title=site_title if site_href else None,
-        )
+        heading = catalogue_card_heading(item, github_href=item["repository"], github_title=f"View {item['name']} on GitHub", site_href=site_href or None, site_title=site_title if site_href else None)
         return f"""
 {heading}
 
@@ -522,22 +438,12 @@ def define_env(env):
             filter_key = resolved[2]
             date_field = "updated_date" if filter_key == "updated" else "publish_date"
             event_date = parse_iso_date(item.get(date_field))
-        banner = _shared_banner_markup(
-            raw_banner,
-            presets=POLICY_BANNER_PRESETS,
-            event_date=event_date,
-            expiry_days=expiry_days,
-            time_limited_statuses=frozenset({"new", "updated"}),
-        )
+        banner = _shared_banner_markup(raw_banner, presets=POLICY_BANNER_PRESETS, event_date=event_date, expiry_days=expiry_days, time_limited_statuses=frozenset({"new", "updated"}))
         banner_block = f"{banner}\n\n" if banner else ""
         logo = html.escape(catalogue_media_src(item.get("logo", DEFAULT_POLICY_LOGO)), quote=True)
         logo_alt = html.escape(item.get("logo_alt", DEFAULT_POLICY_LOGO_ALT), quote=True)
         name_attr = html.escape(item["name"], quote=True)
-        heading = catalogue_card_heading(
-            item,
-            github_href=item["document"],
-            github_title=f"View {item['name']} on GitHub",
-        )
+        heading = catalogue_card_heading(item, github_href=item["document"], github_title=f"View {item['name']} on GitHub")
         return f"""
 {heading}
 
@@ -558,32 +464,15 @@ def define_env(env):
 """.strip()
 
     @env.macro
-    def catalogue_grid(
-        prefix: str,
-        kind: str,
-        banner_expiry_days: int = DEFAULT_BANNER_EXPIRY_DAYS,
-    ) -> str:
+    def catalogue_grid(prefix: str, kind: str, banner_expiry_days: int = DEFAULT_BANNER_EXPIRY_DAYS) -> str:
         if kind == "organisation":
-            cards = "\n\n".join(
-                organisation_card(item) for item in sort_catalogue_by_name(organisations)
-            )
+            cards = "\n\n".join(organisation_card(item) for item in sort_catalogue_by_name(organisations))
         elif kind == "project":
-            cards = "\n\n".join(
-                project_card(item)
-                for item in sort_catalogue_by_name(projects)
-                if not item.get("website")
-            )
+            cards = "\n\n".join(project_card(item) for item in sort_catalogue_by_name(projects) if not item.get("website"))
         elif kind == "website":
-            cards = "\n\n".join(
-                project_card(item)
-                for item in sort_catalogue_by_name(projects)
-                if item.get("website") is True
-            )
+            cards = "\n\n".join(project_card(item) for item in sort_catalogue_by_name(projects) if item.get("website") is True)
         elif kind == "policy":
-            cards = "\n\n".join(
-                policy_card(item, expiry_days=banner_expiry_days)
-                for item in sort_catalogue_by_name(policies)
-            )
+            cards = "\n\n".join(policy_card(item, expiry_days=banner_expiry_days) for item in sort_catalogue_by_name(policies))
         else:
             raise ValueError(f"Unknown catalogue kind: {kind}")
 

@@ -30,9 +30,7 @@ def validate_humour(data: dict[str, Any]) -> None:
         has_image = bool(entry.get("image"))
         has_video = bool(entry.get("video"))
         if not has_image and not has_video:
-            raise ValueError(
-                f"Published humour entry {index} missing required field(s): image or video"
-            )
+            raise ValueError(f"Published humour entry {index} missing required field(s): image or video")
         if entry.get("tags") is not None and not isinstance(entry["tags"], list):
             raise ValueError(f"Published humour entry {index} field 'tags' must be a list")
 

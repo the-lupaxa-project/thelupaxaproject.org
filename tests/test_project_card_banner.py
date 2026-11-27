@@ -58,11 +58,7 @@ def _catalogue_grid(tmp_path: Path, monkeypatch, projects: list[dict]):
 
 
 def test_project_card_shows_language_outside_the_category_filters(tmp_path, monkeypatch):
-    catalogue_grid = _catalogue_grid(
-        tmp_path,
-        monkeypatch,
-        [_synthetic_project(language="Python", categories=["CLI"])],
-    )
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, [_synthetic_project(language="Python", categories=["CLI"])])
 
     markup = catalogue_grid("project", "project")
 
@@ -73,17 +69,7 @@ def test_project_card_shows_language_outside_the_category_filters(tmp_path, monk
 
 
 def test_website_card_omits_the_language_chip(tmp_path, monkeypatch):
-    catalogue_grid = _catalogue_grid(
-        tmp_path,
-        monkeypatch,
-        [
-            _synthetic_project(
-                website=True,
-                language="Python",
-                categories=["CLI"],
-            )
-        ],
-    )
+    catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, [_synthetic_project(website=True, language="Python", categories=["CLI"])])
 
     markup = catalogue_grid("website", "website")
 
@@ -136,13 +122,7 @@ def test_project_card_shows_fresh_released_banner(tmp_path, monkeypatch):
 
 def test_project_card_keeps_released_version_and_date(tmp_path, monkeypatch):
     released = date(2020, 1, 15)
-    projects = [
-        _synthetic_project(
-            banner="released",
-            released_date=released.isoformat(),
-            version="1.2.0",
-        )
-    ]
+    projects = [_synthetic_project(banner="released", released_date=released.isoformat(), version="1.2.0")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
@@ -196,13 +176,7 @@ def test_project_card_explicit_stable_without_version_omits_sash(tmp_path, monke
 
 
 def test_project_card_stable_with_version_renders_as_released(tmp_path, monkeypatch):
-    projects = [
-        _synthetic_project(
-            banner="stable",
-            version="0.4.0",
-            released_date="2026-03-02",
-        )
-    ]
+    projects = [_synthetic_project(banner="stable", version="0.4.0", released_date="2026-03-02")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
@@ -227,12 +201,7 @@ def test_project_card_false_banner_omits_sash(tmp_path, monkeypatch):
 
 
 def test_project_card_unversioned_released_keeps_status_and_date(tmp_path, monkeypatch):
-    projects = [
-        _synthetic_project(
-            banner="released",
-            released_date="2020-01-15",
-        )
-    ]
+    projects = [_synthetic_project(banner="released", released_date="2020-01-15")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
@@ -248,13 +217,7 @@ def test_project_card_unversioned_released_keeps_status_and_date(tmp_path, monke
 
 def test_project_card_released_keeps_status_and_shows_version(tmp_path, monkeypatch):
     fresh_date = (date.today() - timedelta(days=1)).isoformat()
-    projects = [
-        _synthetic_project(
-            banner="released",
-            released_date=fresh_date,
-            version="0.1.0",
-        )
-    ]
+    projects = [_synthetic_project(banner="released", released_date=fresh_date, version="0.1.0")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
@@ -268,13 +231,7 @@ def test_project_card_released_keeps_status_and_shows_version(tmp_path, monkeypa
 
 def test_project_card_later_version_stays_released(tmp_path, monkeypatch):
     fresh_date = (date.today() - timedelta(days=1)).isoformat()
-    projects = [
-        _synthetic_project(
-            banner="released",
-            released_date=fresh_date,
-            version="1.2.0",
-        )
-    ]
+    projects = [_synthetic_project(banner="released", released_date=fresh_date, version="1.2.0")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
@@ -298,13 +255,7 @@ def test_project_card_in_testing_omits_version(tmp_path, monkeypatch):
 
 
 def test_website_updated_banner_centers_the_date_in_the_footer(tmp_path, monkeypatch):
-    projects = [
-        _synthetic_project(
-            website=True,
-            banner="updated",
-            released_date="2026-11-10T14:00:53",
-        )
-    ]
+    projects = [_synthetic_project(website=True, banner="updated", released_date="2026-11-10T14:00:53")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("website", "website")
@@ -337,14 +288,7 @@ def test_lifecycle_banners_stay_centred_status_words(tmp_path, monkeypatch):
 
 
 def test_website_card_uses_the_same_released_sash(tmp_path, monkeypatch):
-    projects = [
-        _synthetic_project(
-            website=True,
-            banner="released",
-            version="0.2.0",
-            released_date="2026-11-11T14:05:53",
-        )
-    ]
+    projects = [_synthetic_project(website=True, banner="released", version="0.2.0", released_date="2026-11-11T14:05:53")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("website", "website")
@@ -378,9 +322,7 @@ def test_catalogue_grid_projects_emit_in_name_order(tmp_path, monkeypatch):
 
 def test_project_card_local_logo_is_site_root_relative(tmp_path, monkeypatch):
     """Raw HTML img src must work from /projects/, not only the homepage."""
-    projects = [
-        _synthetic_project(logo="assets/images/organisations/organisation-cicd-toolbox-logo.png")
-    ]
+    projects = [_synthetic_project(logo="assets/images/organisations/organisation-cicd-toolbox-logo.png")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")
@@ -425,13 +367,7 @@ def test_project_card_omits_repository_and_documentation_links(tmp_path, monkeyp
 
 
 def test_website_card_title_opens_the_repository(tmp_path, monkeypatch):
-    projects = [
-        _synthetic_project(
-            website=True,
-            documentation="https://docs.example/site/",
-            documentation_label="Visit Site",
-        )
-    ]
+    projects = [_synthetic_project(website=True, documentation="https://docs.example/site/", documentation_label="Visit Site")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("website", "website")
@@ -450,13 +386,7 @@ def test_website_card_title_opens_the_repository(tmp_path, monkeypatch):
 def test_site_cards_use_visit_site_label():
     projects = yaml.safe_load((ROOT / "data" / "projects.yml").read_text(encoding="utf-8"))
     by_id = {project["id"]: project for project in projects}
-    for project_id in (
-        "browser-interrogator",
-        "homebrew-tap",
-        "opengraphtester.com",
-        "snippets",
-        "web-toolbox",
-    ):
+    for project_id in ("browser-interrogator", "homebrew-tap", "opengraphtester.com", "snippets", "web-toolbox"):
         assert by_id[project_id]["documentation_label"] == "Visit Site"
         assert by_id[project_id]["website"] is True
 
@@ -464,13 +394,7 @@ def test_site_cards_use_visit_site_label():
 def test_website_cards_leave_the_projects_grid(tmp_path, monkeypatch):
     projects = [
         _synthetic_project(),
-        _synthetic_project(
-            id="example-site",
-            name="Example Site",
-            website=True,
-            documentation="https://example.com/",
-            documentation_label="Visit Site",
-        ),
+        _synthetic_project(id="example-site", name="Example Site", website=True, documentation="https://example.com/", documentation_label="Visit Site"),
     ]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
@@ -512,12 +436,7 @@ def test_project_card_title_is_searchable_heading(tmp_path, monkeypatch):
 
 
 def test_project_card_includes_released_date_time_on_logo(tmp_path, monkeypatch):
-    projects = [
-        _synthetic_project(
-            publish_date="2026-08-01T09:00:00",
-            released_date="2026-08-17T14:00:00",
-        )
-    ]
+    projects = [_synthetic_project(publish_date="2026-08-01T09:00:00", released_date="2026-08-17T14:00:00")]
     catalogue_grid = _catalogue_grid(tmp_path, monkeypatch, projects)
 
     markup = catalogue_grid("project", "project")

@@ -31,13 +31,7 @@ def _filter_panel():
 def test_filter_panel_status_options_project_lifecycle_only():
     filter_panel = _filter_panel()
 
-    markup = filter_panel(
-        "project",
-        search_label="Search",
-        search_placeholder="Search projects",
-        summary_text="Showing all projects",
-        include_status=True,
-    )
+    markup = filter_panel("project", search_label="Search", search_placeholder="Search projects", summary_text="Showing all projects", include_status=True)
 
     assert "Released" in markup
     assert "In Review" in markup
@@ -51,13 +45,7 @@ def test_filter_panel_status_options_project_lifecycle_only():
 def test_filter_panel_without_status_does_not_crash():
     filter_panel = _filter_panel()
 
-    markup = filter_panel(
-        "organisation",
-        search_label="Search",
-        search_placeholder="Search organisations",
-        summary_text="Showing all organisations",
-        include_status=False,
-    )
+    markup = filter_panel("organisation", search_label="Search", search_placeholder="Search organisations", summary_text="Showing all organisations", include_status=False)
 
     assert "filter-panel" in markup
     assert "Released" not in markup
@@ -66,13 +54,7 @@ def test_filter_panel_without_status_does_not_crash():
 def test_filter_panel_status_options_project_has_released_not_stable():
     filter_panel = _filter_panel()
 
-    markup = filter_panel(
-        "project",
-        search_label="Search",
-        search_placeholder="Search projects",
-        summary_text="Showing all projects",
-        include_status=True,
-    )
+    markup = filter_panel("project", search_label="Search", search_placeholder="Search projects", summary_text="Showing all projects", include_status=True)
 
     assert markup.count('value="released"') == 1
     assert ">Released<" in markup
@@ -118,26 +100,13 @@ def test_filter_panel_status_kind_unrecognised_raises():
     filter_panel = _filter_panel()
 
     with pytest.raises(ValueError):
-        filter_panel(
-            "policy",
-            search_label="Search",
-            search_placeholder="Search policies",
-            summary_text="Showing all policies",
-            include_status=True,
-            status_kind="bogus",
-        )
+        filter_panel("policy", search_label="Search", search_placeholder="Search policies", summary_text="Showing all policies", include_status=True, status_kind="bogus")
 
 
 def test_filter_panel_includes_collapse_toolbar():
     filter_panel = _filter_panel()
 
-    markup = filter_panel(
-        "organisation",
-        compact=True,
-        search_label="Search",
-        search_placeholder="Search organisations",
-        summary_text="Showing all organisations",
-    )
+    markup = filter_panel("organisation", compact=True, search_label="Search", search_placeholder="Search organisations", summary_text="Showing all organisations")
 
     assert "filter-panel-toolbar" in markup
     assert "data-filter-expand" in markup
@@ -156,22 +125,12 @@ def test_filter_panel_lists_every_organisation_from_yaml():
     organisations = yaml.safe_load((ROOT / "data" / "organisations.yml").read_text())
     published_names = [item["name"] for item in organisations if item.get("published", True)]
 
-    markup = filter_panel(
-        "project",
-        search_label="Search",
-        search_placeholder="Search projects",
-        summary_text="Showing all projects",
-        include_organisation=True,
-    )
+    markup = filter_panel("project", search_label="Search", search_placeholder="Search projects", summary_text="Showing all projects", include_organisation=True)
 
     for name in published_names:
         assert f">{name}</option>" in markup
 
-    org_labels = re.findall(
-        r'<select id="project-organisation"[^>]*>.*?</select>',
-        markup,
-        flags=re.S,
-    )[0]
+    org_labels = re.findall(r'<select id="project-organisation"[^>]*>.*?</select>', markup, flags=re.S)[0]
     option_labels = re.findall(r"<option[^>]*>(.*?)</option>", org_labels)
     assert option_labels[0] == "All Organisations"
     assert option_labels[1:] == sorted(published_names, key=str.casefold)
@@ -193,11 +152,7 @@ def test_filter_panel_language_options_stay_empty_in_markup():
         include_sort=True,
     )
 
-    language_block = re.findall(
-        r'<select id="project-language"[^>]*>.*?</select>',
-        markup,
-        flags=re.S,
-    )[0]
+    language_block = re.findall(r'<select id="project-language"[^>]*>.*?</select>', markup, flags=re.S)[0]
     assert language_block.count("<option") == 1
     assert "All Languages" in language_block
     assert markup.index("project-organisation") < markup.index("project-category")
@@ -211,20 +166,9 @@ def test_filter_panel_language_options_stay_empty_in_markup():
 def test_filter_panel_category_options_stay_empty_in_markup():
     filter_panel = _filter_panel()
 
-    markup = filter_panel(
-        "project",
-        search_label="Search",
-        search_placeholder="Search projects",
-        summary_text="Showing all projects",
-        include_organisation=True,
-        include_status=True,
-    )
+    markup = filter_panel("project", search_label="Search", search_placeholder="Search projects", summary_text="Showing all projects", include_organisation=True, include_status=True)
 
-    category_block = re.findall(
-        r'<select id="project-category"[^>]*>.*?</select>',
-        markup,
-        flags=re.S,
-    )[0]
+    category_block = re.findall(r'<select id="project-category"[^>]*>.*?</select>', markup, flags=re.S)[0]
     assert category_block.count("<option") == 1
     assert "All Categories" in category_block
 
@@ -233,13 +177,7 @@ def test_filter_panel_include_sort_adds_toggle():
     filter_panel = _filter_panel()
 
     markup = filter_panel(
-        "project",
-        search_label="Search",
-        search_placeholder="Search projects",
-        summary_text="Showing all projects",
-        include_organisation=True,
-        include_status=True,
-        include_sort=True,
+        "project", search_label="Search", search_placeholder="Search projects", summary_text="Showing all projects", include_organisation=True, include_status=True, include_sort=True
     )
 
     assert "filter-panel--with-sort" in markup
@@ -255,14 +193,7 @@ def test_filter_panel_include_sort_adds_toggle():
 def test_filter_panel_organisation_sort_toggle():
     filter_panel = _filter_panel()
 
-    markup = filter_panel(
-        "organisation",
-        compact=True,
-        search_label="Search",
-        search_placeholder="Search organisations",
-        summary_text="Showing all organisations",
-        include_sort=True,
-    )
+    markup = filter_panel("organisation", compact=True, search_label="Search", search_placeholder="Search organisations", summary_text="Showing all organisations", include_sort=True)
 
     assert "filter-panel--compact" in markup
     assert "filter-panel--with-sort" in markup

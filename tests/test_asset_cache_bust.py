@@ -45,11 +45,7 @@ def test_apply_asset_version_rewrites_relative_extra_assets_only():
 
 def test_apply_asset_version_replaces_an_existing_query():
     html = '<link rel="stylesheet" href="assets/stylesheets/99-overrides.css?v=old">'
-    out = apply_asset_version(
-        html,
-        ["assets/stylesheets/99-overrides.css"],
-        "abc1234",
-    )
+    out = apply_asset_version(html, ["assets/stylesheets/99-overrides.css"], "abc1234")
     assert out == ('<link rel="stylesheet" href="assets/stylesheets/99-overrides.css?v=abc1234">')
 
 
@@ -57,15 +53,7 @@ def test_mkdocs_registers_the_hook():
     yml = (Path(__file__).resolve().parent.parent / "mkdocs.yml").read_text(encoding="utf-8")
     assert "- hooks/asset_cache_bust.py" in yml
     assert "- hooks/article_nav.py" not in yml
-    for entry in (
-        "- main.py",
-        "- data",
-        "- hooks",
-        "- src",
-        "- overrides",
-        "- mkdocs/assets/stylesheets",
-        "- mkdocs/assets/javascript",
-    ):
+    for entry in ("- main.py", "- data", "- hooks", "- src", "- overrides", "- mkdocs/assets/stylesheets", "- mkdocs/assets/javascript"):
         assert entry in yml
 
 

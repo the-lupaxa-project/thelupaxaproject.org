@@ -1,15 +1,6 @@
 from datetime import date
 
-from banner_lib import (
-    DEFAULT_PROJECT_VERSION,
-    PROJECT_BANNER_PRESETS,
-    banner_markup,
-    day_ordinal,
-    format_release_date,
-    normalise_project_version,
-    resolve_banner,
-    resolve_project_version,
-)
+from banner_lib import DEFAULT_PROJECT_VERSION, PROJECT_BANNER_PRESETS, banner_markup, day_ordinal, format_release_date, normalise_project_version, resolve_banner, resolve_project_version
 
 EXPECTED_PROJECT = {
     "in-development": ("In Development", "red"),
@@ -35,11 +26,7 @@ def test_unknown_preset_string_does_not_resolve():
 
 
 def test_custom_override_still_works():
-    assert resolve_banner({"status": "in-testing", "label": "QA", "tone": "orange"}) == (
-        "QA",
-        "orange",
-        "in-testing",
-    )
+    assert resolve_banner({"status": "in-testing", "label": "QA", "tone": "orange"}) == ("QA", "orange", "in-testing")
 
 
 def test_normalise_project_version():
@@ -76,20 +63,11 @@ def test_release_date_uses_the_day_ordinal():
 
 
 def test_released_banner_includes_version_and_date():
-    html = banner_markup(
-        "released",
-        presets=PROJECT_BANNER_PRESETS,
-        event_date=date(2026, 11, 11),
-        version="1.2.0",
-    )
+    html = banner_markup("released", presets=PROJECT_BANNER_PRESETS, event_date=date(2026, 11, 11), version="1.2.0")
     assert "Version:" in html
     assert "Released:" in html
     assert '<span translate="no">v1.2.0</span>' in html
-    assert (
-        '<span translate="no">'
-        '<span class="catalogue-ordinal" data-ordinal="th">11</span> Nov 2026'
-        "</span>"
-    ) in html
+    assert ('<span translate="no"><span class="catalogue-ordinal" data-ordinal="th">11</span> Nov 2026</span>') in html
     assert "11th Nov 2026" in html
     assert "catalogue-banner--split" in html
     assert "catalogue-banner--with-version" in html
@@ -100,13 +78,7 @@ def test_released_banner_includes_version_and_date():
 
 
 def test_lifecycle_banners_omit_version():
-    html = banner_markup(
-        "in-testing",
-        presets=PROJECT_BANNER_PRESETS,
-        version="1.2.0",
-        default_version=DEFAULT_PROJECT_VERSION,
-        event_date=date(2026, 11, 11),
-    )
+    html = banner_markup("in-testing", presets=PROJECT_BANNER_PRESETS, version="1.2.0", default_version=DEFAULT_PROJECT_VERSION, event_date=date(2026, 11, 11))
     assert "In Testing" in html
     assert "v1.2.0" not in html
     assert "v0.1.0" not in html
@@ -115,10 +87,6 @@ def test_lifecycle_banners_omit_version():
 
 
 def test_in_review_omits_default_version():
-    html = banner_markup(
-        "in-review",
-        presets=PROJECT_BANNER_PRESETS,
-        default_version=DEFAULT_PROJECT_VERSION,
-    )
+    html = banner_markup("in-review", presets=PROJECT_BANNER_PRESETS, default_version=DEFAULT_PROJECT_VERSION)
     assert "v0.1.0" not in html
     assert "In Review" in html
