@@ -3045,8 +3045,8 @@
   logo_alt: The Lupaxa Project
   repository: https://github.com/the-lupaxa-project/workflows
   banner: released
-  version: "0.1.28"
-  released_date: "2026-11-23T09:18:51"
+  version: "0.1.29"
+  released_date: "2026-11-28T12:09:54"
 
 - id: rubocop
   published: true
