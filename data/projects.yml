@@ -1884,6 +1884,32 @@
   version: "0.1.0"
   released_date: "2026-11-06T18:02:50"
 
+- id: lupe
+  published: true
+  name: Lupe
+  icon: material-source-repository
+  publish_date: "2026-11-28T10:47:37"
+  description: >-
+    A small general-purpose interpreted scripting language. It is for learning how languages are
+    designed and how a program is executed.
+  categories:
+    - After Hours
+    - Fun
+    - CLI
+    - Education
+    - Interpreter
+    - Programming Language
+    - Scripting Language
+  language: Python
+  organisation: After Hours
+  logo: assets/images/organisations/organisation-after-hours-logo.png
+  logo_alt: After Hours
+  repository: https://github.com/lupaxa-after-hours/lupe
+  documentation: https://lupe.thelupaxaproject.org/
+  banner: released
+  version: "0.1.0"
+  released_date: "2026-11-28T11:41:58"
+
 - id: magic-8ball
   published: true
   name: Magic 8ball
