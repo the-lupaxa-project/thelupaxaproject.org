@@ -3932,8 +3932,8 @@
   logo_alt: Workstation Toolbox
   repository: https://github.com/lupaxa-workstation-toolbox/venvctl
   banner: released
-  version: "0.1.0"
-  released_date: "2026-11-27T11:40:07"
+  version: "0.1.1"
+  released_date: "2026-11-28T12:39:33"
 
 - id: verify-email
   published: true
